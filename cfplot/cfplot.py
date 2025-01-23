@@ -9472,7 +9472,7 @@ def traj(
                         data_colours = [
                             plotvars.cs[
                                 np.max(np.where(d > plotvars.levels))
-                            ] for d in data2[pts]
+                            ] for d in data2[pts] if d is not None
                         ]
                     else:
                         # TODO SLB: check why plots this dim in only one colour
