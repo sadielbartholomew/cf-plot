@@ -3016,16 +3016,25 @@ def _plot_map_axes(
 
     # UKCP grid
     if plotvars.proj == "UKCP" and plotvars.grid:
-        lons = (
-            np.arange((360 / plotvars.grid_x_spacing) + 1)
-            * plotvars.grid_x_spacing
-        )
-        lons = np.concatenate([lons - 360, lons])
-        lats = (
-            np.arange((180 / plotvars.grid_y_spacing) + 1)
-            * plotvars.grid_y_spacing
-            - 90
-        )
+        # To plot grid, use xticks and yticks if provided for gridpoints else
+        # plot all on definde grid with given gridspacing
+        if xticks is None:
+            lons = (
+                np.arange((360 / plotvars.grid_x_spacing) + 1)
+                * plotvars.grid_x_spacing
+            )
+            lons = np.concatenate([lons - 360, lons])
+        else:
+            lons = xticks
+
+        if yticks is None:
+            lats = (
+                np.arange((180 / plotvars.grid_y_spacing) + 1)
+                * plotvars.grid_y_spacing
+                - 90
+            )
+        else:
+            lats = yticks
 
         if plotvars.grid:
             plotvars.mymap.gridlines(
@@ -3906,7 +3915,9 @@ def con(
                 ):
                     # Special case for transverse mercator
                     _bfill(
-                        f=f,
+                        f=field.squeeze() * fmult,
+                        x=x,
+                        y=y,
                         clevs=clevs,
                         lonlat=False,
                         alpha=alpha,
@@ -3917,9 +3928,9 @@ def con(
                 # elif orca:
                 elif two_d:
                     _bfill(
+                        f=field * fmult,
                         x=x,
                         y=y,
-                        f=field * fmult,
                         clevs=clevs,
                         lonlat=False,
                         alpha=alpha,
