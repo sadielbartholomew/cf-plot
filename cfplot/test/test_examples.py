@@ -1141,19 +1141,9 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.con(f, lines=False)
 
-    @unittest.expectedFailure  # errors, issue TBC
     @compare_plot_results
     def test_example_32(self):
         """Test Example 32: UKCP projection with blockfill."""
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/gen-plot.py", line 25, in <module>
-        #     cfp.con(
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3871, in con
-        #     _bfill(
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1833, in _bfill
-        #     colarr[pts] = int(i)
-        #     ~~~~~~^^^^^
-        # IndexError: too many indices for array: array is 2-dimensional, but 4 were indexed
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
         cfp.mapset(proj="UKCP", resolution="50m")
@@ -1164,6 +1154,7 @@ class ExamplesTest(unittest.TestCase):
             f,
             lines=False,
             blockfill=True,
+            # Centered over UK region with spacing of 1 each
             xticks=np.arange(14) - 11,
             yticks=np.arange(13) + 49,
         )
