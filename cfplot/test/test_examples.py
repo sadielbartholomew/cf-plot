@@ -36,22 +36,6 @@ TEST_GEN_DIR = "./generated-example-images"
 if not os.path.exists(TEST_GEN_DIR):
     os.makedirs(TEST_GEN_DIR)
 
-# Keep track of number of examples including sub-numbering (a, b, etc.)
-# as used across the docs and for the ExamplesTest.
-NAMED_EXAMPLES = [str(n) for n in range(1, 43)]  # no lettering
-# Al lettered examples e.g. 16b
-NAMED_EXAMPLES += [
-    "16b",
-    "16c",
-    "19a",
-    "19b",
-    "21other",
-    "22other",
-    "23other",
-    "42a",
-]
-# Note: failing so no comparison plots for 16, 24, 25, 26.
-
 
 def compare_plot_results(test_method):
     """
@@ -584,7 +568,6 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.con(f.collapse("mean", "longitude"), ylog=1)
 
-    @unittest.expectedFailure  # fails sometimes (env-dependent) due to cf bug
     @compare_plot_results
     def test_example_9(self):
         """Test Example 9: longitude-pressure plot."""
@@ -1461,7 +1444,7 @@ class UnnumberedExamplesTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    print("==================\n" "Regression testing\n" "==================\n")
+    print("==================\nExamples Testing\n==================\n")
     cov = coverage.Coverage()
     cov.start()
     unittest.main()
@@ -1470,4 +1453,4 @@ if __name__ == "__main__":
     cov.save()
 
     cov.report()
-    print("================\n" "Testing complete\n" "================\n")
+    print("================\nEnd of Examples Testing\n================\n")
