@@ -1008,7 +1008,6 @@ class UnnumberedExamplesTest(unittest.TestCase):
         g = pot[0, :]
         cfp.con(g, lines=False)
 
-    @unittest.expectedFailure  # suspected cf-plot bug, needs investigating
     def test_example_unstructured_orca_1(self):
         """Test example for unstructured grids: ORCA grid example 1."""
         # NOTE: this is taken from the 'unstructured.rst/html' page, but
@@ -1024,7 +1023,26 @@ class UnnumberedExamplesTest(unittest.TestCase):
         lats.flatten(inplace=True)
         temp.flatten(inplace=True)
 
-        cfp.con(x=lons, y=lats, f=temp, ptype=1)
+        # Mask NaN else the plot will fail with:
+        # Traceback (most recent call last):
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 1030, in test_example_unstructured_orca_1
+        #     cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3297, in con
+        #     _cf_data_assign(f, colorbar_title, verbose=verbose)
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1379, in _cf_data_assign
+        #     myz = find_z(f)
+        #           ^^^^^^^^^
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10748, in find_z
+        #     mycoords = find_dim_names(f)
+        #                ^^^^^^^^^^^^^^^^^
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10720, in find_dim_names
+        #     if field.coord(coords[i]).X:
+        #                    ~~~~~~^^^
+        # IndexError: list index out of range
+        # TODO apply this at relevant place in code, instead
+        temp = np.ma.masked_invalid(temp)
+
+        cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
 
     @unittest.expectedFailure  # text input based, needs investigating
     def test_example_unstructured_station_data_1(self):
