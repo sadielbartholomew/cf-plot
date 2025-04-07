@@ -727,13 +727,13 @@ class ExamplesTest(unittest.TestCase):
         f = f_list[1]
 
         u = f.collapse("X: mean")
-        u1 = u.subspace(Y=-61.12099075)
-        u2 = u.subspace(Y=0.56074494)
+        u1 = u.subspace(Y=cf.isclose(-61.12099075))
+        u2 = u.subspace(Y=cf.isclose(0.56074494))
 
         g = f_list[0]
         t = g.collapse("X: mean")
-        t1 = t.subspace(Y=-61.12099075)
-        t2 = t.subspace(Y=0.56074494)
+        t1 = t.subspace(Y=cf.isclose(-61.12099075))
+        t2 = t.subspace(Y=cf.isclose(0.56074494))
 
         cfp.gopen()
         cfp.gset(-30, 30, 1000, 0)
