@@ -86,10 +86,17 @@ class ExamplesTest(unittest.TestCase):
         test_method_name = unittest.TestCase.id(self).split(".")[-1]
         self.test_id = test_method_name.rsplit("test_example_")[1]
         fname = f"{self.save_gen_dir}/" f"gen_fig_{self.test_id}.png"
-        cfp.setvars(
-            file=fname,
-            viewer="matplotlib",
-        )
+
+        # At the moment there is no 'getvars' to see the plotting variables
+        # defined (see Issue TBC) so we have
+        # to store these, since any call to setvars(...) in the examples
+        # will reset those set here, so we must ensure we set them via
+        # inclusion of this self.setvars_dict.
+        self.setvars_dict = {
+            "file": fname,
+            "viewer": "matplotlib",
+        }
+        cfp.setvars(**self.setvars_dict)
 
     def tearDown(self):
         """Preparations called immediately after each test method."""
@@ -742,26 +749,27 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.mapset(proj="UKCP", resolution="50m")
         cfp.levs(-3, 7, 0.5)
-        cfp.setvars(grid_x_spacing=1, grid_y_spacing=1)
+        cfp.setvars(grid_x_spacing=1, grid_y_spacing=1, **self.setvars_dict)
 
         cfp.con(f, lines=False)
 
     @compare_plot_results
     def test_example_32(self):
-        """Test Example 32: UKCP projection with blockfill."""
+        """Test Example 32: UKCP projection with blockfill.
+
+        NOTE, TODO: the code mostly works with a mostly correct
+        and reference plot, but there are
+        a few issues, namely a patch of unplotted area in the
+        Scottish highlands indicating a fill value / masking processing
+        issue, perhaps wider than UKCP blockfill, and also the gridlines
+        extending out relative to the desired result (see docs image at
+        https://ncas-cms.github.io/cf-plot/build/_images/fig32.png).
+        """
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
-        print("SLB DEBUG")
-        f.dump()
-        import sys
-        ###np.set_printoptions(threshold=sys.maxsize)
-        print("ORIGINAL IS")
-        print(f.data.array)
-        print(f.size, f.count())
-        print("END SLB DEBUG")
 
         cfp.mapset(proj="UKCP", resolution="50m")
         cfp.levs(-3, 7, 0.5)
-        cfp.setvars(grid_colour="grey")
+        cfp.setvars(grid_colour="grey", **self.setvars_dict)
 
         cfp.con(
             f,
