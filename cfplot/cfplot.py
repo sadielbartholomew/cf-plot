@@ -3017,19 +3017,17 @@ def _plot_map_axes(
     # UKCP grid
     if plotvars.proj == "UKCP" and plotvars.grid:
         # To plot grid, use xticks and yticks if provided for gridpoints else
-        # plot all on definde grid with given gridspacing
+        # plot all on defined grid with given grid spacing
         if xticks is None and yticks is None:
             map_grid()
         else:
-            lons = xticks
-            lats = yticks
             if plotvars.grid:
                 plotvars.mymap.gridlines(
                     color=plotvars.grid_colour,
                     linewidth=plotvars.grid_thickness,
                     linestyle=plotvars.grid_linestyle,
-                    xlocs=lons,
-                    ylocs=lats,
+                    xlocs=xticks,
+                    ylocs=yticks,
                 )
 
 
