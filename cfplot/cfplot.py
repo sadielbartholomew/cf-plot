@@ -3915,7 +3915,7 @@ def con(
                 ):
                     # Special case for transverse mercator
                     _bfill(
-                        f=field.squeeze() * fmult,
+                        f=f.squeeze() * fmult,
                         x=x,
                         y=y,
                         clevs=clevs,
