@@ -1008,6 +1008,7 @@ class UnnumberedExamplesTest(unittest.TestCase):
         g = pot[0, :]
         cfp.con(g, lines=False)
 
+    @compare_plot_results
     def test_example_unstructured_orca_1(self):
         """Test example for unstructured grids: ORCA grid example 1."""
         # NOTE: this is taken from the 'unstructured.rst/html' page, but
@@ -1044,12 +1045,9 @@ class UnnumberedExamplesTest(unittest.TestCase):
 
         cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
 
-    @unittest.expectedFailure  # text input based, needs investigating
+    @compare_plot_results
     def test_example_unstructured_station_data_1(self):
         """Test example for unstructured grids: station data example 1."""
-        # NOTE: this is taken from the 'unstructured.rst/html' page, but
-        # is very similar to 'test_example_24/25', so coordinate with that.
-
         # Part 1: docs title 'Station data'
 
         # Arrays for data
@@ -1062,17 +1060,45 @@ class UnnumberedExamplesTest(unittest.TestCase):
         f = open('cfplot_data/synop_data.txt')
         lines = f.readlines()
         for line in lines:
-           mysplit=line.split()
-           lons=np.append(lons, float(mysplit[1]))
-           lats=np.append(lats, float(mysplit[2]))
-           pressure=np.append(pressure, float(mysplit[3]))
-           temp=np.append(temp, float(mysplit[4]))
+            mysplit=line.split()
+            lons=np.append(lons, float(mysplit[1]))
+            lats=np.append(lats, float(mysplit[2]))
+            pressure=np.append(pressure, float(mysplit[3]))
+            temp=np.append(temp, float(mysplit[4]))
 
         cfp.con(
             x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
 
+    @compare_plot_results
+    def test_example_unstructured_station_data_2(self):
+        """Test example for unstructured grids: station data example 2."""
+        # START OF CODE LIFTED FROM 'test_example_unstructured_station_data_1'
+        # --------------------------------------------------------------------
+        # Part 1: docs title 'Station data'
+
+        # Arrays for data
+        lons=[]
+        lats=[]
+        pressure=[]
+        temp=[]
+
+        # Read data and make the contour plot
+        f = open('cfplot_data/synop_data.txt')
+        lines = f.readlines()
+        for line in lines:
+            mysplit=line.split()
+            lons=np.append(lons, float(mysplit[1]))
+            lats=np.append(lats, float(mysplit[2]))
+            pressure=np.append(pressure, float(mysplit[3]))
+            temp=np.append(temp, float(mysplit[4]))
+
+        # END OF CODE LIFTED FROM 'test_example_unstructured_station_data_1'
+        # --------------------------------------------------------------------
+
         # Part 2: docs title 'Station data - check of data values'
         cfp.gopen()
+        cfp.con(
+            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
         for i in np.arange(len(lines)):
             cfp.plotvars.mymap.text(
                 float(lons[i]), float(lats[i]), str(temp[i]),
