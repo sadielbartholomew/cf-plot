@@ -969,9 +969,14 @@ class UnnumberedExamplesTest(unittest.TestCase):
             face_connectivity=faces, lines=False, blockfill=True,
         )
 
-    # @compare_plot_results  # SLB TODO add expected plot
+    @compare_plot_results
     def test_example_unstructured_lfric_2(self):
-        """Test example for unstructured grids: LFRic example 2."""
+        """Test example for unstructured grids: LFRic example 2.
+
+        NOTE, TODO: there are 3 'sides' of missing data in the cubed-sphere
+        grid, a clear issue. For now the reference plot has this in. An
+        issue will be raised to note this and eventually fix it.
+        """
         f = cf.read("cfplot_data/lfric_initial.nc")
 
         # Select the relevant fields for the objects required for the plot,
@@ -990,7 +995,8 @@ class UnnumberedExamplesTest(unittest.TestCase):
         cfp.mapset(proj="npstere")
         cfp.con(
             f=pot, face_lons=lons,
-            face_lats=lats, face_connectivity=faces, lines=False
+            face_lats=lats, face_connectivity=faces, lines=False,
+            blockfill=True,
         )
 
     # @compare_plot_results  # SLB TODO add expected plot
