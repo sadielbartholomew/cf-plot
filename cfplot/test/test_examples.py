@@ -87,11 +87,11 @@ class ExamplesTest(unittest.TestCase):
         self.test_id = test_method_name.rsplit("test_example_")[1]
         fname = f"{self.save_gen_dir}/" f"gen_fig_{self.test_id}.png"
 
-        # At the moment there is no 'getvars' to see the plotting variables
-        # defined (see Issue TBC) so we have
-        # to store these, since any call to setvars(...) in the examples
-        # will reset those set here, so we must ensure we set them via
-        # inclusion of this self.setvars_dict.
+        # At the moment there is no 'getvars' to access the plotting variables
+        # defined (see Issue https://github.com/NCAS-CMS/cf-plot/issues/93)
+        # so we have to also store these, since any call to setvars(...) in
+        # the examples will reset those set here, so we must ensure we set
+        # them via inclusion of this self.setvars_dict for use later if needed.
         self.setvars_dict = {
             "file": fname,
             "viewer": "matplotlib",
