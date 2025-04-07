@@ -266,7 +266,6 @@ class ExamplesTest(unittest.TestCase):
             title="Polar plot with regular point distribution",
         )
 
-    @unittest.expectedFailure  # errors due to cf-python Issue #797
     @compare_plot_results
     def test_example_16(self):
         """Test Example 16: zonal vector plot."""
@@ -280,11 +279,14 @@ class ExamplesTest(unittest.TestCase):
         g = g.subspace(X=cf.wi(80, 160))
         g = g.collapse("T: mean X: mean")
 
-        # This fails due to a cf-python field bug, see cf-python Issue #797:
+        # To avoid a cf-python field bug which would appear if we instead
+        # did v = -g, see cf-python Issue #797:
         # https://github.com/NCAS-CMS/cf-python/issues/797
+        v = -1 * g
+
         cfp.vect(
             u=c,
-            v=-g,
+            v=v,
             key_length=[5, 0.05],
             scale=[20, 0.2],
             title="DJF",
