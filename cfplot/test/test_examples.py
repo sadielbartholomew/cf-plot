@@ -1,9 +1,8 @@
 """
-Regression testing module for cf-plot.
+Examples testing of cf-plot.
 
-1. Test standard `levs`, `gvals`, and `lon` and `lat` labelling.
-2. Make all the documentation example plots and compare them to
-   reference expected plots to ensure they are the same.
+Run all the documentation example plots and compare them to
+reference expected plots to ensure they are the same.
 
 """
 
