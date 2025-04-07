@@ -3016,25 +3016,19 @@ def _plot_map_axes(
 
     # UKCP grid
     if plotvars.proj == "UKCP" and plotvars.grid:
-        lons = (
-            np.arange((360 / plotvars.grid_x_spacing) + 1)
-            * plotvars.grid_x_spacing
-        )
-        lons = np.concatenate([lons - 360, lons])
-        lats = (
-            np.arange((180 / plotvars.grid_y_spacing) + 1)
-            * plotvars.grid_y_spacing
-            - 90
-        )
-
-        if plotvars.grid:
-            plotvars.mymap.gridlines(
-                color=plotvars.grid_colour,
-                linewidth=plotvars.grid_thickness,
-                linestyle=plotvars.grid_linestyle,
-                xlocs=lons,
-                ylocs=lats,
-            )
+        # To plot grid, use xticks and yticks if provided for gridpoints else
+        # plot all on defined grid with given grid spacing
+        if xticks is None and yticks is None:
+            map_grid()
+        else:
+            if plotvars.grid:
+                plotvars.mymap.gridlines(
+                    color=plotvars.grid_colour,
+                    linewidth=plotvars.grid_thickness,
+                    linestyle=plotvars.grid_linestyle,
+                    xlocs=xticks,
+                    ylocs=yticks,
+                )
 
 
 # ===================================
@@ -3906,7 +3900,9 @@ def con(
                 ):
                     # Special case for transverse mercator
                     _bfill(
-                        f=f,
+                        f=f.squeeze() * fmult,
+                        x=x,
+                        y=y,
                         clevs=clevs,
                         lonlat=False,
                         alpha=alpha,
@@ -3917,9 +3913,9 @@ def con(
                 # elif orca:
                 elif two_d:
                     _bfill(
+                        f=field * fmult,
                         x=x,
                         y=y,
-                        f=field * fmult,
                         clevs=clevs,
                         lonlat=False,
                         alpha=alpha,

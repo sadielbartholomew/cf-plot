@@ -1,9 +1,8 @@
 """
-Regression testing module for cf-plot.
+Examples testing of cf-plot.
 
-1. Test standard `levs`, `gvals`, and `lon` and `lat` labelling.
-2. Make all the documentation example plots and compare them to
-   reference expected plots to ensure they are the same.
+Run all the documentation example plots and compare them to
+reference expected plots to ensure they are the same.
 
 """
 
@@ -35,22 +34,6 @@ TEST_REF_DIR = "./reference-example-images"
 TEST_GEN_DIR = "./generated-example-images"
 if not os.path.exists(TEST_GEN_DIR):
     os.makedirs(TEST_GEN_DIR)
-
-# Keep track of number of examples including sub-numbering (a, b, etc.)
-# as used across the docs and for the ExamplesTest.
-NAMED_EXAMPLES = [str(n) for n in range(1, 43)]  # no lettering
-# Al lettered examples e.g. 16b
-NAMED_EXAMPLES += [
-    "16b",
-    "16c",
-    "19a",
-    "19b",
-    "21other",
-    "22other",
-    "23other",
-    "42a",
-]
-# Note: failing so no comparison plots for 16, 24, 25, 26.
 
 
 def compare_plot_results(test_method):
@@ -89,400 +72,6 @@ def compare_plot_results(test_method):
     return wrapper
 
 
-def compare_arrays(
-    ref=None,
-    levs_test=None,
-    gvals_test=None,
-    mapaxis_test=None,
-    min=None,
-    max=None,
-    step=None,
-    mult=None,
-    type=None,
-):
-    """
-    Compare arrays and return an error string if they don't match.
-    """
-    plotvar_levs = cfp.plotvars.levels
-
-    anom = 0
-    if levs_test:
-        cfp.levs(min, max, step)
-        if np.size(ref) != np.size(plotvar_levs):
-            anom = 1
-        else:
-            for val in np.arange(np.size(ref)):
-                if abs(ref[val] - plotvar_levs[val]) >= 1e-6:
-                    anom = 1
-
-        if anom == 1:
-            print(
-                "***cfp.levs failure***\n"
-                f"min, max, step are {min}, {max}, {step}\n"
-                "generated levels are:\n"
-                f"{plotvar_levs}\n"
-                f"expected levels:\n{ref}"
-            )
-        else:
-            pass_str = f"Passed cfp.levs(min={min}, max={max}, step={step})"
-            print(pass_str)
-
-    anom = 0
-    if gvals_test:
-        vals, testmult = cfp._gvals(min, max)
-        if np.size(ref) != np.size(vals):
-            anom = 1
-        else:
-            for val in np.arange(np.size(ref)):
-                if abs(ref[val] - vals[val]) >= 1e-6:
-                    anom = 1
-        if mult != testmult:
-            anom = 1
-
-        if anom == 1:
-            print(
-                "***gvals failure***\n"
-                f"cfp._gvals({min}, {max})\n\n"
-                f"generated values are:{vals}\n"
-                f"with a  multiplier of {testmult}\n\n"
-                f"expected values:{ref}\n"
-                f"with a multiplier of {mult}\n"
-            )
-        else:
-            pass_str = f"Passed cfp._gvals({min}, {max})"
-            print(pass_str)
-
-    anom = 0
-    if mapaxis_test:
-        ref_ticks = ref[0]
-        ref_labels = ref[1]
-        test_ticks, test_labels = cfp._mapaxis(min=min, max=max, type=type)
-        if np.size(test_ticks) != np.size(ref_ticks):
-            anom = 1
-        else:
-            for val in np.arange(np.size(ref_ticks)):
-                if abs(ref_ticks[val] - test_ticks[val]) >= 1e-6:
-                    anom = 1
-                if ref_labels[val] != test_labels[val]:
-                    anom = 1
-
-        if anom == 1:
-            print(
-                "***mapaxis failure***\n\n"
-                f"cfp._mapaxis(min={min}, max={max}, type={type})\n"
-                f"generated values are:{test_ticks}\n"
-                f"with labels:{test_labels}\n\n"
-                f"expected ticks:{ref_ticks}\n"
-                f"with labels:{ref_labels}\n"
-            )
-        else:
-            pass_str = (
-                f"Passed cfp._mapaxis<(min={min}, max={max}, type={type})"
-            )
-            print(pass_str)
-
-
-class BasicArrayTest(unittest.TestCase):
-    """Contour levels `levs` array comparison testing."""
-
-    def setup(self):
-        """Preparations called immediately before each test method."""
-        print(
-            "---------------------------------\n"
-            "Testing for `levs` contour levels\n"
-            "---------------------------------\n"
-        )
-
-    def test_arrays_1(self):
-        """Test 1 for `levs` contour levels array comparison."""
-        ref_answer = [
-            -35,
-            -30,
-            -25,
-            -20,
-            -15,
-            -10,
-            -5,
-            0,
-            5,
-            10,
-            15,
-            20,
-            25,
-            30,
-            35,
-            40,
-            45,
-            50,
-            55,
-            60,
-            65,
-        ]
-        compare_arrays(ref=ref_answer, levs_test=True, min=-35, max=65, step=5)
-
-        ref_answer = [
-            -6.0,
-            -4.8,
-            -3.6,
-            -2.4,
-            -1.2,
-            0.0,
-            1.2,
-            2.4,
-            3.6,
-            4.8,
-            6.0,
-        ]
-        compare_arrays(ref=ref_answer, levs_test=True, min=-6, max=6, step=1.2)
-
-    def test_arrays_2(self):
-        """Test 2 for `levs` contour levels array comparison."""
-        ref_answer = [
-            50000,
-            51000,
-            52000,
-            53000,
-            54000,
-            55000,
-            56000,
-            57000,
-            58000,
-            59000,
-            60000,
-        ]
-        compare_arrays(
-            ref=ref_answer, levs_test=True, min=50000, max=60000, step=1000
-        )
-
-    def test_arrays_3(self):
-        """Test 3 for `levs` contour levels array comparison."""
-        ref_answer = [
-            -7000,
-            -6500,
-            -6000,
-            -5500,
-            -5000,
-            -4500,
-            -4000,
-            -3500,
-            -3000,
-            -2500,
-            -2000,
-            -1500,
-            -1000,
-            -500,
-        ]
-        compare_arrays(
-            ref=ref_answer, levs_test=True, min=-7000, max=-300, step=500
-        )
-
-
-class GvalsArrayTest(unittest.TestCase):
-    """Contour levels `gvals` array comparison testing."""
-
-    def setup(self):
-        """Preparations called immediately before each test method."""
-        print(
-            "----------------------------------\n"
-            "Testing for `gvals` contour levels\n"
-            "----------------------------------\n"
-        )
-
-    def test_gvals_1(self):
-        """Test 1 for `gvals` contour levels array comparison."""
-        ref_answer = [
-            281,
-            282,
-            283,
-            284,
-            285,
-            286,
-            287,
-            288,
-            289,
-            290,
-            291,
-            292,
-            293,
-        ]
-        compare_arrays(
-            ref=ref_answer,
-            min=280.50619506835938,
-            max=293.48431396484375,
-            mult=0,
-            gvals_test=True,
-        )
-
-    def test_gvals_2(self):
-        """Test 2 for `gvals` contour levels array comparison."""
-        ref_answer = [
-            0.356,
-            0.385,
-            0.414,
-            0.443,
-            0.472,
-            0.501,
-            0.53,
-            0.559,
-            0.588,
-            0.617,
-            0.646,
-            0.675,
-        ]
-        compare_arrays(
-            ref=ref_answer, min=0.356, max=0.675, mult=0, gvals_test=True
-        )
-
-    def test_gvals_3(self):
-        """Test 3 for `gvals` contour levels array comparison."""
-        ref_answer = [
-            -45,
-            -40,
-            -35,
-            -30,
-            -25,
-            -20,
-            -15,
-            -10,
-            -5,
-            0,
-            5,
-            10,
-            15,
-            20,
-            25,
-            30,
-            35,
-            40,
-            45,
-            50,
-        ]
-        compare_arrays(
-            ref=ref_answer,
-            min=-49.510975,
-            max=53.206604,
-            mult=0,
-            gvals_test=True,
-        )
-
-    def test_gvals_4(self):
-        """Test 4 for `gvals` contour levels array comparison."""
-        ref_answer = [
-            47000,
-            48000,
-            49000,
-            50000,
-            51000,
-            52000,
-            53000,
-            54000,
-            55000,
-            56000,
-            57000,
-            58000,
-            59000,
-            60000,
-            61000,
-            62000,
-            63000,
-            64000,
-        ]
-        compare_arrays(
-            ref=ref_answer, min=46956, max=64538, mult=0, gvals_test=True
-        )
-
-    def test_gvals_5(self):
-        """Test 5 for `gvals` contour levels array comparison."""
-        ref_answer = [
-            -1.0,
-            -0.9,
-            -0.8,
-            -0.7,
-            -0.6,
-            -0.5,
-            -0.4,
-            -0.3,
-            -0.2,
-            -0.1,
-            0.0,
-            0.1,
-        ]
-        compare_arrays(
-            ref=ref_answer, min=-1.0, max=0.1, mult=0, gvals_test=True
-        )
-
-
-class LonLatTest(unittest.TestCase):
-    """Tests for `mapaxis` longitude-latitude labelling."""
-
-    def setup(self):
-        """Preparations called immediately before each test method."""
-        print("--------------------------------------------------\n")
-        print("Testing for `mapaxis` longitude-latitude labelling\n")
-        print("--------------------------------------------------\n")
-
-    def test_lonlat_1(self):
-        """Test 1 for `mapaxis` longitude-latitude labelling."""
-        ref_answer = (
-            [-180, -120, -60, 0, 60, 120, 180],
-            ["180", "120W", "60W", "0", "60E", "120E", "180"],
-        )
-        compare_arrays(
-            ref=ref_answer, min=-180, max=180, type=1, mapaxis_test=True
-        )
-
-    def test_lonlat_2(self):
-        """Test 2 for `mapaxis` longitude-latitude labelling."""
-        ref_answer = (
-            [150, 180, 210, 240, 270],
-            ["150E", "180", "150W", "120W", "90W"],
-        )
-        compare_arrays(
-            ref=ref_answer, min=135, max=280, type=1, mapaxis_test=True
-        )
-
-    def test_lonlat_3(self):
-        """Test 3 for `mapaxis` longitude-latitude labelling."""
-        ref_answer = (
-            [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
-            [
-                "0",
-                "10E",
-                "20E",
-                "30E",
-                "40E",
-                "50E",
-                "60E",
-                "70E",
-                "80E",
-                "90E",
-            ],
-        )
-        compare_arrays(
-            ref=ref_answer, min=0, max=90, type=1, mapaxis_test=True
-        )
-
-    def test_lonlat_4(self):
-        """Test 4 for `mapaxis` longitude-latitude labelling."""
-        ref_answer = (
-            [-90, -60, -30, 0, 30, 60, 90],
-            ["90S", "60S", "30S", "0", "30N", "60N", "90N"],
-        )
-        compare_arrays(
-            ref=ref_answer, min=-90, max=90, type=2, mapaxis_test=True
-        )
-
-    def test_lonlat_5(self):
-        """Test 5 for `mapaxis` longitude-latitude labelling."""
-        ref_answer = (
-            [0, 5, 10, 15, 20, 25, 30],
-            ["0", "5N", "10N", "15N", "20N", "25N", "30N"],
-        )
-        compare_arrays(
-            ref=ref_answer, min=0, max=30, type=2, mapaxis_test=True
-        )
-
-
 class ExamplesTest(unittest.TestCase):
     """Run through gallery examples and compare to reference plots."""
 
@@ -497,10 +86,17 @@ class ExamplesTest(unittest.TestCase):
         test_method_name = unittest.TestCase.id(self).split(".")[-1]
         self.test_id = test_method_name.rsplit("test_example_")[1]
         fname = f"{self.save_gen_dir}/" f"gen_fig_{self.test_id}.png"
-        cfp.setvars(
-            file=fname,
-            viewer="matplotlib",
-        )
+
+        # At the moment there is no 'getvars' to access the plotting variables
+        # defined (see Issue https://github.com/NCAS-CMS/cf-plot/issues/93)
+        # so we have to also store these, since any call to setvars(...) in
+        # the examples will reset those set here, so we must ensure we set
+        # them via inclusion of this self.setvars_dict for use later if needed.
+        self.setvars_dict = {
+            "file": fname,
+            "viewer": "matplotlib",
+        }
+        cfp.setvars(**self.setvars_dict)
 
     def tearDown(self):
         """Preparations called immediately after each test method."""
@@ -584,7 +180,6 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.con(f.collapse("mean", "longitude"), ylog=1)
 
-    @unittest.expectedFailure  # fails sometimes (env-dependent) due to cf bug
     @compare_plot_results
     def test_example_9(self):
         """Test Example 9: longitude-pressure plot."""
@@ -1154,33 +749,33 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.mapset(proj="UKCP", resolution="50m")
         cfp.levs(-3, 7, 0.5)
-        cfp.setvars(grid_x_spacing=1, grid_y_spacing=1)
+        cfp.setvars(grid_x_spacing=1, grid_y_spacing=1, **self.setvars_dict)
 
         cfp.con(f, lines=False)
 
-    @unittest.expectedFailure  # errors, issue TBC
     @compare_plot_results
     def test_example_32(self):
-        """Test Example 32: UKCP projection with blockfill."""
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/gen-plot.py", line 25, in <module>
-        #     cfp.con(
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3871, in con
-        #     _bfill(
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1833, in _bfill
-        #     colarr[pts] = int(i)
-        #     ~~~~~~^^^^^
-        # IndexError: too many indices for array: array is 2-dimensional, but 4 were indexed
+        """Test Example 32: UKCP projection with blockfill.
+
+        NOTE, TODO: the code mostly works with a mostly correct
+        and reference plot, but there are
+        a few issues, namely a patch of unplotted area in the
+        Scottish highlands indicating a fill value / masking processing
+        issue, perhaps wider than UKCP blockfill, and also the gridlines
+        extending out relative to the desired result (see docs image at
+        https://ncas-cms.github.io/cf-plot/build/_images/fig32.png).
+        """
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
         cfp.mapset(proj="UKCP", resolution="50m")
         cfp.levs(-3, 7, 0.5)
-        cfp.setvars(grid_colour="grey")
+        cfp.setvars(grid_colour="grey", **self.setvars_dict)
 
         cfp.con(
             f,
             lines=False,
             blockfill=True,
+            # Centered over UK region with spacing of 1 each
             xticks=np.arange(14) - 11,
             yticks=np.arange(13) + 49,
         )
@@ -1461,7 +1056,7 @@ class UnnumberedExamplesTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    print("==================\n" "Regression testing\n" "==================\n")
+    print("==================\nExamples Testing\n==================\n")
     cov = coverage.Coverage()
     cov.start()
     unittest.main()
@@ -1470,4 +1065,4 @@ if __name__ == "__main__":
     cov.save()
 
     cov.report()
-    print("================\n" "Testing complete\n" "================\n")
+    print("================\nEnd of Examples Testing\n================\n")
