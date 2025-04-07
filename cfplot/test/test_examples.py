@@ -941,9 +941,15 @@ class UnnumberedExamplesTest(unittest.TestCase):
         """Preparations called immediately after each test method."""
         cfp.reset()
 
-    # @compare_plot_results  # SLB TODO add expected plot
+    @compare_plot_results
     def test_example_unstructured_lfric_1(self):
-        """Test example for unstructured grids: LFRic example 1."""
+        """Test example for unstructured grids: LFRic example 1.
+
+        NOTE, TODO: relative to example from docs, have added
+        'blockfill=True' to get well-defined edges on faces, otherwise
+        looks very similar to 'gen_fig_unstructured_lfric_3' plot, with
+        edges all blurred together.
+        """
         f = cf.read("cfplot_data/lfric_initial.nc")
 
         # Select the relevant fields for the objects required for the plot,
@@ -960,7 +966,7 @@ class UnnumberedExamplesTest(unittest.TestCase):
 
         cfp.con(
             f=pot, face_lons=lons, face_lats=lats,
-            face_connectivity=faces, lines=False
+            face_connectivity=faces, lines=False, blockfill=True,
         )
 
     # @compare_plot_results  # SLB TODO add expected plot
