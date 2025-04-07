@@ -266,8 +266,7 @@ class ExamplesTest(unittest.TestCase):
             title="Polar plot with regular point distribution",
         )
 
-    @unittest.expectedFailure  # errors due to cf-python Issue #797
-    ###@compare_plot_results
+    @compare_plot_results
     def test_example_16(self):
         """Test Example 16: zonal vector plot."""
         c = cf.read(f"{self.data_dir}/vaAMIPlcd_DJF.nc")[0]
