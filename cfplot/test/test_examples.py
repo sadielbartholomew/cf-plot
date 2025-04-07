@@ -999,7 +999,7 @@ class UnnumberedExamplesTest(unittest.TestCase):
             blockfill=True,
         )
 
-    # @compare_plot_results  # SLB TODO add expected plot
+    @compare_plot_results
     def test_example_unstructured_lfric_3(self):
         """Test example for unstructured grids: LFRic example 3."""
         f = cf.read("cfplot_data/lfric_initial.nc")
