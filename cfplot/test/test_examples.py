@@ -266,7 +266,8 @@ class ExamplesTest(unittest.TestCase):
             title="Polar plot with regular point distribution",
         )
 
-    @compare_plot_results
+    @unittest.expectedFailure  # errors due to cf-python Issue #797
+    ###@compare_plot_results
     def test_example_16(self):
         """Test Example 16: zonal vector plot."""
         c = cf.read(f"{self.data_dir}/vaAMIPlcd_DJF.nc")[0]
@@ -915,11 +916,6 @@ class ExamplesTest(unittest.TestCase):
         t2.units = "degC"
 
         cfp.con(t2, lines=False)
-
-    # TODO SLB: add rest of examples from current docs, which aren't
-    # numbered but should be assigned numbers, here.
-    # E.g. the UGRID examples (see:
-    # https://ncas-cms.github.io/cf-plot/build/unstructured.html#unstructured)
 
 
 class UnnumberedExamplesTest(unittest.TestCase):
