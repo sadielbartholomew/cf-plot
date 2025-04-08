@@ -267,8 +267,8 @@ class ExamplesTest(unittest.TestCase):
         )
 
     @compare_plot_results
-    def test_example_16(self):
-        """Test Example 16: zonal vector plot."""
+    def test_example_16a(self):
+        """Test Example 16a: zonal vector plot."""
         c = cf.read(f"{self.data_dir}/vaAMIPlcd_DJF.nc")[0]
         c = c.subspace(Y=cf.wi(-60, 60))
         c = c.subspace(X=cf.wi(80, 160))
@@ -360,8 +360,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_19(self):
-        """Test Example 19: multiple plots as subplots."""
+    def test_example_19a(self):
+        """Test Example 19a: multiple plots as subplots."""
         f = cf.read(f"{self.data_dir}/ggap.nc")[1]
         cfp.gopen(rows=2, columns=2, bottom=0.2)
         cfp.gpos(1)
@@ -382,8 +382,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_19a(self):
-        """Test Example 19a: multiple plots with user specified positions."""
+    def test_example_19b(self):
+        """Test Example 19b: multiple plots with user specified positions."""
         f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
         cfp.gopen(user_position=True)
@@ -400,8 +400,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_19b(self):
-        """Test Example 19b: user-specified plot positioning.
+    def test_example_19c(self):
+        """Test Example 19c: user-specified plot positioning.
 
         User specified plot position to accomodate more than one color bar.
         """
@@ -942,8 +942,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.traj(f, vector=True, markersize=0.0, fc="b", ec="b")
 
     @compare_plot_results
-    def test_example_42(self):
-        """Test Example 42: intensity legend."""
+    def test_example_42a(self):
+        """Test Example 42a: intensity legend."""
         f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 
         cfp.mapset(lonmin=-50, lonmax=50, latmin=20, latmax=80)
@@ -960,8 +960,8 @@ class ExamplesTest(unittest.TestCase):
         )
 
     @compare_plot_results
-    def test_example_42a(self):
-        """Test Example 42a: intensity legend with lines."""
+    def test_example_42b(self):
+        """Test Example 42b: intensity legend with lines."""
         f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 
         cfp.mapset(lonmin=-50, lonmax=50, latmin=20, latmax=80)
