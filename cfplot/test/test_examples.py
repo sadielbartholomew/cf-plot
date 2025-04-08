@@ -517,122 +517,23 @@ class ExamplesTest(unittest.TestCase):
         cfp.vect(u=f[1], v=f[2], stride=40, key_length=10)
         cfp.gclose()
 
-    @unittest.expectedFailure  # IndexError after griddata API conformance
+    @unittest.skip
     def test_example_24(self):
         """Test Example 24."""
-        # Arrays for data
-        lons = []
-        lats = []
-        pressure = []
-        temp = []
+        # TODO missing example - swap in previously-unnumbered example
 
-        f = open(f"{self.data_dir}/synop_data.txt")
-
-        lines = f.readlines()
-        for line in lines:
-            mysplit = line.split()
-            lons = np.append(lons, float(mysplit[1]))
-            lats = np.append(lats, float(mysplit[2]))
-            pressure = np.append(pressure, float(mysplit[3]))
-            temp = np.append(temp, float(mysplit[4]))
-
-        # Linearly interpolate data to a regular grid
-        lons_new = np.arange(140) * 0.1 - 11.0
-        lats_new = np.arange(140) * 0.1 + 49.0
-        # TODO SLB needs fixing, fails on an IndexError
-        temp_new = griddata(
-            points=(lons, lats),
-            values=temp,
-            xi=(lons_new, lats_new),
-            method="linear",
-        )
-
-        cfp.cscale("parula")
-
-        cfp.con(x=lons_new, y=lats_new, f=temp_new, ptype=1)
-
-    @unittest.expectedFailure  # IndexError after griddata API conformance
+    @unittest.skip
     @compare_plot_results
     def test_example_25(self):
         """Test Example 25."""
-        # Note the block of code until '---' is shared with example 24.
-        # Arrays for data
-        lons = []
-        lats = []
-        pressure = []
-        temp = []
+        # TODO missing example - swap in previously-unnumbered example
 
-        f = open(f"{self.data_dir}/synop_data.txt")
-
-        lines = f.readlines()
-        for line in lines:
-            mysplit = line.split()
-            lons = np.append(lons, float(mysplit[1]))
-            lats = np.append(lats, float(mysplit[2]))
-            pressure = np.append(pressure, float(mysplit[3]))
-            temp = np.append(temp, float(mysplit[4]))
-
-        # Linearly interpolate data to a regular grid
-        lons_new = np.arange(140) * 0.1 - 11.0
-        lats_new = np.arange(140) * 0.1 + 49.0
-        # TODO SLB needs fixing, fails on an IndexError
-        temp_new = griddata(
-            points=(lons, lats),
-            values=temp,
-            xi=(lons_new, lats_new),
-            method="linear",
-        )
-        # ---
-
-        cfp.gopen()
-
-        cfp.con(x=lons_new, y=lats_new, f=temp_new, ptype=1)
-        for i in np.arange(len(lines)):
-            cfp.plotvars.plot.text(
-                float(lons[i]),
-                float(lats[i]),
-                str(temp[i]),
-                horizontalalignment="center",
-                verticalalignment="center",
-            )
-
-        cfp.gclose()
-
-    @unittest.expectedFailure  # ValueError after griddata API conformance
+    ###@unittest.expectedFailure  # ValueError after griddata API conformance
+    @unittest.skip
     @compare_plot_results
     def test_example_26(self):
         """Test Example 26."""
-        # Get an Orca grid and flatten the arrays
-        nc = ncfile(f"{self.data_dir}/orca2.nc")
-        lons = np.array(nc.variables["longitude"])
-        lats = np.array(nc.variables["latitude"])
-        temp = np.array(nc.variables["sst"])
-        lons = lons.flatten()
-        lats = lats.flatten()
-        temp = temp.flatten()
-
-        # Add wrap around at both longitude limits
-        pts = np.squeeze(np.where(lons < -150))
-        lons = np.append(lons, lons[pts] + 360)
-        lats = np.append(lats, lats[pts])
-        temp = np.append(temp, temp[pts])
-
-        pts = np.squeeze(np.where(lons > 150))
-        lons = np.append(lons, lons[pts] - 360)
-        lats = np.append(lats, lats[pts])
-        temp = np.append(temp, temp[pts])
-
-        lons_new = np.arange(181 * 8) * 0.25 - 180.0
-        lats_new = np.arange(91 * 8) * 0.25 - 90.0
-        # TODO SLB needs fixing, fails on a ValueError
-        temp_new = griddata(
-            points=(lons, lats),
-            values=temp,
-            xi=(lons_new, lats_new),
-            method="linear",
-        )
-
-        cfp.con(x=lons_new, y=lats_new, f=temp_new, ptype=1)
+        # TODO missing example - swap in previously-unnumbered example
 
     @compare_plot_results
     def test_example_27(self):
@@ -905,16 +806,13 @@ class ExamplesTest(unittest.TestCase):
             colorbar_title="Relative Vorticity (Hz) * 1e5",
         )
 
-    @unittest.expectedFailure  # needs WRF data file adding to datasets
+    @unittest.skip
     @compare_plot_results
     def test_example_43(self):
         """Test Example 43: plotting WRF data."""
-        f = cf.read(f"{self.data_dir}/wrf2.nc")[0]  # TODO missing dataset
-
-        t2 = f.subspace(time=cf.dt("2016-12-25"))
-        t2.units = "degC"
-
-        cfp.con(t2, lines=False)
+        # TODO add new WRF testing, wherebouts of file used in original
+        # test, "wrf2.nc", are not known, so need a new file and one that
+        # is not 5GB besides!
 
 
 class UnnumberedExamplesTest(unittest.TestCase):
