@@ -1,0 +1,22 @@
+.. _example33:
+
+Example 33
+**********
+
+
+.. code-block:: python
+   :caption: *TODO describe Example 33*
+   f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
+
+   cfp.levs(-3, 7, 0.5)
+
+   cfp.gopen(columns=2)
+   cfp.mapset(proj="OSGB", resolution="50m")
+   cfp.con(f, lines=False, colorbar_label_skip=2)
+   cfp.gpos(2)
+   cfp.mapset(proj="EuroPP", resolution="50m")
+   cfp.con(f, lines=False, colorbar_label_skip=2)
+   cfp.gclose()
+
+
+.. figure:: images/fig33.png

@@ -1,0 +1,17 @@
+.. _example13:
+
+Example 13
+**********
+
+
+.. code-block:: python
+   :caption: *TODO describe Example 13*
+   f = cf.read(f"{self.data_dir}/ggap.nc")
+
+   u = f[1].subspace(pressure=500)
+   v = f[3].subspace(pressure=500)
+
+   cfp.vect(u=u, v=v, key_length=10, scale=100, stride=5)
+
+
+.. figure:: images/fig13.png
