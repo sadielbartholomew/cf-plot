@@ -11,4 +11,4 @@ Example 8
    cfp.con(f.collapse("mean", "longitude"), ylog=1)
 
 
-.. figure:: images/fig8.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_8.png

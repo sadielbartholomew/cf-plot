@@ -13,4 +13,4 @@ Example 40
    cfp.traj(f)
 
 
-.. figure:: images/fig40.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_40.png

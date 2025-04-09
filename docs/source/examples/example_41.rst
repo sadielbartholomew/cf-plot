@@ -13,4 +13,4 @@ Example 41
    cfp.traj(f, vector=True, markersize=0.0, fc="b", ec="b")
 
 
-.. figure:: images/fig41.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_41.png

@@ -13,4 +13,4 @@ Example 34
    cfp.con(f.subspace(time=15))
 
 
-.. figure:: images/fig34.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_34.png

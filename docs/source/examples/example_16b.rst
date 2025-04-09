@@ -16,4 +16,4 @@ Example 16b
    cfp.stream(u=u, v=v, density=2)
 
 
-.. figure:: images/fig16b.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_16b.png

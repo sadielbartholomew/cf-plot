@@ -27,4 +27,4 @@ Example 23
    cfp.gclose()
 
 
-.. figure:: images/fig23.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_23.png

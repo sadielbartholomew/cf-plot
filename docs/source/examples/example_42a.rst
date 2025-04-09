@@ -22,4 +22,4 @@ Example 42a
    )
 
 
-.. figure:: images/fig42a.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_42a.png

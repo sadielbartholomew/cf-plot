@@ -11,4 +11,4 @@ Example 43
    # is not 5GB besides!
 
 
-.. figure:: images/fig43.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_43.png

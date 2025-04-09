@@ -21,4 +21,4 @@ Example 42b
    )
 
 
-.. figure:: images/fig42b.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_42b.png

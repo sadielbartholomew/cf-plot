@@ -26,4 +26,4 @@ Example 24a
    )
 
 
-.. figure:: images/fig24a.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_24a.png

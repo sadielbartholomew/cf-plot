@@ -26,4 +26,4 @@ Example 19a
    cfp.gclose()
 
 
-.. figure:: images/fig19a.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_19a.png

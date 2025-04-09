@@ -29,4 +29,4 @@ Example 24b
    )
 
 
-.. figure:: images/fig24b.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_24b.png

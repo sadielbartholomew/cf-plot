@@ -11,4 +11,4 @@ Example 2
    cfp.con(f.subspace(time=15), blockfill=True, lines=False)
 
 
-.. figure:: images/fig2.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_2.png

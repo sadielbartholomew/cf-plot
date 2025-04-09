@@ -27,4 +27,4 @@ Example 16c
    )
    cfp.gclose()
 
-.. figure:: images/fig16c.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_16c.png

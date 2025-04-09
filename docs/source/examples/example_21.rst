@@ -18,4 +18,4 @@ Example 21
    )
 
 
-.. figure:: images/fig21.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21.png

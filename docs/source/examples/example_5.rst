@@ -13,4 +13,4 @@ Example 5
    cfp.con(f.subspace(pressure=500))
 
 
-.. figure:: images/fig5.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_5.png

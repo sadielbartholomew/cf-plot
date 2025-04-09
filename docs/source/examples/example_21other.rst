@@ -11,4 +11,4 @@ Example 21 Other
    cfp.cscale("plasma")
    cfp.con(f)
 
-.. figure:: images/fig21other.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21other.png

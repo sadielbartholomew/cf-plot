@@ -24,4 +24,4 @@ Example 15
    )
 
 
-.. figure:: images/fig15.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_15.png

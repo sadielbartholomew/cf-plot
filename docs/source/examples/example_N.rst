@@ -8,4 +8,4 @@ Example N
    :caption: *TODO describe Example N*
 
 
-.. figure:: images/figN.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_N.png

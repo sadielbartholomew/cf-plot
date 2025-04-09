@@ -30,4 +30,4 @@ Example 30
    cfp.gclose()
 
 
-.. figure:: images/fig30.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_30.png

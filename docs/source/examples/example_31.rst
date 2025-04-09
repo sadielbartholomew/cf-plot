@@ -14,4 +14,4 @@ Example 31
 
    cfp.con(f, lines=False)
 
-.. figure:: images/fig31.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_31.png

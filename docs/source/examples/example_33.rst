@@ -19,4 +19,4 @@ Example 33
    cfp.gclose()
 
 
-.. figure:: images/fig33.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_33.png

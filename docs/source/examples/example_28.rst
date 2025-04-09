@@ -55,4 +55,4 @@ Example 28
    cfp.gclose()
 
 
-.. figure:: images/fig28.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_28.png

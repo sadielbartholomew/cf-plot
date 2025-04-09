@@ -18,4 +18,4 @@ Example 23 Other
    cfp.gclose()
 
 
-.. figure:: images/fig23other.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_23other.png

@@ -22,4 +22,4 @@ Example 32
    )
 
 
-.. figure:: images/fig32.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_32.png

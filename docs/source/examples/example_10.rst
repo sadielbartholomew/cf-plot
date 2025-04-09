@@ -13,4 +13,4 @@ Example 10
    cfp.con(f.subspace(longitude=0), lines=0)
 
 
-.. figure:: images/fig10.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_10.png

@@ -31,4 +31,4 @@ Example 16a
    )
 
 
-.. figure:: images/fig16a.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_16a.png

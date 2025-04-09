@@ -20,4 +20,4 @@ Example 29
    )
 
 
-.. figure:: images/fig29.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_29.png

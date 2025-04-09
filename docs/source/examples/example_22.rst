@@ -13,4 +13,4 @@ Example 22
    cfp.con(f)
 
 
-.. figure:: images/fig22.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_22.png

@@ -13,4 +13,4 @@ Example 24c
    cfp.con(g, lines=False)
 
 
-.. figure:: images/fig24c.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_24c.png

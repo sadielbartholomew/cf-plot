@@ -11,4 +11,4 @@ Example 20
    cfp.con(f.subspace[9])
 
 
-.. figure:: images/fig20.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_20.png

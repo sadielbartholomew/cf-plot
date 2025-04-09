@@ -26,4 +26,4 @@ Example 26a
        x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
 
 
-.. figure:: images/fig26a.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_26a.png

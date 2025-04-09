@@ -35,4 +35,4 @@ Example 26b
    cfp.gclose()
 
 
-.. figure:: images/fig26b.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_26b.png
