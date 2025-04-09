@@ -6,6 +6,7 @@ Example 4
 
 .. code-block:: python
    :caption: *TODO describe Example 4*
+
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
    cfp.mapset(proj="npstere")

@@ -6,6 +6,7 @@ Example 17
 
 .. code-block:: python
    :caption: *TODO describe Example 17*
+
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
    g = f.subspace(time=15)

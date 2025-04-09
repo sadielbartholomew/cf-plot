@@ -6,6 +6,7 @@ Example 33
 
 .. code-block:: python
    :caption: *TODO describe Example 33*
+
    f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
    cfp.levs(-3, 7, 0.5)

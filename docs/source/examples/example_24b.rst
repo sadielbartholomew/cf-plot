@@ -6,6 +6,7 @@ Example 24b
 
 .. code-block:: python
    :caption: *TODO describe Example 24b*
+
    f = cf.read("cfplot_data/lfric_initial.nc")
 
    # Select the relevant fields for the objects required for the plot,

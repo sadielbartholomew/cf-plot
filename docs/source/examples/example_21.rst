@@ -6,6 +6,7 @@ Example 21
 
 .. code-block:: python
    :caption: *TODO describe Example 21*
+
    f = cf.read(f"{self.data_dir}/Geostropic_Adjustment.nc")[0]
 
    cfp.con(

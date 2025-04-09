@@ -6,6 +6,7 @@ Example 16a
 
 .. code-block:: python
    :caption: *TODO describe Example 16a*
+
    c = cf.read(f"{self.data_dir}/vaAMIPlcd_DJF.nc")[0]
    c = c.subspace(Y=cf.wi(-60, 60))
    c = c.subspace(X=cf.wi(80, 160))

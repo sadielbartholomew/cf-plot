@@ -6,6 +6,7 @@ Example 19a
 
 .. code-block:: python
    :caption: *TODO describe Example 19a*
+
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
    cfp.gopen(rows=2, columns=2, bottom=0.2)
    cfp.gpos(1)

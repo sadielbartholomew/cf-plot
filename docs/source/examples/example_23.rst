@@ -6,6 +6,7 @@ Example 23
 
 .. code-block:: python
    :caption: *TODO describe Example 23*
+
    f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
    data = f.array

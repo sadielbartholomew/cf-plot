@@ -6,6 +6,7 @@ Example 25
 
 .. code-block:: python
    :caption: *TODO describe Example 25*
+
    f = cf.read("cfplot_data/orca2.nc")
 
    # Get an Orca grid and flatten the arrays

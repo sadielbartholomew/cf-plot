@@ -6,6 +6,7 @@ Example 29
 
 .. code-block:: python
    :caption: *TODO describe Example 29*
+
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
    temp = f.subspace(time=cf.wi(cf.dt("1900-01-01"), cf.dt("1980-01-01")))

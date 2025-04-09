@@ -6,6 +6,7 @@ Example 26b
 
 .. code-block:: python
    :caption: *TODO describe Example 26b*
+
    # Arrays for data
    lons=[]
    lats=[]

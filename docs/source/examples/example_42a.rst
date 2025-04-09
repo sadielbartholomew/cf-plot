@@ -6,6 +6,7 @@ Example 42a
 
 .. code-block:: python
    :caption: *TODO describe Example 42a*
+
    f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 
    cfp.mapset(lonmin=-50, lonmax=50, latmin=20, latmax=80)

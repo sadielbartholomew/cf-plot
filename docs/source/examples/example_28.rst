@@ -6,6 +6,7 @@ Example 28
 
 .. code-block:: python
    :caption: *TODO describe Example 28*
+
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
    g = f.collapse("X: mean")

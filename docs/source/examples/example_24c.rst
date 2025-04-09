@@ -6,6 +6,7 @@ Example 24c
 
 .. code-block:: python
    :caption: *TODO describe Example 24c*
+
    f = cf.read("cfplot_data/lfric_initial.nc")
    pot = f.select_by_identity("air_potential_temperature")[0]
 

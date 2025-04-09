@@ -6,6 +6,7 @@ Example 19b
 
 .. code-block:: python
    :caption: *TODO describe Example 19b*
+
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
    cfp.gopen(user_position=True)

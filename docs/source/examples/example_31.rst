@@ -6,6 +6,7 @@ Example 31
 
 .. code-block:: python
    :caption: *TODO describe Example 31*
+
    f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
    cfp.mapset(proj="UKCP", resolution="50m")

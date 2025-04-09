@@ -6,6 +6,7 @@ Example 3
 
 .. code-block:: python
    :caption: *TODO describe Example 3*
+
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
    cfp.mapset(lonmin=-15, lonmax=3, latmin=48, latmax=60)

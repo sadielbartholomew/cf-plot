@@ -6,6 +6,7 @@ Example 16b
 
 .. code-block:: python
    :caption: *TODO describe Example 16b*
+
    f = cf.read(f"{self.data_dir}/ggap.nc")
    u = f[1].subspace(pressure=500)
    v = f[2].subspace(pressure=500)
