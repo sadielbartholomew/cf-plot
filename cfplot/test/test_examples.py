@@ -112,17 +112,6 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_2(self):
         """Test Example 2: a cylindrical projection with blockfill."""
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 498, in test_example_2
-        #     cfp.con(f.subspace(time=15), blockfill=True, lines=False)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3349, in con
-        #     raise TypeError(errstr)
-        # TypeError:
-
-        # cfp.con - blockfill error
-        # need to match number of colours and contour intervals
-        # Don't forget to take account of the colorbar extensions
-
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
         cfp.con(f.subspace(time=15), blockfill=True, lines=False)
@@ -183,9 +172,6 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_9(self):
         """Test Example 9: longitude-pressure plot."""
-        # Hits bug 799 from cf-python:
-        # https://github.com/NCAS-CMS/cf-python/issues/799
-
         f = cf.read(f"{self.data_dir}/ggap.nc")[0]
 
         cfp.con(f.collapse("mean", "latitude"))
@@ -248,7 +234,6 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_15(self):
         """Test Example 15: polar vector plot."""
-        # TODO avoiding repeated reads, incorporate into docs too
         f = cf.read(f"{self.data_dir}/ggap.nc")
         u = f[1]
         v = f[3]
@@ -600,8 +585,6 @@ class ExamplesTest(unittest.TestCase):
 
         Test example for unstructured grids: ORCA grid example 1.
         """
-        # NOTE: this is taken from the 'unstructured.rst/html' page, but
-        # is very similar to 'test_example_26', so coordinate with that.
         f = cf.read("cfplot_data/orca2.nc")
 
         # Get an Orca grid and flatten the arrays
@@ -641,8 +624,6 @@ class ExamplesTest(unittest.TestCase):
         Test example for unstructured grids: station data example 1, now
         numbered to become the missing example 26, part (a).
         """
-        # Part 1: docs title 'Station data'
-
         # Arrays for data
         lons=[]
         lats=[]
@@ -669,10 +650,6 @@ class ExamplesTest(unittest.TestCase):
         Test example for unstructured grids: station data example 2, now
         numbered to become the missing example 26, part (b).
         """
-        # START OF CODE LIFTED FROM 'test_example_26a'
-        # --------------------------------------------------------------------
-        # Part 1: docs title 'Station data'
-
         # Arrays for data
         lons=[]
         lats=[]
@@ -689,10 +666,6 @@ class ExamplesTest(unittest.TestCase):
             pressure=np.append(pressure, float(mysplit[3]))
             temp=np.append(temp, float(mysplit[4]))
 
-        # END OF CODE LIFTED FROM 'test_example_unstructured_station_data_1'
-        # --------------------------------------------------------------------
-
-        # Part 2: docs title 'Station data - check of data values'
         cfp.gopen()
         cfp.con(
             x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
@@ -793,15 +766,14 @@ class ExamplesTest(unittest.TestCase):
         """Test Example 30: two axis plotting."""
         tol = cf.RTOL(1e-5)
 
-        # TODO avoiding repeated reads, incorporate into docs too
-        f_list = cf.read(f"{self.data_dir}/ggap.nc")
-        f = f_list[1]
+        fl = cf.read(f"{self.data_dir}/ggap.nc")
+        f = fl[1]
 
         u = f.collapse("X: mean")
         u1 = u.subspace(Y=cf.isclose(-61.12099075))
         u2 = u.subspace(Y=cf.isclose(0.56074494))
 
-        g = f_list[0]
+        g = fl[0]
         t = g.collapse("X: mean")
         t1 = t.subspace(Y=cf.isclose(-61.12099075))
         t2 = t.subspace(Y=cf.isclose(0.56074494))
@@ -817,7 +789,11 @@ class ExamplesTest(unittest.TestCase):
 
     @compare_plot_results
     def test_example_31(self):
-        """Test Example 31: UKCP projection."""
+        """Test Example 31: UKCP projection.
+
+        NOTE: for docs, remove the '**self.setvars_dict' which relates
+        to Issue https://github.com/NCAS-CMS/cf-plot/issues/93.
+        """
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
         cfp.mapset(proj="UKCP", resolution="50m")
@@ -837,6 +813,9 @@ class ExamplesTest(unittest.TestCase):
         issue, perhaps wider than UKCP blockfill, and also the gridlines
         extending out relative to the desired result (see docs image at
         https://ncas-cms.github.io/cf-plot/build/_images/fig32.png).
+
+        NOTE ALSO: for docs, remove the '**self.setvars_dict' which relates
+        to Issue https://github.com/NCAS-CMS/cf-plot/issues/93.
         """
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
@@ -856,16 +835,8 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_33(self):
         """Test Example 33: OSGB and EuroPP projections."""
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/gen-plot.py", line 23, in <module>
-        #     cfp.con(f, lines=False, colorbar_label_skip=2)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 4100, in con
-        #     cbar(
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10056, in cbar
-        #     ax1,
-        #     ^^^
-        # UnboundLocalError: cannot access local variable 'ax1' where it is not associated with a value
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
+
         cfp.levs(-3, 7, 0.5)
 
         cfp.gopen(columns=2)
@@ -880,6 +851,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_34(self):
         """Test Example 34: Cropped Lambert conformal projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="lcc", lonmin=-50, lonmax=50, latmin=20, latmax=85)
 
         cfp.con(f.subspace(time=15))
@@ -888,6 +860,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_35(self):
         """Test Example 35: Mollweide projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="moll")
 
         cfp.con(f.subspace(time=15))
@@ -896,6 +869,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_36(self):
         """Test Example 36: Mercator projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="merc")
 
         cfp.con(f.subspace(time=15))
@@ -904,6 +878,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_37(self):
         """Test Example 37: Orthographic projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="ortho")
 
         cfp.con(f.subspace(time=15))
@@ -912,6 +887,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_38(self):
         """Test Example 38: Robinson projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="robin")
 
         cfp.con(f.subspace(time=15))
