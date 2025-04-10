@@ -1,11 +1,12 @@
 .. _example9:
 
-Example 9
----------
+Example 9: Longitude-pressure plot over latitude mean
+-----------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 9*
+   :caption: Making a plot with longitude and pressure as the axes
+             for a mean over latitude
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[0]
 

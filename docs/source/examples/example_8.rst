@@ -1,11 +1,12 @@
 .. _example8:
 
-Example 8
----------
+Example 8: Latitude against log of pressure over longitude zonal mean
+---------------------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 8*
+   :caption: Making a semilog plot with latitude and the log of the
+             pressure as the axes for a zonal mean over longitude
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 

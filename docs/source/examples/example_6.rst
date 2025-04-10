@@ -1,11 +1,12 @@
 .. _example6:
 
-Example 6
----------
+Example 6: Latitude-pressure plot at set longitude
+--------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 6*
+   :caption: Making a plot for a given longitude value with latitude and
+             pressure as the axes
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[3]
  
