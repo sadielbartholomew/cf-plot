@@ -1,11 +1,11 @@
 .. _example36:
 
-Example 36
-**********
+Example 36: Plotting using the Mercator projection
+--------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 36*
+   :caption: Plotting using the Mercator projection
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

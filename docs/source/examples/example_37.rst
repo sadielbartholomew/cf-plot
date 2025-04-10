@@ -1,11 +1,11 @@
 .. _example37:
 
-Example 37
-**********
+Example 37: Orthographic projection
+-----------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 37*
+   :caption: Plotting using the Orthographic projection
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

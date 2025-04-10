@@ -1,11 +1,11 @@
 .. _example32:
 
-Example 32
-**********
+Example 32: UKCP projection with blockfill
+------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 32*
+   :caption: Plotting a blockfill plot using the UKCP projection
 
    f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 

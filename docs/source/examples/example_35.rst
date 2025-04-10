@@ -1,11 +1,11 @@
 .. _example35:
 
-Example 35
-**********
+Example 35: Mollweide projection
+--------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 35*
+   :caption: Plotting using the Mollweide projection
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

@@ -1,11 +1,11 @@
 .. _example31:
 
-Example 31
-**********
+Example 31: UKCP projection
+---------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 31*
+   :caption: Plotting using the UKCP projection
 
    f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 

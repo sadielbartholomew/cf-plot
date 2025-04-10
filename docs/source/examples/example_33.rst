@@ -1,11 +1,11 @@
 .. _example33:
 
-Example 33
-**********
+Example 33: OSGB and EuroPP projections
+---------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 33*
+   :caption: Plotting using the projections OSGB and EuroPP
 
    f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 

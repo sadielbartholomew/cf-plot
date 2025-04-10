@@ -1,11 +1,11 @@
 .. _example38:
 
-Example 38
-**********
+Example 38: Robinson
+--------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 38*
+   :caption: Plotting using the Robinson projection
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

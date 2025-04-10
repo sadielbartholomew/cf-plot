@@ -1,11 +1,12 @@
 .. _example34:
 
-Example 34
-**********
+Example 34: cropping the Lambert Conformal Conic (LCC) projection
+-----------------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 34*
+   :caption: Plotting using the Lambert Conformal Conic (LCC) projection
+             and cropping the displayed boundaries.
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
