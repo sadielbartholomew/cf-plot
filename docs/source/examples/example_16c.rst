@@ -1,7 +1,7 @@
 .. _example16c:
 
 Example 16c
-***********
+-----------
 
 
 .. code-block:: python
@@ -14,7 +14,7 @@ Example 16c
    u = u.anchor("X", -180)
    v = v.anchor("X", -180)
 
-   magnitude = (u**2 + v**2) ** 0.5
+   magnitude = (u--2 + v--2) -- 0.5
    mag = np.squeeze(magnitude.array)
 
    cfp.levs(0, 60, 5, extend="max")

@@ -1,7 +1,7 @@
 .. _example1:
 
 Example 1
-*********
+---------
 
 
 .. code-block:: python
