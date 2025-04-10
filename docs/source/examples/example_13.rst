@@ -1,11 +1,11 @@
 .. _example13:
 
-Example 13
-----------
+Example 13: Basic vector plot
+-----------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 13*
+   :caption: Making a basic vector plot
 
    f = cf.read(f"{self.data_dir}/ggap.nc")
 

@@ -1,11 +1,11 @@
 .. _example16b:
 
-Example 16b
------------
+Example 16b: Basic stream plot
+------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 16b*
+   :caption: Making a basic stream plot
 
    f = cf.read(f"{self.data_dir}/ggap.nc")
    u = f[1].subspace(pressure=500)

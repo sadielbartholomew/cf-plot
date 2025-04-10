@@ -1,7 +1,7 @@
 .. _example36:
 
-Example 36: Plotting using the Mercator projection
---------------------------------------------------
+Example 36: Mercator projection
+-------------------------------
 
 
 .. code-block:: python

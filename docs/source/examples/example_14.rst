@@ -1,11 +1,11 @@
 .. _example14:
 
-Example 14
-----------
+Example 14: Vector plot overlaid on a contour map
+-------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 14*
+   :caption: Overlaying a vector plot on a contoured temperature field
 
    f = cf.read(f"{self.data_dir}/ggap.nc")
 

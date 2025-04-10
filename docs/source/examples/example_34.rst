@@ -1,6 +1,6 @@
 .. _example34:
 
-Example 34: cropping the Lambert Conformal Conic (LCC) projection
+Example 34: Cropping the Lambert Conformal Conic (LCC) projection
 -----------------------------------------------------------------
 
 

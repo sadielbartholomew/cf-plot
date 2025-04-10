@@ -1,11 +1,11 @@
 .. _example16a:
 
-Example 16a
------------
+Example 16a: Zonal vector plot
+------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 16a*
+   :caption: Vector plot of a zonal mean
 
    c = cf.read(f"{self.data_dir}/vaAMIPlcd_DJF.nc")[0]
    c = c.subspace(Y=cf.wi(-60, 60))
@@ -17,9 +17,6 @@ Example 16a
    g = g.subspace(X=cf.wi(80, 160))
    g = g.collapse("T: mean X: mean")
 
-   # To avoid a cf-python field bug which would appear if we instead
-   # did v = -g, see cf-python Issue #797:
-   # https://github.com/NCAS-CMS/cf-python/issues/797
    v = -1 * g
 
    cfp.vect(

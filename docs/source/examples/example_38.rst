@@ -1,7 +1,7 @@
 .. _example38:
 
-Example 38: Robinson
---------------------
+Example 38: Robinson projection
+-------------------------------
 
 
 .. code-block:: python

@@ -1,11 +1,13 @@
 .. _example16c:
 
-Example 16c
------------
+Example 16c: Stream plot in a colour scale
+------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 16c*
+   :caption: Making an enhanced stream plot where the streamlines are
+             shown in colours mapped to a colour scale corresponding to
+             the magnitude of the underlying data
 
    f = cf.read(f"{self.data_dir}/ggap.nc")
 
