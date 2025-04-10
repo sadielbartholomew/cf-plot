@@ -1,11 +1,13 @@
 .. _example11:
 
-Example 11
-----------
+Example 11: Latitude-time subset view Hovmöller plot
+----------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 11*
+   :caption: Making a Hovmöller plot with latitude and time as the axes
+             where the plot is set to display only a subset of the
+             latitude axes
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

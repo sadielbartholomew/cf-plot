@@ -1,11 +1,11 @@
 .. _example10:
 
-Example 10
-----------
+Example 10: Latitude-time Hovmöller plot
+----------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 10*
+   :caption: Making a Hovmöller plot with latitude and time as the axes
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

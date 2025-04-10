@@ -1,11 +1,11 @@
 .. _example12:
 
-Example 12
-----------
+Example 12: Longitude-time Hovmöller plot
+-----------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 12*
+   :caption: Making a Hovmöller plot with longitude and time as the axes
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
