@@ -5,7 +5,8 @@
 Projections in cf-plot
 **********************
 
-The cylindrical and polar stereographic projections are detailed separately in `cylindrical plots <cylindrical>` and `polar plots <polar>`.
+The cylindrical and polar stereographic projections are detailed
+separately in `cylindrical plots <cylindrical>` and `polar plots <polar>`.
 
 
 .. include:: examples/example_31.rst
