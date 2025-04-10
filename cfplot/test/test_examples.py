@@ -236,12 +236,22 @@ class ExamplesTest(unittest.TestCase):
         """Test Example 15: polar vector plot."""
         f = cf.read(f"{self.data_dir}/ggap.nc")
         u = f[1]
-        v = f[3]
+        v = f[2]
         u = u.subspace(Z=500)
         v = v.subspace(Z=500)
 
         cfp.mapset(proj="npstere")
 
+        cfp.gopen(columns=2)
+        cfp.vect(
+            u=u,
+            v=v,
+            key_length=10,
+            scale=100,
+            stride=4,
+            title="Polar plot using data grid",
+        )
+        cfp.gpos(2)
         cfp.vect(
             u=u,
             v=v,
@@ -250,6 +260,7 @@ class ExamplesTest(unittest.TestCase):
             pts=40,
             title="Polar plot with regular point distribution",
         )
+        cfp.gclose()
 
     @compare_plot_results
     def test_example_16a(self):
@@ -524,13 +535,17 @@ class ExamplesTest(unittest.TestCase):
         faces = f.select_by_identity("cf_role=face_edge_connectivity")[0]
 
         # Reduce the variable to match the shapes
-        pot = pot[4,:]
+        pot = pot[4, :]
 
         cfp.levs(240, 310, 5)
 
         cfp.con(
-            f=pot, face_lons=lons, face_lats=lats,
-            face_connectivity=faces, lines=False, blockfill=True,
+            f=pot,
+            face_lons=lons,
+            face_lats=lats,
+            face_connectivity=faces,
+            lines=False,
+            blockfill=True,
         )
 
     @compare_plot_results
@@ -554,15 +569,18 @@ class ExamplesTest(unittest.TestCase):
         faces = f.select_by_identity("cf_role=face_edge_connectivity")[0]
 
         # Reduce the variable to match the shapes
-        pot = pot[4,:]
+        pot = pot[4, :]
 
         cfp.levs(240, 310, 5)
 
         # This time set the projection to a polar one for a different view
         cfp.mapset(proj="npstere")
         cfp.con(
-            f=pot, face_lons=lons,
-            face_lats=lats, face_connectivity=faces, lines=False,
+            f=pot,
+            face_lons=lons,
+            face_lats=lats,
+            face_connectivity=faces,
+            lines=False,
             blockfill=True,
         )
 
@@ -625,23 +643,24 @@ class ExamplesTest(unittest.TestCase):
         numbered to become the missing example 26, part (a).
         """
         # Arrays for data
-        lons=[]
-        lats=[]
-        pressure=[]
-        temp=[]
+        lons = []
+        lats = []
+        pressure = []
+        temp = []
 
         # Read data and make the contour plot
-        f = open('cfplot_data/synop_data.txt')
+        f = open("cfplot_data/synop_data.txt")
         lines = f.readlines()
         for line in lines:
-            mysplit=line.split()
-            lons=np.append(lons, float(mysplit[1]))
-            lats=np.append(lats, float(mysplit[2]))
-            pressure=np.append(pressure, float(mysplit[3]))
-            temp=np.append(temp, float(mysplit[4]))
+            mysplit = line.split()
+            lons = np.append(lons, float(mysplit[1]))
+            lats = np.append(lats, float(mysplit[2]))
+            pressure = np.append(pressure, float(mysplit[3]))
+            temp = np.append(temp, float(mysplit[4]))
 
         cfp.con(
-            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
+            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation="vertical"
+        )
 
     @compare_plot_results
     def test_example_26b(self):
@@ -651,29 +670,33 @@ class ExamplesTest(unittest.TestCase):
         numbered to become the missing example 26, part (b).
         """
         # Arrays for data
-        lons=[]
-        lats=[]
-        pressure=[]
-        temp=[]
+        lons = []
+        lats = []
+        pressure = []
+        temp = []
 
         # Read data and make the contour plot
-        f = open('cfplot_data/synop_data.txt')
+        f = open("cfplot_data/synop_data.txt")
         lines = f.readlines()
         for line in lines:
-            mysplit=line.split()
-            lons=np.append(lons, float(mysplit[1]))
-            lats=np.append(lats, float(mysplit[2]))
-            pressure=np.append(pressure, float(mysplit[3]))
-            temp=np.append(temp, float(mysplit[4]))
+            mysplit = line.split()
+            lons = np.append(lons, float(mysplit[1]))
+            lats = np.append(lats, float(mysplit[2]))
+            pressure = np.append(pressure, float(mysplit[3]))
+            temp = np.append(temp, float(mysplit[4]))
 
         cfp.gopen()
         cfp.con(
-            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
+            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation="vertical"
+        )
         for i in np.arange(len(lines)):
             cfp.plotvars.mymap.text(
-                float(lons[i]), float(lats[i]), str(temp[i]),
-                horizontalalignment='center',verticalalignment='center',
-                transform=ccrs.PlateCarree()
+                float(lons[i]),
+                float(lats[i]),
+                str(temp[i]),
+                horizontalalignment="center",
+                verticalalignment="center",
+                transform=ccrs.PlateCarree(),
             )
 
         cfp.gclose()
