@@ -1,11 +1,12 @@
 .. _example17:
 
-Example 17
-----------
+Example 17: Basic stipple plot
+------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 17*
+   :caption: A stipple plot, whereby stippling is applied to a contour
+             plot to indicate areas of statistical significance.
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

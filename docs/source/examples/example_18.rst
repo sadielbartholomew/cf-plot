@@ -1,11 +1,11 @@
 .. _example18:
 
-Example 18
-----------
+Example 18: Polar stipple plot
+------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 18*
+   :caption: A stipple plot in the North Pole polar stereographic projection.
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
