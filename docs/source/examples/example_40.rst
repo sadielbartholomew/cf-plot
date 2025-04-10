@@ -1,11 +1,12 @@
 .. _example40:
 
-Example 40
-----------
+Example 40: Tracks in the polar stereographic projection
+--------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 40*
+   :caption: Plotting tracks i.e. trajectories on the Northern polar
+             stereographic projection
 
    f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 

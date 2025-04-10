@@ -1,11 +1,11 @@
 .. _example41:
 
-Example 41
-----------
+Example 41: Feature propagation over Europe
+-------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 41*
+   :caption: Plotting the propagation of features over Europe
 
    f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 

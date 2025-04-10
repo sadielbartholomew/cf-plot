@@ -1,11 +1,14 @@
 .. _example42a:
 
-Example 42a
------------
+Example 42a: Tracks with labelled data points
+---------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 42a*
+   :caption: Plotting tracks with labelling of the discrete data
+             points forming the trajectory shown
+             with intensity matched to a displayed colour scale using
+             the `legend` keyword
 
    f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 

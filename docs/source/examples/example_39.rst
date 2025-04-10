@@ -1,11 +1,11 @@
 .. _example39:
 
-Example 39
-----------
+Example 39: Basic track plotting
+--------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 39*
+   :caption: A basic example of plotting a track i.e. trajectory
 
    f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 

@@ -1,11 +1,14 @@
 .. _example42b:
 
-Example 42b
------------
+Example 42b: Tracks displayed in a colour scale
+-----------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 42b*
+   :caption: Plotting tracks where the trajectory is shown in
+             colours mapped to a colour scale corresponding to
+             the value of the underlying data by setting the
+             `legend_lines` keyword to `True`
 
    f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 
