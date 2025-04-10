@@ -1,11 +1,12 @@
 .. _example4:
 
-Example 4
----------
+Example 4: North Pole polar stereographic projection contour plot
+-----------------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 4*
+   :caption: Plotting a contour plot in the North Pole polar
+             stereographic projection
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
