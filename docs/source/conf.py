@@ -152,7 +152,9 @@ html_theme_options = {
         "This is the new permanent home of the cf-plot documentation: please "
         "consult this and not the old frozen version under "
         "'http://ajheaps.github.io'."
-    )
+    ),
+    "pygments_light_style": "xcode",
+    "pygments_dark_style": "stata-dark",
 }
 
 
