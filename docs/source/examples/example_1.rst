@@ -1,11 +1,13 @@
 .. _example1:
 
-Example 1
----------
+Example 1: Basic contour plot in default projection
+---------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 1*
+   :caption: Making a basic default contour plot which uses the default
+             projection, Cylindrical, and has contour lines explicitly
+             filled and shown with value labels
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

@@ -1,11 +1,12 @@
 .. _example2:
 
-Example 2
----------
+Example 2: Basic blockfill plot in default projection
+-----------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 2*
+   :caption: Making a basic blockfill plot which uses the default,
+             Cylindrical, projection
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

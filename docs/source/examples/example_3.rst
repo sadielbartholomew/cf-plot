@@ -1,11 +1,13 @@
 .. _example3:
 
-Example 3
----------
+Example 3: Contour plot with altered map limits and levels
+----------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 3*
+   :caption: Altering a contour plot to show different limits
+             of latitude and longitude and to change the contour
+             levels displayed
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
