@@ -2,11 +2,8 @@
 
 .. _graphs:
 
-Graphs
-******
-
-Example 27 - graph plot
------------------------
+Line plots i.e. graphs
+**********************
 
 .. include:: examples/example_27.rst
 
@@ -35,10 +32,6 @@ Note other valid markers are:
 |    'D' 	diamond
 |    'd' 	thin_diamond
 
-
-
-Example 28 - Line and legend plot
----------------------------------
 
 .. include:: examples/example_28.rst
 
@@ -90,10 +83,6 @@ predefined CF defaults:
 | yticklabels - y tick labels
 
 
-
-Example 29 - Global average annual temperature
-----------------------------------------------
-
 .. include:: examples/example_29.rst
 
 In this example we subset a time data series of global temperature, area
@@ -105,10 +94,6 @@ pass time strings to give the limits i.e.
 
 The correct date format is ``YYYY-MM-DD`` or ``YYYY-MM-DD HH:MM:SS``.
 Anything else will give unexpected results.
-
-
-Example 30 - Two axis plotting
-------------------------------
 
 
 .. include:: examples/example_30.rst
