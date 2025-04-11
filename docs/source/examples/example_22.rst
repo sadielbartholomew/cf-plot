@@ -1,15 +1,17 @@
 .. _example22:
 
-Example 22
-----------
+Example 22: Plot of rotated pole data on its native grid
+--------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 22*
+   :caption: Making a plot of data defined on a rotated pole coordinate
+             system shown on its native grid
 
    f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
-   cfp.cscale("gray")
+   cfp.cscale("plasma")
+   cfp.mapset(proj="rotated")
 
    cfp.con(f)
 

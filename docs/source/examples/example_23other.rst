@@ -1,7 +1,7 @@
 .. _example23other:
 
-Example 23 Other
-----------------
+Example 23 Other: Overlaying vectors over a rotated pole data plot
+------------------------------------------------------------------
 
 
 .. code-block:: python
