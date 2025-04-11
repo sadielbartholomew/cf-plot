@@ -1,11 +1,12 @@
 .. _example29:
 
-Example 29
-----------
+Example 29: Time series line plot
+---------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 29*
+   :caption: Making a basic line plot for a time series where the
+             data shown is global average annual temperature
 
    f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 

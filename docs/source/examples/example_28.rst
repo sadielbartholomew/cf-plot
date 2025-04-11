@@ -1,11 +1,12 @@
 .. _example28:
 
-Example 28
-----------
+Example 28: Line plot with a legend
+-----------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 28*
+   :caption: Adding a legend to annotate a line plot with multiple
+             plotted lines
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 

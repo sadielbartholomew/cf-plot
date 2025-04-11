@@ -1,11 +1,11 @@
 .. _example30:
 
-Example 30
-----------
+Example 30: Line plot with two x axes
+-------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 30*
+   :caption: Adding an extra x axis to a line plot
 
    tol = cf.RTOL(1e-5)
 

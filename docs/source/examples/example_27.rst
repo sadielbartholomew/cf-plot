@@ -1,11 +1,11 @@
 .. _example27:
 
-Example 27
-----------
+Example 27: Basic line plot
+---------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 27*
+   :caption: Making a basic line plot
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
