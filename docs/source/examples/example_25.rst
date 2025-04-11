@@ -1,11 +1,12 @@
 .. _example25:
 
-Example 25
-----------
+Example 25: UGRID contour plot with ORCA 2 output
+-------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 25*
+   :caption: Making a contour plot of UGRID data, specifically ORCA 2
+             ocean-only grid data
 
    f = cf.read("cfplot_data/orca2.nc")
 

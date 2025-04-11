@@ -1,11 +1,14 @@
 .. _example26b:
 
-Example 26b
------------
+Example 26b: Contour plot from discrete feature values with labelling
+---------------------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 26b*
+   :caption: Making a contour plot where the contours are determined
+             from discrete feature values with labels to annotate the
+             values at each feature, in this case station data with
+             values at each station annotated
 
    # Arrays for data
    lons=[]

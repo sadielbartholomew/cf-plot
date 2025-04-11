@@ -1,11 +1,12 @@
 .. _example26a:
 
-Example 26a
------------
+Example 26a: Contour plot based on discrete feature values
+----------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 26a*
+   :caption: Making a contour plot where the contours are determined
+             from discrete feature values, in this case station data
 
    # Arrays for data
    lons=[]

@@ -1,7 +1,7 @@
 .. _example24b:
 
-Example 24b
------------
+Example 24b: UGRID plot in the polar stereographic projection view
+------------------------------------------------------------------
 
 
 .. code-block:: python

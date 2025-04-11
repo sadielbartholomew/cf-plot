@@ -1,11 +1,12 @@
 .. _example24a:
 
-Example 24a
------------
+Example 24a: UGRID blockfill plot with LFRic cubed sphere mesh output
+---------------------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 24a*
+   :caption: Making a blockfill plot of UGRID data, specifically LFRic
+             model output which is defined on a cubed sphere mesh
 
    f = cf.read("cfplot_data/lfric_initial.nc")
 
