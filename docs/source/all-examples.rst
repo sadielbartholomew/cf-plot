@@ -9,11 +9,11 @@ Listing of examples
 -------------------
 
 Note: all example code assumes the following imports have been made,
-where `numpy` is usually not required but it may be for some:
+where ``numpy`` is usually not required but it may be for some examples:
 
 .. code-block:: python
    :caption: Imports required as setup for the examples, noting that
-             cfplot is always aliased to `cfp` by convention
+             cfplot is always aliased to ``cfp`` by convention
 
    import cfplot as cfp
    import cf
@@ -48,8 +48,8 @@ where `numpy` is usually not required but it may be for some:
    examples/example_19c.rst
    examples/example_20.rst
    examples/example_21.rst
+   examples/example_21other.rst
    examples/example_22.rst
-   examples/example_22other.rst
    examples/example_23.rst
    examples/example_23other.rst
    examples/example_24a.rst
