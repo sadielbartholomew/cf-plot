@@ -1,11 +1,12 @@
 .. _example21:
 
-Example 21
-----------
+Example 21: User-defined axes
+-----------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 21*
+   :caption: Adjusting the default axes labelling to prevent overlapping
+             labels
 
    f = cf.read(f"{self.data_dir}/Geostropic_Adjustment.nc")[0]
 
