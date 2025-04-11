@@ -1,11 +1,11 @@
 .. _example19a:
 
-Example 19a
------------
+Example 19a: Multiple plots
+---------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 19a*
+   :caption: Making a single figure with multiple plots on it
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
    cfp.gopen(rows=2, columns=2, bottom=0.2)

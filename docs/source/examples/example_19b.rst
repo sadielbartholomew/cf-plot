@@ -1,11 +1,12 @@
 .. _example19b:
 
-Example 19b
------------
+Example 19b: Multiple plots with user-specified plot positions
+--------------------------------------------------------------
 
 
 .. code-block:: python
-   :caption: *TODO describe Example 19b*
+   :caption: Making a single figure with multiple plots on it, where
+             the positions of the individual plots are set explicitly
 
    f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
