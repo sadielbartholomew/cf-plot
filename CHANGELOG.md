@@ -13,6 +13,15 @@ of being developed elsewhere.
 
 -----
 
+### Version `3.4.X`, first released (`3.4.0`) `????-??-??`
+
+#### Version `3.4.0`, release soon (date TBC)
+
+* Fix bug whereby blockfill plots (`con` with `blockfill=True`) of UGRID data in either polar
+  projection (`proj="npstere"` or `proj="spstere"`) could display blacked out areas
+  (see https://github.com/NCAS-CMS/cf-plot/issues/99)
+
+
 ### Version `3.3.X`, first released (`3.3.0`) `2024-01-15`
 
 #### Version `3.3.0`, released `2024-01-15`
