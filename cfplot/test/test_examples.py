@@ -436,8 +436,8 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.con(f.subspace[9])
 
-    def test_example_21(self):
-        """Test Example 21: rotated pole data plot."""
+    def test_example_21a(self):
+        """Test Example 21a: rotated pole data plot."""
         f = cf.read(f"{self.data_dir}/Geostropic_Adjustment.nc")[0]
 
         cfp.con(
@@ -450,8 +450,8 @@ class ExamplesTest(unittest.TestCase):
         )
 
     @compare_plot_results
-    def test_example_21other(self):
-        """Test Example 21 (other, due to duplicate label of 21)."""
+    def test_example_21b(self):
+        """Test Example 21b"""
         f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
         cfp.cscale("plasma")
@@ -469,8 +469,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.con(f)
 
     @compare_plot_results
-    def test_example_23(self):
-        """Test Example 23."""
+    def test_example_23a(self):
+        """Test Example 23a."""
         f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
         data = f.array
@@ -492,8 +492,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_23other(self):
-        """Test Example 23 (other, due to duplicate label of 23)."""
+    def test_example_23b(self):
+        """Test Example 23b."""
         f = cf.read(
             f"{self.data_dir}/20160601-05T0000Z_INCOMPASS_km4p4_uv_RH_500.nc"
         )
