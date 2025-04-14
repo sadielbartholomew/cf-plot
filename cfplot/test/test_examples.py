@@ -210,8 +210,12 @@ class ExamplesTest(unittest.TestCase):
         """Test Example 13: basic vector plot."""
         f = cf.read(f"{self.data_dir}/ggap.nc")
 
-        u = f[1].subspace(pressure=500)
-        v = f[2].subspace(pressure=500)
+        u = f.select_by_identity("eastward_wind")[0]
+        v = f.select_by_identity("northward_wind")[0]
+
+        # Subspace to get values for a specified pressure, here 500 mbar
+        u = u.subspace(pressure=500)
+        v = v.subspace(pressure=500)
 
         cfp.vect(u=u, v=v, key_length=10, scale=100, stride=5)
 
@@ -220,9 +224,14 @@ class ExamplesTest(unittest.TestCase):
         """Test Example 14: vector plot with colour contour map."""
         f = cf.read(f"{self.data_dir}/ggap.nc")
 
-        u = f[1].subspace(pressure=500)
-        v = f[2].subspace(pressure=500)
-        t = f[0].subspace(pressure=500)
+        u = f.select_by_identity("eastward_wind")[0]
+        v = f.select_by_identity("northward_wind")[0]
+        t = f.select_by_identity("air_temperature")[0]
+
+        # Subspace to get values for a specified pressure, here 500 mbar
+        u = u.subspace(pressure=500)
+        v = v.subspace(pressure=500)
+        t = t.subspace(pressure=500)
 
         cfp.gopen()
         cfp.mapset(lonmin=10, lonmax=120, latmin=-30, latmax=30)
