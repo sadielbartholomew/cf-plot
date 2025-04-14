@@ -3282,14 +3282,13 @@ def con(
             print("con - calling _cf_data_assign")
 
         # Subset the data if a user map is set
-        # This is use to speed up the plotting
+        # This is used to speed up the plotting
         # myfield is used for calculating the contour levels
         # myfield_extended is used to make the contour plot
-        if plotvars.user_mapset:
+        if plotvars.user_mapset and not blockfill_ugrid:
             if plotvars.proj == "npstere":
                 f = f.subspace(Y=cf.wi(plotvars.boundinglat, 90.0))
-
-            if plotvars.proj == "spstere":
+            elif plotvars.proj == "spstere":
                 f = f.subspace(Y=cf.wi(-90.0, plotvars.boundinglat))
 
         # Extract the data
