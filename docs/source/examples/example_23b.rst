@@ -1,7 +1,7 @@
-.. _example23other:
+.. _example23b:
 
-Example 23 Other: Overlaying vectors over a rotated pole data plot
-------------------------------------------------------------------
+Example 23b: Overlaying vectors over a rotated pole data plot
+-------------------------------------------------------------
 
 
 .. code-block:: python
@@ -19,4 +19,4 @@ Example 23 Other: Overlaying vectors over a rotated pole data plot
    cfp.gclose()
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_23other.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_23b.png

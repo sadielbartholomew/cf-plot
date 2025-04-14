@@ -1,13 +1,13 @@
-.. _example23:
+.. _example23a:
 
-Example 23: Rotated pole plot from data which is not CF Compliant
------------------------------------------------------------------
+Example 23a: Rotated pole plot from data which is not CF Compliant
+------------------------------------------------------------------
 
 
 .. code-block:: python
    :caption: Constructing a rotated pole plot from data which is not
              very CF Compliant, noting that this takes more set up
-             than for CF Compliant data (see Example 21 Other)
+             than for CF Compliant data (see Example 21b)
 
    f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
@@ -30,4 +30,4 @@ Example 23: Rotated pole plot from data which is not CF Compliant
    cfp.gclose()
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_23.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_23a.png

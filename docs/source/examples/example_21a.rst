@@ -1,7 +1,7 @@
-.. _example21:
+.. _example21a:
 
-Example 21: User-defined axes
------------------------------
+Example 21a: User-defined axes
+------------------------------
 
 
 .. code-block:: python
@@ -20,4 +20,4 @@ Example 21: User-defined axes
    )
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21a.png

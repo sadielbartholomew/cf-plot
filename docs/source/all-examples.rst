@@ -47,11 +47,11 @@ where ``numpy`` is usually not required but it may be for some examples:
    examples/example_19b.rst
    examples/example_19c.rst
    examples/example_20.rst
-   examples/example_21.rst
-   examples/example_21other.rst
+   examples/example_21a.rst
+   examples/example_21b.rst
    examples/example_22.rst
-   examples/example_23.rst
-   examples/example_23other.rst
+   examples/example_23a.rst
+   examples/example_23b.rst
    examples/example_24a.rst
    examples/example_24b.rst
    examples/example_25.rst

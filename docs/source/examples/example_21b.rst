@@ -1,7 +1,7 @@
-.. _example21other:
+.. _example21b:
 
-Example 21 Other: Plot of rotated pole data
--------------------------------------------
+Example 21b: Plot of rotated pole data
+--------------------------------------
 
 
 .. code-block:: python
@@ -14,4 +14,4 @@ Example 21 Other: Plot of rotated pole data
 
    cfp.con(f)
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21other.png
+.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21b.png

@@ -5,7 +5,7 @@
 Rotated pole plots
 ******************
 
-.. include:: examples/example_21other.rst
+.. include:: examples/example_21b.rst
 
 
 .. include:: examples/example_22.rst
@@ -16,7 +16,7 @@ centre of the plot. Data over the equatorial regions show little
 of this warping.
 
 
-.. include:: examples/example_23other.rst
+.. include:: examples/example_23b.rst
 
 
 In this plot a cylindrical projection plot of rotated pole data is
@@ -33,4 +33,4 @@ case b) above, the x-wind and y-wind will need to be appropriately
 rotated onto a cylindrical grid.
 
 
-.. include:: examples/example_23.rst
+.. include:: examples/example_23a.rst
