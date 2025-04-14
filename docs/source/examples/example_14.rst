@@ -9,9 +9,14 @@ Example 14: Vector plot overlaid on a contour map
 
    f = cf.read(f"cfplot_data/ggap.nc")
 
-   u = f[1].subspace(pressure=500)
-   v = f[3].subspace(pressure=500)
-   t = f[0].subspace(pressure=500)
+   u = f.select_by_identity("eastward_wind")[0]
+   v = f.select_by_identity("northward_wind")[0]
+   t = f.select_by_identity("air_temperature")[0]
+
+   # Subspace to get values for a specified pressure, here 500 mbar
+   u = u.subspace(pressure=500)
+   v = v.subspace(pressure=500)
+   t = t.subspace(pressure=500)
 
    cfp.gopen()
    cfp.mapset(lonmin=10, lonmax=120, latmin=-30, latmax=30)
