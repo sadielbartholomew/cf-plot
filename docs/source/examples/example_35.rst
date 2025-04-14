@@ -7,7 +7,7 @@ Example 35: Mollweide projection
 .. code-block:: python
    :caption: Plotting using the Mollweide projection
 
-   f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+   f = cf.read(f"cfplot_data/tas_A1.nc")[0]
 
    cfp.mapset(proj="moll")
 

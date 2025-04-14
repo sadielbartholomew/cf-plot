@@ -8,7 +8,7 @@ Example 23b: Overlaying vectors over a rotated pole data plot
    :caption: *TODO describe Example 23 Other*
 
    f = cf.read(
-       f"{self.data_dir}/20160601-05T0000Z_INCOMPASS_km4p4_uv_RH_500.nc"
+       f"cfplot_data/20160601-05T0000Z_INCOMPASS_km4p4_uv_RH_500.nc"
    )
    cfp.mapset(50, 100, 5, 35)
    cfp.levs(0, 90, 15, extend="neither")

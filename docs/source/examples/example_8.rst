@@ -8,7 +8,7 @@ Example 8: Latitude against log of pressure over longitude zonal mean
    :caption: Making a semilog plot with latitude and the log of the
              pressure as the axes for a zonal mean over longitude
 
-   f = cf.read(f"{self.data_dir}/ggap.nc")[1]
+   f = cf.read(f"cfplot_data/ggap.nc")[1]
 
    cfp.con(f.collapse("mean", "longitude"), ylog=1)
 

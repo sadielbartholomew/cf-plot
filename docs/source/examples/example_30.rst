@@ -9,7 +9,7 @@ Example 30: Line plot with two x axes
 
    tol = cf.RTOL(1e-5)
 
-   fl = cf.read(f"{self.data_dir}/ggap.nc")
+   fl = cf.read(f"cfplot_data/ggap.nc")
    f = fl[1]
 
    u = f.collapse("X: mean")

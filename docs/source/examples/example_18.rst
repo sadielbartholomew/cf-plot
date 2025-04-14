@@ -7,7 +7,7 @@ Example 18: Polar stipple plot
 .. code-block:: python
    :caption: A stipple plot in the North Pole polar stereographic projection.
 
-   f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+   f = cf.read(f"cfplot_data/tas_A1.nc")[0]
 
    g = f.subspace(time=15)
 

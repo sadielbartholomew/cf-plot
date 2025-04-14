@@ -8,7 +8,7 @@ Example 19c: Accomodating more than one colour bar
    :caption: Using the approach to make a single figure with multiple plots
              on it to fit an extra colour bar
 
-   f = cf.read(f"{self.data_dir}/ggap.nc")[1]
+   f = cf.read(f"cfplot_data/ggap.nc")[1]
    g = f.collapse("X: mean")
 
    cfp.gopen(user_position=True)

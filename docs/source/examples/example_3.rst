@@ -9,7 +9,7 @@ Example 3: Contour plot with altered map limits and levels
              of latitude and longitude and to change the contour
              levels displayed
 
-   f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+   f = cf.read(f"cfplot_data/tas_A1.nc")[0]
 
    cfp.mapset(lonmin=-15, lonmax=3, latmin=48, latmax=60)
    cfp.levs(min=265, max=285, step=1)

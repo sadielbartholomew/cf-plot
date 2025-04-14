@@ -9,7 +9,7 @@ Example 16c: Stream plot in a colour scale
              shown in colours mapped to a colour scale corresponding to
              the magnitude of the underlying data
 
-   f = cf.read(f"{self.data_dir}/ggap.nc")
+   f = cf.read(f"cfplot_data/ggap.nc")
 
    u = f[1].subspace(pressure=500)
    v = f[2].subspace(pressure=500)

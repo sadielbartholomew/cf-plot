@@ -8,7 +8,7 @@ Example 4: North Pole polar stereographic projection contour plot
    :caption: Plotting a contour plot in the North Pole polar
              stereographic projection
 
-   f = cf.read(f"{self.data_dir}/ggap.nc")[1]
+   f = cf.read(f"cfplot_data/ggap.nc")[1]
 
    cfp.mapset(proj="npstere")
 
