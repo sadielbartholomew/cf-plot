@@ -14,4 +14,4 @@ Example 12: Longitude-time Hovmöller plot
    cfp.con(f.subspace(latitude=0), lines=0)
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_12.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_12.png

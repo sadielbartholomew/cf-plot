@@ -18,4 +18,4 @@ Example 11: Latitude-time subset view Hovmöller plot
    cfp.con(f.subspace(longitude=0), lines=0)
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_11.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_11.png

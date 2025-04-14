@@ -22,4 +22,4 @@ Example 17: Basic stipple plot
    cfp.gclose()
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_17.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_17.png

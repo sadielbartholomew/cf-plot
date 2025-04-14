@@ -24,4 +24,4 @@ Example 19b: Multiple plots with user-specified plot positions
    cfp.gclose()
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_19b.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_19b.png

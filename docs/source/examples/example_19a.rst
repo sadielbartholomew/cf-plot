@@ -27,4 +27,4 @@ Example 19a: Multiple plots
    cfp.gclose()
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_19a.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_19a.png

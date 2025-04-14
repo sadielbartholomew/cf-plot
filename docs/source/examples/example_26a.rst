@@ -28,4 +28,4 @@ Example 26a: Contour plot based on discrete feature values
        x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_26a.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_26a.png

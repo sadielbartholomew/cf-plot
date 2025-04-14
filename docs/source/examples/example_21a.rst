@@ -20,4 +20,4 @@ Example 21a: User-defined axes
    )
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_21a.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_21a.png

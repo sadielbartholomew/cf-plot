@@ -30,4 +30,4 @@ Example 16c: Stream plot in a colour scale
    )
    cfp.gclose()
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_16c.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_16c.png

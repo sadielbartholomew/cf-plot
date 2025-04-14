@@ -57,4 +57,4 @@ Example 28: Line plot with a legend
    cfp.gclose()
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_28.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_28.png

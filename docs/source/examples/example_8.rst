@@ -13,4 +13,4 @@ Example 8: Latitude against log of pressure over longitude zonal mean
    cfp.con(f.collapse("mean", "longitude"), ylog=1)
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_8.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_8.png

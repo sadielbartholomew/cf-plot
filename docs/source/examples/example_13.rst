@@ -15,4 +15,4 @@ Example 13: Basic vector plot
    cfp.vect(u=u, v=v, key_length=10, scale=100, stride=5)
 
 
-.. figure:: ../../../cfplot/test/reference-example-images/ref_fig_13.png
+.. figure:: /../../cfplot/test/reference-example-images/ref_fig_13.png
