@@ -211,7 +211,7 @@ class ExamplesTest(unittest.TestCase):
         f = cf.read(f"{self.data_dir}/ggap.nc")
 
         u = f[1].subspace(pressure=500)
-        v = f[3].subspace(pressure=500)
+        v = f[2].subspace(pressure=500)
 
         cfp.vect(u=u, v=v, key_length=10, scale=100, stride=5)
 
@@ -221,7 +221,7 @@ class ExamplesTest(unittest.TestCase):
         f = cf.read(f"{self.data_dir}/ggap.nc")
 
         u = f[1].subspace(pressure=500)
-        v = f[3].subspace(pressure=500)
+        v = f[2].subspace(pressure=500)
         t = f[0].subspace(pressure=500)
 
         cfp.gopen()
