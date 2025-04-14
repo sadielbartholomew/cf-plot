@@ -31,3 +31,6 @@ Here we have eastward and westward wind so these can be plotted as
 normal over a cylindrical projection. For the case of data in
 case b) above, the x-wind and y-wind will need to be appropriately
 rotated onto a cylindrical grid.
+
+
+.. include:: examples/example_23.rst
