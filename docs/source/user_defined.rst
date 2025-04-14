@@ -2,37 +2,18 @@
 
 .. _user_defined:
 
-User defined axes
+User-defined axes
 *****************
 
-Example 20 - User labelling of axes
------------------------------------
+Some plots may need to be re-labelled to avoid overly dense or sparse
+labels. The following pair of examples illustrate the 'before and after' of
+this case.
 
-.. image::  images/fig20a.png
-   :scale: 44%
-
-::
+.. include:: examples/example_20.rst
 
 
-   import cf
-   import cfplot as cfp
-   f=cf.read('cfplot_data/Geostropic_Adjustment.nc')[0]
-   cfp.con(f.subspace[9])
+.. include:: examples/example_21a.rst
 
-
-
-
-In the following plot the axes were labelled with the axes command before making a contour map of the data.  The xticklabels and yticklabels options can be used to fine tune the axis labels.
-
-.. image::  images/fig20.png
-   :scale: 44%
-
-::
-
-
-   import cf
-   import cfplot as cfp
-   import numpy as np
-   f=cf.read('cfplot_data/Geostropic_Adjustment.nc')[0]
-   cfp.con(f.subspace[9], title='test data', xticks=np.arange(5)*100000+100000,
-           yticks=np.arange(7)*2000+2000, xlabel='x-axis', ylabel='z-axis')
+In this plot the axes are labelled with the ``axes`` keyword before
+making a contour map of the data. The ``xticklabels`` and ``yticklabels``
+options can be used to fine tune the axis labels.

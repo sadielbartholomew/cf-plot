@@ -112,17 +112,6 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_2(self):
         """Test Example 2: a cylindrical projection with blockfill."""
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 498, in test_example_2
-        #     cfp.con(f.subspace(time=15), blockfill=True, lines=False)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3349, in con
-        #     raise TypeError(errstr)
-        # TypeError:
-
-        # cfp.con - blockfill error
-        # need to match number of colours and contour intervals
-        # Don't forget to take account of the colorbar extensions
-
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
 
         cfp.con(f.subspace(time=15), blockfill=True, lines=False)
@@ -183,9 +172,6 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_9(self):
         """Test Example 9: longitude-pressure plot."""
-        # Hits bug 799 from cf-python:
-        # https://github.com/NCAS-CMS/cf-python/issues/799
-
         f = cf.read(f"{self.data_dir}/ggap.nc")[0]
 
         cfp.con(f.collapse("mean", "latitude"))
@@ -248,15 +234,24 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_15(self):
         """Test Example 15: polar vector plot."""
-        # TODO avoiding repeated reads, incorporate into docs too
         f = cf.read(f"{self.data_dir}/ggap.nc")
         u = f[1]
-        v = f[3]
+        v = f[2]
         u = u.subspace(Z=500)
         v = v.subspace(Z=500)
 
         cfp.mapset(proj="npstere")
 
+        cfp.gopen(columns=2)
+        cfp.vect(
+            u=u,
+            v=v,
+            key_length=10,
+            scale=100,
+            stride=4,
+            title="Polar plot using data grid",
+        )
+        cfp.gpos(2)
         cfp.vect(
             u=u,
             v=v,
@@ -265,10 +260,11 @@ class ExamplesTest(unittest.TestCase):
             pts=40,
             title="Polar plot with regular point distribution",
         )
+        cfp.gclose()
 
     @compare_plot_results
-    def test_example_16(self):
-        """Test Example 16: zonal vector plot."""
+    def test_example_16a(self):
+        """Test Example 16a: zonal vector plot."""
         c = cf.read(f"{self.data_dir}/vaAMIPlcd_DJF.nc")[0]
         c = c.subspace(Y=cf.wi(-60, 60))
         c = c.subspace(X=cf.wi(80, 160))
@@ -360,8 +356,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_19(self):
-        """Test Example 19: multiple plots as subplots."""
+    def test_example_19a(self):
+        """Test Example 19a: multiple plots as subplots."""
         f = cf.read(f"{self.data_dir}/ggap.nc")[1]
         cfp.gopen(rows=2, columns=2, bottom=0.2)
         cfp.gpos(1)
@@ -382,8 +378,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_19a(self):
-        """Test Example 19a: multiple plots with user specified positions."""
+    def test_example_19b(self):
+        """Test Example 19b: multiple plots with user specified positions."""
         f = cf.read(f"{self.data_dir}/ggap.nc")[1]
 
         cfp.gopen(user_position=True)
@@ -400,8 +396,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_19b(self):
-        """Test Example 19b: user-specified plot positioning.
+    def test_example_19c(self):
+        """Test Example 19c: user-specified plot positioning.
 
         User specified plot position to accomodate more than one color bar.
         """
@@ -440,8 +436,8 @@ class ExamplesTest(unittest.TestCase):
 
         cfp.con(f.subspace[9])
 
-    def test_example_21(self):
-        """Test Example 21: rotated pole data plot."""
+    def test_example_21a(self):
+        """Test Example 21a: rotated pole data plot."""
         f = cf.read(f"{self.data_dir}/Geostropic_Adjustment.nc")[0]
 
         cfp.con(
@@ -454,25 +450,17 @@ class ExamplesTest(unittest.TestCase):
         )
 
     @compare_plot_results
-    def test_example_21other(self):
-        """Test Example 21 (other, due to duplicate label of 21)."""
+    def test_example_21b(self):
+        """Test Example 21b"""
         f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
         cfp.cscale("plasma")
+
         cfp.con(f)
 
     @compare_plot_results
     def test_example_22(self):
-        """Test Example 22:"""
-        f = cf.read(f"{self.data_dir}/rgp.nc")[0]
-
-        cfp.cscale("gray")
-
-        cfp.con(f)
-
-    @compare_plot_results
-    def test_example_22other(self):
-        """Test Example 22 (other, due to duplicate label of 22)."""
+        """Test Example 22."""
         f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
         cfp.cscale("plasma")
@@ -481,8 +469,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.con(f)
 
     @compare_plot_results
-    def test_example_23(self):
-        """Test Example 23."""
+    def test_example_23a(self):
+        """Test Example 23a."""
         f = cf.read(f"{self.data_dir}/rgp.nc")[0]
 
         data = f.array
@@ -504,8 +492,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.gclose()
 
     @compare_plot_results
-    def test_example_23other(self):
-        """Test Example 23 (other, due to duplicate label of 23)."""
+    def test_example_23b(self):
+        """Test Example 23b."""
         f = cf.read(
             f"{self.data_dir}/20160601-05T0000Z_INCOMPASS_km4p4_uv_RH_500.nc"
         )
@@ -517,23 +505,193 @@ class ExamplesTest(unittest.TestCase):
         cfp.vect(u=f[1], v=f[2], stride=40, key_length=10)
         cfp.gclose()
 
-    @unittest.skip
-    def test_example_24(self):
-        """Test Example 24."""
-        # TODO missing example - swap in previously-unnumbered example
+    @compare_plot_results
+    def test_example_24a(self):
+        """Test Example 24a.
 
-    @unittest.skip
+        Test example for unstructured grids: LFRic example 1, now
+        numbered to become the missing example 24, part (a).
+
+        NOTE, TODO: relative to example from docs, have added
+        'blockfill=True' to get well-defined edges on faces, otherwise
+        looks very similar to 'gen_fig_unstructured_lfric_3' plot, with
+        edges all blurred together.
+        """
+        f = cf.read("cfplot_data/lfric_initial.nc")
+
+        # Select the relevant fields for the objects required for the plot,
+        # taking the air potential temperature as a variable to choose to view.
+        pot = f.select_by_identity("air_potential_temperature")[0]
+        lats = f.select_by_identity("latitude")[0]
+        lons = f.select_by_identity("longitude")[0]
+        faces = f.select_by_identity("cf_role=face_edge_connectivity")[0]
+
+        # Reduce the variable to match the shapes
+        pot = pot[4, :]
+
+        cfp.levs(240, 310, 5)
+
+        cfp.con(
+            f=pot,
+            face_lons=lons,
+            face_lats=lats,
+            face_connectivity=faces,
+            lines=False,
+            blockfill=True,
+        )
+
+    @compare_plot_results
+    def test_example_24b(self):
+        """Test Example 24b.
+
+        Test example for unstructured grids: LFRic example 2, now
+        numbered to become the missing example 24, part (b).
+
+        NOTE, TODO: there are 3 'sides' of missing data in the cubed-sphere
+        grid, a clear issue. For now the reference plot has this in. An
+        issue will be raised to note this and eventually fix it.
+        """
+        f = cf.read("cfplot_data/lfric_initial.nc")
+
+        # Select the relevant fields for the objects required for the plot,
+        # taking the air potential temperature as a variable to choose to view.
+        pot = f.select_by_identity("air_potential_temperature")[0]
+        lats = f.select_by_identity("latitude")[0]
+        lons = f.select_by_identity("longitude")[0]
+        faces = f.select_by_identity("cf_role=face_edge_connectivity")[0]
+
+        # Reduce the variable to match the shapes
+        pot = pot[4, :]
+
+        cfp.levs(240, 310, 5)
+
+        # This time set the projection to a polar one for a different view
+        cfp.mapset(proj="npstere")
+        cfp.con(
+            f=pot,
+            face_lons=lons,
+            face_lats=lats,
+            face_connectivity=faces,
+            lines=False,
+            blockfill=True,
+        )
+
+    @compare_plot_results
+    def test_example_24c(self):
+        """Test Example 24c.
+
+        Test example for unstructured grids: LFRic example 3, now
+        numbered to become the missing example 24, part (c).
+        """
+        f = cf.read("cfplot_data/lfric_initial.nc")
+        pot = f.select_by_identity("air_potential_temperature")[0]
+
+        g = pot[0, :]
+        cfp.con(g, lines=False)
+
     @compare_plot_results
     def test_example_25(self):
-        """Test Example 25."""
-        # TODO missing example - swap in previously-unnumbered example
+        """Test Example 25.
 
-    ###@unittest.expectedFailure  # ValueError after griddata API conformance
-    @unittest.skip
+        Test example for unstructured grids: ORCA grid example 1.
+        """
+        f = cf.read("cfplot_data/orca2.nc")
+
+        # Get an Orca grid and flatten the arrays
+        lons = f.select_by_identity("ncvar%longitude")[0]
+        lats = f.select_by_identity("ncvar%latitude")[0]
+        temp = f.select_by_identity("ncvar%sst")[0]
+
+        lons.flatten(inplace=True)
+        lats.flatten(inplace=True)
+        temp.flatten(inplace=True)
+
+        # Mask NaN else the plot will fail with:
+        # Traceback (most recent call last):
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 1030, in test_example_unstructured_orca_1
+        #     cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3297, in con
+        #     _cf_data_assign(f, colorbar_title, verbose=verbose)
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1379, in _cf_data_assign
+        #     myz = find_z(f)
+        #           ^^^^^^^^^
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10748, in find_z
+        #     mycoords = find_dim_names(f)
+        #                ^^^^^^^^^^^^^^^^^
+        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10720, in find_dim_names
+        #     if field.coord(coords[i]).X:
+        #                    ~~~~~~^^^
+        # IndexError: list index out of range
+        # TODO apply this at relevant place in code, instead
+        temp = np.ma.masked_invalid(temp)
+
+        cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
+
     @compare_plot_results
-    def test_example_26(self):
-        """Test Example 26."""
-        # TODO missing example - swap in previously-unnumbered example
+    def test_example_26a(self):
+        """Test Example 26a.
+
+        Test example for unstructured grids: station data example 1, now
+        numbered to become the missing example 26, part (a).
+        """
+        # Arrays for data
+        lons = []
+        lats = []
+        pressure = []
+        temp = []
+
+        # Read data and make the contour plot
+        f = open("cfplot_data/synop_data.txt")
+        lines = f.readlines()
+        for line in lines:
+            mysplit = line.split()
+            lons = np.append(lons, float(mysplit[1]))
+            lats = np.append(lats, float(mysplit[2]))
+            pressure = np.append(pressure, float(mysplit[3]))
+            temp = np.append(temp, float(mysplit[4]))
+
+        cfp.con(
+            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation="vertical"
+        )
+
+    @compare_plot_results
+    def test_example_26b(self):
+        """Test Example 26b.
+
+        Test example for unstructured grids: station data example 2, now
+        numbered to become the missing example 26, part (b).
+        """
+        # Arrays for data
+        lons = []
+        lats = []
+        pressure = []
+        temp = []
+
+        # Read data and make the contour plot
+        f = open("cfplot_data/synop_data.txt")
+        lines = f.readlines()
+        for line in lines:
+            mysplit = line.split()
+            lons = np.append(lons, float(mysplit[1]))
+            lats = np.append(lats, float(mysplit[2]))
+            pressure = np.append(pressure, float(mysplit[3]))
+            temp = np.append(temp, float(mysplit[4]))
+
+        cfp.gopen()
+        cfp.con(
+            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation="vertical"
+        )
+        for i in np.arange(len(lines)):
+            cfp.plotvars.mymap.text(
+                float(lons[i]),
+                float(lats[i]),
+                str(temp[i]),
+                horizontalalignment="center",
+                verticalalignment="center",
+                transform=ccrs.PlateCarree(),
+            )
+
+        cfp.gclose()
 
     @compare_plot_results
     def test_example_27(self):
@@ -623,15 +781,14 @@ class ExamplesTest(unittest.TestCase):
         """Test Example 30: two axis plotting."""
         tol = cf.RTOL(1e-5)
 
-        # TODO avoiding repeated reads, incorporate into docs too
-        f_list = cf.read(f"{self.data_dir}/ggap.nc")
-        f = f_list[1]
+        fl = cf.read(f"{self.data_dir}/ggap.nc")
+        f = fl[1]
 
         u = f.collapse("X: mean")
         u1 = u.subspace(Y=cf.isclose(-61.12099075))
         u2 = u.subspace(Y=cf.isclose(0.56074494))
 
-        g = f_list[0]
+        g = fl[0]
         t = g.collapse("X: mean")
         t1 = t.subspace(Y=cf.isclose(-61.12099075))
         t2 = t.subspace(Y=cf.isclose(0.56074494))
@@ -647,7 +804,11 @@ class ExamplesTest(unittest.TestCase):
 
     @compare_plot_results
     def test_example_31(self):
-        """Test Example 31: UKCP projection."""
+        """Test Example 31: UKCP projection.
+
+        NOTE: for docs, remove the '**self.setvars_dict' which relates
+        to Issue https://github.com/NCAS-CMS/cf-plot/issues/93.
+        """
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
         cfp.mapset(proj="UKCP", resolution="50m")
@@ -667,6 +828,9 @@ class ExamplesTest(unittest.TestCase):
         issue, perhaps wider than UKCP blockfill, and also the gridlines
         extending out relative to the desired result (see docs image at
         https://ncas-cms.github.io/cf-plot/build/_images/fig32.png).
+
+        NOTE ALSO: for docs, remove the '**self.setvars_dict' which relates
+        to Issue https://github.com/NCAS-CMS/cf-plot/issues/93.
         """
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
 
@@ -686,16 +850,8 @@ class ExamplesTest(unittest.TestCase):
     @compare_plot_results
     def test_example_33(self):
         """Test Example 33: OSGB and EuroPP projections."""
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/gen-plot.py", line 23, in <module>
-        #     cfp.con(f, lines=False, colorbar_label_skip=2)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 4100, in con
-        #     cbar(
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10056, in cbar
-        #     ax1,
-        #     ^^^
-        # UnboundLocalError: cannot access local variable 'ax1' where it is not associated with a value
         f = cf.read(f"{self.data_dir}/ukcp_rcm_test.nc")[0]
+
         cfp.levs(-3, 7, 0.5)
 
         cfp.gopen(columns=2)
@@ -710,6 +866,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_34(self):
         """Test Example 34: Cropped Lambert conformal projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="lcc", lonmin=-50, lonmax=50, latmin=20, latmax=85)
 
         cfp.con(f.subspace(time=15))
@@ -718,6 +875,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_35(self):
         """Test Example 35: Mollweide projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="moll")
 
         cfp.con(f.subspace(time=15))
@@ -726,6 +884,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_36(self):
         """Test Example 36: Mercator projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="merc")
 
         cfp.con(f.subspace(time=15))
@@ -734,6 +893,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_37(self):
         """Test Example 37: Orthographic projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="ortho")
 
         cfp.con(f.subspace(time=15))
@@ -742,6 +902,7 @@ class ExamplesTest(unittest.TestCase):
     def test_example_38(self):
         """Test Example 38: Robinson projection."""
         f = cf.read(f"{self.data_dir}/tas_A1.nc")[0]
+
         cfp.mapset(proj="robin")
 
         cfp.con(f.subspace(time=15))
@@ -772,8 +933,8 @@ class ExamplesTest(unittest.TestCase):
         cfp.traj(f, vector=True, markersize=0.0, fc="b", ec="b")
 
     @compare_plot_results
-    def test_example_42(self):
-        """Test Example 42: intensity legend."""
+    def test_example_42a(self):
+        """Test Example 42a: intensity legend."""
         f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 
         cfp.mapset(lonmin=-50, lonmax=50, latmin=20, latmax=80)
@@ -790,8 +951,8 @@ class ExamplesTest(unittest.TestCase):
         )
 
     @compare_plot_results
-    def test_example_42a(self):
-        """Test Example 42a: intensity legend with lines."""
+    def test_example_42b(self):
+        """Test Example 42b: intensity legend with lines."""
         f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
 
         cfp.mapset(lonmin=-50, lonmax=50, latmin=20, latmax=80)
@@ -813,197 +974,6 @@ class ExamplesTest(unittest.TestCase):
         # TODO add new WRF testing, wherebouts of file used in original
         # test, "wrf2.nc", are not known, so need a new file and one that
         # is not 5GB besides!
-
-
-class UnnumberedExamplesTest(unittest.TestCase):
-    """Run all other documentation examples and compare to reference plots."""
-
-    data_dir = DATA_DIR
-    save_gen_dir = TEST_GEN_DIR
-    ref_dir = TEST_REF_DIR
-    test_id = None
-
-    def setUp(self):
-        """Preparations called immediately before each test method."""
-        # Get a filename fname with the ID of test_example_X component X
-        test_method_name = unittest.TestCase.id(self).split(".")[-1]
-        self.test_id = test_method_name.rsplit("test_example_")[1]
-        fname = f"{self.save_gen_dir}/" f"gen_fig_{self.test_id}.png"
-        cfp.setvars(
-            file=fname,
-            viewer="matplotlib",
-        )
-
-    def tearDown(self):
-        """Preparations called immediately after each test method."""
-        cfp.reset()
-
-    @compare_plot_results
-    def test_example_unstructured_lfric_1(self):
-        """Test example for unstructured grids: LFRic example 1.
-
-        NOTE, TODO: relative to example from docs, have added
-        'blockfill=True' to get well-defined edges on faces, otherwise
-        looks very similar to 'gen_fig_unstructured_lfric_3' plot, with
-        edges all blurred together.
-        """
-        f = cf.read("cfplot_data/lfric_initial.nc")
-
-        # Select the relevant fields for the objects required for the plot,
-        # taking the air potential temperature as a variable to choose to view.
-        pot = f.select_by_identity("air_potential_temperature")[0]
-        lats = f.select_by_identity("latitude")[0]
-        lons = f.select_by_identity("longitude")[0]
-        faces = f.select_by_identity("cf_role=face_edge_connectivity")[0]
-
-        # Reduce the variable to match the shapes
-        pot = pot[4,:]
-
-        cfp.levs(240, 310, 5)
-
-        cfp.con(
-            f=pot, face_lons=lons, face_lats=lats,
-            face_connectivity=faces, lines=False, blockfill=True,
-        )
-
-    @compare_plot_results
-    def test_example_unstructured_lfric_2(self):
-        """Test example for unstructured grids: LFRic example 2.
-
-        NOTE, TODO: there are 3 'sides' of missing data in the cubed-sphere
-        grid, a clear issue. For now the reference plot has this in. An
-        issue will be raised to note this and eventually fix it.
-        """
-        f = cf.read("cfplot_data/lfric_initial.nc")
-
-        # Select the relevant fields for the objects required for the plot,
-        # taking the air potential temperature as a variable to choose to view.
-        pot = f.select_by_identity("air_potential_temperature")[0]
-        lats = f.select_by_identity("latitude")[0]
-        lons = f.select_by_identity("longitude")[0]
-        faces = f.select_by_identity("cf_role=face_edge_connectivity")[0]
-
-        # Reduce the variable to match the shapes
-        pot = pot[4,:]
-
-        cfp.levs(240, 310, 5)
-
-        # This time set the projection to a polar one for a different view
-        cfp.mapset(proj="npstere")
-        cfp.con(
-            f=pot, face_lons=lons,
-            face_lats=lats, face_connectivity=faces, lines=False,
-            blockfill=True,
-        )
-
-    @compare_plot_results
-    def test_example_unstructured_lfric_3(self):
-        """Test example for unstructured grids: LFRic example 3."""
-        f = cf.read("cfplot_data/lfric_initial.nc")
-        pot = f.select_by_identity("air_potential_temperature")[0]
-
-        g = pot[0, :]
-        cfp.con(g, lines=False)
-
-    @compare_plot_results
-    def test_example_unstructured_orca_1(self):
-        """Test example for unstructured grids: ORCA grid example 1."""
-        # NOTE: this is taken from the 'unstructured.rst/html' page, but
-        # is very similar to 'test_example_26', so coordinate with that.
-        f = cf.read("cfplot_data/orca2.nc")
-
-        # Get an Orca grid and flatten the arrays
-        lons = f.select_by_identity("ncvar%longitude")[0]
-        lats = f.select_by_identity("ncvar%latitude")[0]
-        temp = f.select_by_identity("ncvar%sst")[0]
-
-        lons.flatten(inplace=True)
-        lats.flatten(inplace=True)
-        temp.flatten(inplace=True)
-
-        # Mask NaN else the plot will fail with:
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 1030, in test_example_unstructured_orca_1
-        #     cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3297, in con
-        #     _cf_data_assign(f, colorbar_title, verbose=verbose)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1379, in _cf_data_assign
-        #     myz = find_z(f)
-        #           ^^^^^^^^^
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10748, in find_z
-        #     mycoords = find_dim_names(f)
-        #                ^^^^^^^^^^^^^^^^^
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10720, in find_dim_names
-        #     if field.coord(coords[i]).X:
-        #                    ~~~~~~^^^
-        # IndexError: list index out of range
-        # TODO apply this at relevant place in code, instead
-        temp = np.ma.masked_invalid(temp)
-
-        cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
-
-    @compare_plot_results
-    def test_example_unstructured_station_data_1(self):
-        """Test example for unstructured grids: station data example 1."""
-        # Part 1: docs title 'Station data'
-
-        # Arrays for data
-        lons=[]
-        lats=[]
-        pressure=[]
-        temp=[]
-
-        # Read data and make the contour plot
-        f = open('cfplot_data/synop_data.txt')
-        lines = f.readlines()
-        for line in lines:
-            mysplit=line.split()
-            lons=np.append(lons, float(mysplit[1]))
-            lats=np.append(lats, float(mysplit[2]))
-            pressure=np.append(pressure, float(mysplit[3]))
-            temp=np.append(temp, float(mysplit[4]))
-
-        cfp.con(
-            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
-
-    @compare_plot_results
-    def test_example_unstructured_station_data_2(self):
-        """Test example for unstructured grids: station data example 2."""
-        # START OF CODE LIFTED FROM 'test_example_unstructured_station_data_1'
-        # --------------------------------------------------------------------
-        # Part 1: docs title 'Station data'
-
-        # Arrays for data
-        lons=[]
-        lats=[]
-        pressure=[]
-        temp=[]
-
-        # Read data and make the contour plot
-        f = open('cfplot_data/synop_data.txt')
-        lines = f.readlines()
-        for line in lines:
-            mysplit=line.split()
-            lons=np.append(lons, float(mysplit[1]))
-            lats=np.append(lats, float(mysplit[2]))
-            pressure=np.append(pressure, float(mysplit[3]))
-            temp=np.append(temp, float(mysplit[4]))
-
-        # END OF CODE LIFTED FROM 'test_example_unstructured_station_data_1'
-        # --------------------------------------------------------------------
-
-        # Part 2: docs title 'Station data - check of data values'
-        cfp.gopen()
-        cfp.con(
-            x=lons, y=lats, f=temp, ptype=1, colorbar_orientation='vertical')
-        for i in np.arange(len(lines)):
-            cfp.plotvars.mymap.text(
-                float(lons[i]), float(lats[i]), str(temp[i]),
-                horizontalalignment='center',verticalalignment='center',
-                transform=ccrs.PlateCarree()
-            )
-
-        cfp.gclose()
 
 
 if __name__ == "__main__":
