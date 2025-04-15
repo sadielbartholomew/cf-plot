@@ -17,6 +17,9 @@ of being developed elsewhere.
 
 #### Version `3.4.0`, release soon (date TBC)
 
+* Fix bug whereby `con` would result in a blank plot for rotated pole data
+  requested for display on its native grid through setting of `cfp.mapset(proj="rotated")`
+  (see https://github.com/NCAS-CMS/cf-plot/issues/86)
 * Fix bug whereby values at the colour bar extremes in blockfill plots (`con` with
   `blockfill=True`) with `blockfill_fast=None` default would always be shown in white
   (see https://github.com/NCAS-CMS/cf-plot/issues/98)
