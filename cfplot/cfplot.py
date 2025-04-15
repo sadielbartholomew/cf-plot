@@ -5109,6 +5109,19 @@ def con(
                 verbose=verbose,
             )
 
+        if plotvars.proj == "rotated" or plotvars.proj == "UKCP":
+            # Remove Matplotlib default axis labels. Note we must do this
+            # before we add in our custom (rotated or UKCP) axes labels
+            # else they will also be wiped, along with the plot area!
+            axes_plot(
+                xticks=[100000000],
+                xticklabels=[""],
+                yticks=[100000000],
+                yticklabels=[""],
+                xlabel="",
+                ylabel="",
+            )
+
         # Rotated grid axes
         if axes:
             if plotvars.proj == "cyl":
@@ -5140,17 +5153,6 @@ def con(
                     xlabel=xlabel,
                     ylabel=ylabel,
                 )
-
-        if plotvars.proj == "rotated" or plotvars.proj == "UKCP":
-            # Remove Matplotlib default axis labels
-            axes_plot(
-                xticks=[100000000],
-                xticklabels=[""],
-                yticks=[100000000],
-                yticklabels=[""],
-                xlabel="",
-                ylabel="",
-            )
 
         # Add title and coastlines for cylindrical projection
         if plotvars.proj == "cyl":
