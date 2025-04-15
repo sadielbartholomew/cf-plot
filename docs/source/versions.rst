@@ -1,7 +1,30 @@
 :orphan:
 
-Planned releases
-****************
+Versions
+********
+
+.. toctree::
+   :caption: Versions pages
+   :maxdepth: 2
+
+   version_1.3
+   version_1.5
+   version_1.6
+   version_1.7
+   version_1.8
+   version_1.9
+   version_2.0
+   version_2.1
+   version_2.2
+   version_2.3
+   version_2.4
+   version_3.0
+   version_3.1
+   version_3.2
+   version_3.3
+   version3_changes
+   versions
+   older_documentation
 
 
 - 0.3 first version on github
@@ -33,13 +56,3 @@ Planned releases
 
 Further functionality may be added on request - please email <sadie.bartholomew@ncas.ac.uk> with details.
 
-
-
-|
-|
-|
-|
-|
-|
-|
-|

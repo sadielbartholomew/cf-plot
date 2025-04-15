@@ -4,8 +4,28 @@
 cf-plot user guide
 ******************
 
-**Contents**
 
+.. toctree::
+   :caption: Contents
+   :maxdepth: 2
+
+   colour_scales
+   cylindrical
+   graphs
+   hovmuller
+   polar
+   pressure
+   projections
+   rotated_pole
+   stipple_plots
+   trajectories
+   unstructured
+   user_defined
+   vectors
+   wrf
+
+
+**Contents (introductory)**
 
 |    introduction_ to cf-plot
 |    access_ - where cf-plot is installed and how to install it
