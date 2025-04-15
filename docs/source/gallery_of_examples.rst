@@ -3,6 +3,10 @@
 Gallery of examples
 ===================
 
+
+Gallery
+-------
+
 .. image::  images/fig1.png
    :scale: 14%
    :target: cylindrical.html
@@ -85,8 +89,8 @@ Gallery of examples
 
 .. _allexamples:
 
-Listing of examples
--------------------
+Listing of all examples
+-----------------------
 
 Note: all example code assumes the following imports have been made,
 where ``numpy`` is usually not required but it may be for some examples:

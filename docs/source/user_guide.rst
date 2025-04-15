@@ -4,27 +4,6 @@
 User guide
 **********
 
-
-.. toctree::
-   :caption: Contents
-   :maxdepth: 2
-
-   colour_scales
-   cylindrical
-   graphs
-   hovmuller
-   polar
-   pressure
-   projections
-   rotated_pole
-   stipple_plots
-   trajectories
-   unstructured
-   user_defined
-   vectors
-   wrf
-
-
 **Contents (introductory)**
 
 |    introduction_ to cf-plot
@@ -42,8 +21,6 @@ User guide
 |    appendixB_ - passing data via arrays
 |    appendixC_ - map projections and options
 |    appendixD_ - fixing data to be more cf-compliant
-
-
 
 
 .. _introduction:

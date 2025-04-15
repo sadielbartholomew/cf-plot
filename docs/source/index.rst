@@ -43,6 +43,7 @@ Contents
 
    introduction
    download
+   plot_types
    gallery_of_examples
    user_guide
    advanced
