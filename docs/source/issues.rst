@@ -1,9 +1,10 @@
 :orphan:
 
-cf-plot issues
-**************
+Issues
+******
 
-If you find a problem with cf-plot please email Sadie Bartholomew (sadie.bartholomew@ncas.ac.uk) with the following:
+If you find a problem with cf-plot please email
+Sadie Bartholomew (sadie.bartholomew@ncas.ac.uk) with the following:
 
 |   (i) the cf-python and cf-plot version numbers used:
 |       print('cf-python version', cf.__version__)
@@ -44,22 +45,3 @@ If you are using arrays of data use numpy to write out the relevant data:
    np.save('lats.npy', lats)
    np.save('field.npy', field)
 
-|
-|
-|
-
-
-
-
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|
-|

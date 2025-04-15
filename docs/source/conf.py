@@ -146,7 +146,7 @@ smartquotes = False
 html_sidebars = {"**": ["sidebar-nav-bs.html"]}
 
 html_theme_options = {
-    "show_nav_level": 2,
+    ###"show_nav_level": 2,
     ###"sidebarwidth": 150,
     "show_version_warning_banner": True,
     "announcement": (
