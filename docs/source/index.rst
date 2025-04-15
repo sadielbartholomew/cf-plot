@@ -43,12 +43,10 @@ Contents
 
    introduction
    download
-   all-examples
-   gallery
+   gallery_of_examples
    user_guide
    advanced
-   internal_routines
-   routines
+   api_reference
    issues
    versions
    training

@@ -1,11 +1,11 @@
 :orphan:
 
-Routines
-********
+API Reference
+*************
 
 
-User-facing
------------
+User-facing API
+---------------
 
 These functions *are* intended for user use.
 
@@ -55,8 +55,8 @@ These functions *are* intended for user use.
    vloc
 
    
-Internal
---------
+Internal API
+------------
 
 These functions *are not* intended for user use.
 
@@ -79,8 +79,8 @@ These functions *are not* intended for user use.
    _timeaxis
 
 
-Deprecated
-----------
+Deprecations
+------------
 
 These functions *are not* intended for user use and will be removed in the next
 version. In most cases these have no use in the codebase as of v3.3.0.

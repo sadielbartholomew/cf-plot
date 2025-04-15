@@ -1,8 +1,8 @@
 :orphan:
 
-******************
-cf-plot user guide
-******************
+**********
+User guide
+**********
 
 
 .. toctree::

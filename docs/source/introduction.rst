@@ -1,8 +1,8 @@
 .. _intro:
 
-***********************
-Introduction to cf-plot
-***********************
+************
+Introduction
+************
 
 .. Define external links to use in the docs here
 

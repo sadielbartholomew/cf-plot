@@ -1,9 +1,7 @@
 :orphan:
 
-.. _download:
-
-Download/Install
-****************
+Installation
+************
 
 The following notes refer to the Python 3 versions of cf-python and cf-plot which was released on 1st October 2019.
 
@@ -38,6 +36,7 @@ To install cf-plot
 
 Linux and Mac
 #############
+
 To install cf-plot on your own Linux PC or Mac download and install miniconda. On the command line type:
 
 ::
