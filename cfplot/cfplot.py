@@ -1855,27 +1855,30 @@ def _bfill(
     else:
         field = f
 
-    levels = np.array(deepcopy(clevs)).astype("float")
-
     # Get colour scale for use in contouring
     # If colour bar extensions are enabled then the colour map goes
     # from 1 to ncols-2.  The colours for the colour bar extensions
     # are then changed on the colorbar and plot after the plot is made
-
+    ncols_addition = 0
     if single_fill_color is None:
         colmap = _cscale_get_map()
         cmap = matplotlib.colors.ListedColormap(colmap)
         if plotvars.levels_extend in ["min", "both"]:
             cmap.set_under(plotvars.cs[0])
+            clevs = np.append(-1e-30, clevs)
+            ncols_addition += 1
         if plotvars.levels_extend in ["max", "both"]:
             cmap.set_over(plotvars.cs[-1])
+            clevs = np.append(clevs, 1e30)
+            ncols_addition += 1
     else:
         cols = single_fill_color
         cmap = matplotlib.colors.ListedColormap(cols)
 
-    # Colour array for storing the cell colour.  Start with -1 as the default
-    # as the colours run from 0 to np.size(levels)-1
-    colarr = np.zeros([np.shape(field)[0], np.shape(field)[1]]) - 1
+    levels = np.array(deepcopy(clevs)).astype("float")
+
+    # Colour array for storing the cell colour
+    colarr = np.zeros([np.shape(field)[0], np.shape(field)[1]])
     for i in np.arange(np.size(levels) - 1):
         lev = levels[i]
         pts = np.where(np.logical_and(field >= lev, field < levels[i + 1]))
@@ -1887,7 +1890,7 @@ def _bfill(
         if np.size(pts) > 0:
             colarr[pts] = -1
 
-    norm = matplotlib.colors.BoundaryNorm(levels, cmap.N)
+    norm = matplotlib.colors.BoundaryNorm(levels, cmap.N + ncols_addition)
 
     if isinstance(f, cf.Field):
         if f.ref("grid_mapping_name:transverse_mercator", default=False):
