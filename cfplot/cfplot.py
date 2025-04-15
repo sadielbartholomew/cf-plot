@@ -1877,9 +1877,8 @@ def _bfill(
 
     levels = np.array(deepcopy(clevs)).astype("float")
 
-    # Colour array for storing the cell colour.  Start with -1 as the default
-    # as the colours run from 0 to np.size(levels)-1
-    colarr = np.zeros([np.shape(field)[0], np.shape(field)[1]]) - 1
+    # Colour array for storing the cell colour
+    colarr = np.zeros([np.shape(field)[0], np.shape(field)[1]])
     for i in np.arange(np.size(levels) - 1):
         lev = levels[i]
         pts = np.where(np.logical_and(field >= lev, field < levels[i + 1]))
