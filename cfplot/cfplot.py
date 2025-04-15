@@ -1855,6 +1855,16 @@ def _bfill(
     else:
         field = f
 
+    # Add extend options to the levels if applicable, so the extremes of
+    # the colour bar at either end are processed and displayed
+    ncols_addition = 0
+    if plotvars.levels_extend == "min" or plotvars.levels_extend == "both":
+        clevs = np.append(-1e-30, clevs)
+        ncols_addition += 1
+    if plotvars.levels_extend == "max" or plotvars.levels_extend == "both":
+        clevs = np.append(clevs, 1e30)
+        ncols_addition += 1
+
     levels = np.array(deepcopy(clevs)).astype("float")
 
     # Get colour scale for use in contouring
@@ -1887,7 +1897,7 @@ def _bfill(
         if np.size(pts) > 0:
             colarr[pts] = -1
 
-    norm = matplotlib.colors.BoundaryNorm(levels, cmap.N)
+    norm = matplotlib.colors.BoundaryNorm(levels, cmap.N + ncols_addition)
 
     if isinstance(f, cf.Field):
         if f.ref("grid_mapping_name:transverse_mercator", default=False):
