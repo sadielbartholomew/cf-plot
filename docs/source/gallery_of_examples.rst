@@ -8,52 +8,84 @@ Gallery
 -------
 
 .. grid:: 1 3 3 3
-    :outline:
+   :padding: 0
+   :margin: 0
+   :gutter: 1
 
-    .. grid-item-card:: Contour plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_1.png
+   .. grid-item-card:: Contour plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_1.png
+      :link: cylindrical.html#example-1-basic-contour-plot-in-default-projection
+      :text-align: center
 
-    .. grid-item-card:: Blockfill plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_2.png
+   .. grid-item-card:: Blockfill plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_2.png
+      :link: cylindrical.html#example-2-basic-blockfill-plot-in-default-projection
+      :text-align: center
 
-    .. grid-item-card:: Vector plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_13.png
+   .. grid-item-card:: Vector plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_13.png
+      :link: vectors.html#example-13-basic-vector-plot
+      :text-align: center
 
-    .. grid-item-card:: Stream plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_16c.png
+   .. grid-item-card:: Stream plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_16c.png
+      :link: vectors.html#example-16c-stream-plot-in-a-colour-scale
+      :text-align: center
 
-    .. grid-item-card:: Stipple plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_17.png
+   .. grid-item-card:: Stipple plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_17.png
+      :link: stipple_plots.html#example-17-basic-stipple-plot
+      :text-align: center
 
-    .. grid-item-card:: Trajectories
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_42b.png
+   .. grid-item-card:: Trajectories
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_42b.png
+      :link: trajectories.html#example-42b-tracks-displayed-in-a-colour-scale
+      :text-align: center
 
-    .. grid-item-card:: Hovmöller plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_12.png
+   .. grid-item-card:: Hovmöller plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_11.png
+      :link: hovmuller.html#example-11-latitude-time-subset-view-hovmoller-plot
+      :text-align: center
 
-    .. grid-item-card:: Vertical (pressure or height) plots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_8.png
+   .. grid-item-card:: Vertical (pressure or height) plots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_8.png
+      :link: pressure.html#example-8-latitude-against-log-of-pressure-over-longitude-zonal-mean
+      :text-align: center
 
-    .. grid-item-card:: Lineplots
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_27.png
+   .. grid-item-card:: Lineplots
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_27.png
+      :link: graphs.html#example-27-basic-line-plot
+      :text-align: center
 
-    .. grid-item-card:: Support for multiple projections
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_34.png
+   .. grid-item-card:: Support for multiple projections
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_34.png
+      :link: projections.html#example-34-cropping-the-lambert-conformal-conic-lcc-projection
+      :text-align: center
 
-    .. grid-item-card:: Polar projection views
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_40.png
+   .. grid-item-card:: Polar projection views
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_40.png
+      :link: trajectories.html#example-40-tracks-in-the-polar-stereographic-projection
+      :text-align: center
 
-    .. grid-item-card:: Unstructured grids (UGRID) support
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_24a.png
+   .. grid-item-card:: Unstructured grids (UGRID) support
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_24a.png
+      :link: unstructured.html#example-24a-ugrid-blockfill-plot-with-lfric-cubed-sphere-mesh-output
+      :text-align: center
 
-    .. grid-item-card:: Rotated pole support
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_22.png
+   .. grid-item-card:: Rotated pole support
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_22.png
+      :link: rotated_pole.html#example-22-plot-of-rotated-pole-data-on-its-native-grid
+      :text-align: center
 
-    .. grid-item-card:: Multiple plots on one figure
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_19b.png
+   .. grid-item-card:: Multiple plots on one figure
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_19b.png
+      :link: multiple_plots.html#example-19b-multiple-plots-with-user-specified-plot-positions
+      :text-align: center
 
-    .. grid-item-card:: Flexible customisation e.g. user-defined axes
-       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_21a.png
+   .. grid-item-card:: Flexible customisation e.g. user-defined axes
+      :img-top: /../../cfplot/test/reference-example-images/ref_fig_21a.png
+      :link: user_defined.html#example-21a-user-defined-axes
+      :text-align: center
 
 
 .. _allexamples:

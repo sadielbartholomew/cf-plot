@@ -1,6 +1,6 @@
 :orphan:
 
-API Reference
+API reference
 *************
 
 
