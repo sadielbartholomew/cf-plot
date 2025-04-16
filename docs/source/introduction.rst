@@ -21,15 +21,14 @@ Introduction
 Overview
 ########
 
-.. image:: images/cf_gallery_image.png
-   :scale: 75%
-   :target: gallery.html
-
 **cf-plot: code-light plotting for earth science and aligned research**
             
 cf-plot allows you to produce and customise publication-quality contour, vector,
 line and more plots with the power of Python, `matplotlib`_,
 `Cartopy`_ and `cf-python`_ in as few lines of code as possible.
+
+.. image:: images/new/gallery_view.png
+   :target: gallery_of_examples.html
 
 It is designed to be a useful visualisation tool for environmental, earth and
 aligned sciences, for example to facilitate climate and meteorological research.
