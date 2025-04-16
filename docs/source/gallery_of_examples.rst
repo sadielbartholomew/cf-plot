@@ -7,84 +7,53 @@ Gallery of examples
 Gallery
 -------
 
-.. image::  images/fig1.png
-   :scale: 14%
-   :target: cylindrical.html
-.. image::  images/fig4.png
-   :scale: 14%
-   :target: polar.html
-.. image::  images/fig7.png
-   :scale: 14%
-   :target: pressure.html
-.. image::  images/fig12.png
-   :scale: 14%
-   :target: hovmuller.html
+.. grid:: 1 3 3 3
+    :outline:
 
-:ref:`Cylindrical plots <cylindrical>` |
-:ref:`Polar plots <polar>` |
-:ref:`Pressure/height plots <pressure>` |
-:ref:`Hovmuller<hovmuller>`
+    .. grid-item-card:: Contour plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_1.png
 
+    .. grid-item-card:: Blockfill plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_2.png
 
+    .. grid-item-card:: Vector plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_13.png
 
-.. image::  images/fig13.png
-   :scale: 14%
-   :target: vectors.html
-.. image::  images/fig17.png
-   :scale: 14%
-   :target: stipple_plots.html
-.. image::  images/fig19.png
-   :scale: 14%
-   :target: multiple_plots.html
-.. image::  images/cscale.png
-   :scale: 20%
-   :target: colour_scales.html
+    .. grid-item-card:: Stream plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_16c.png
 
-:ref:`Vector plots <vector>` |
-:ref:`Stipple plots <stippleplots>` |
-:ref:`Multiple plots on a page<multiple_plots>` |
-:ref:`Colour scales <colour_scales>`
+    .. grid-item-card:: Stipple plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_17.png
 
+    .. grid-item-card:: Trajectories
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_42b.png
 
+    .. grid-item-card:: Hovmöller plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_12.png
 
+    .. grid-item-card:: Vertical (pressure or height) plots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_8.png
 
-.. image::  images/fig20.png
-   :scale: 14%
-   :target: user_defined.html
-.. image::  images/fig21.png
-   :scale: 14%
-   :target: rotated_pole.html
-.. image::  images/us01.png
-   :scale: 14%
-   :target: unstructured.html
-.. image::  images/fig27.png
-   :scale: 11%
-   :target: graphs.html
+    .. grid-item-card:: Lineplots
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_27.png
 
+    .. grid-item-card:: Support for multiple projections
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_34.png
 
-:ref:`User defined axes <user_defined>` |
-:ref:`Rotated pole <rotated_pole>` |
-:ref:`Unstructured grids<unstructured>` |
-:ref:`Graphs <graphs>`
+    .. grid-item-card:: Polar projection views
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_40.png
 
+    .. grid-item-card:: Unstructured grids (UGRID) support
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_24a.png
 
+    .. grid-item-card:: Rotated pole support
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_22.png
 
-.. image::  images/fig31.png
-   :scale: 14%
-   :target: projections.html
+    .. grid-item-card:: Multiple plots on one figure
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_19b.png
 
-.. image::  images/fig40.png
-   :scale: 14%
-   :target: trajectories.html
-
-.. image::  images/fig43.png
-   :scale: 14%
-   :target: wrf.html
-
-
-:ref:`Projections <projections>` |
-:ref:`Trajectories <trajectories>` |
-:ref:`WRF data grids<wrf>`
+    .. grid-item-card:: Flexible customisation e.g. user-defined axes
+       :img-bottom: /../../cfplot/test/reference-example-images/ref_fig_21a.png
 
 
 .. _allexamples:
