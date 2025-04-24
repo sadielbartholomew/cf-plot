@@ -14,8 +14,8 @@ Introduction
 
 .. TODO update these to internal links once can go through and reference each page
 .. _gallery page:         https://ncas-cms.github.io/cf-plot/build/gallery.html
-.. _installation page:    https://ncas-cms.github.io/cf-plot/build/download.html
-.. _guidance page here:   https://ncas-cms.github.io/cf-plot/build/issues.html
+.. _installation page:    https://ncas-cms.github.io/cf-plot/build/installation.html
+.. _guidance page here:   https://ncas-cms.github.io/cf-plot/build/support.html
 
 ########
 Overview

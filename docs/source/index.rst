@@ -42,14 +42,14 @@ Contents
    :maxdepth: 2
 
    introduction
-   download
+   installation
    plot_types
    gallery_of_examples
    user_guide
    advanced
    api_reference
-   issues
    versions
+   support
    training
    license
 
