@@ -1,10 +1,36 @@
 :orphan:
 
-Issues
-******
+Support and contributing
+************************
 
-If you find a problem with cf-plot please email
-Sadie Bartholomew (sadie.bartholomew@ncas.ac.uk) with the following:
+Ways to contact us
+------------------
+
+If you find an apparent issue with cf-plot or have a question or feature
+request etc., the *preferred* method of contact is via the
+`GitHub Issue Tracker for the cf-plot repository <https://github.com/NCAS-CMS/cf-plot/issues>`_.
+You will need a GitHub account to do this, but it is free to
+`sign up <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>`_.
+
+If you don't want to use the Issue Tracker then you can also either:
+
+* send an email to Sadie Bartholomew at `sadie.bartholomew@ncas.ac.uk` (or
+  if based on the University of Reading campus you may find her in-office
+  HP113, noting she often works from home);
+* post on the `NCAS-CMS Helpdesk <https://cms-helpdesk.ncas.ac.uk/>`_.
+
+If you are reporting an issue, please follow the guidelines below so that
+we have enough information to attempt to recreate the problem.
+
+
+Issue reporting guidelines
+--------------------------
+
+If you find a problem with cf-plot, please ensure you provide all of the
+information below so we can investigate properly as soon as possible (else
+we will end up asking you this first).
+
+Please email with the following:
 
 |   (i) the cf-python and cf-plot version numbers used:
 |       print('cf-python version', cf.__version__)
