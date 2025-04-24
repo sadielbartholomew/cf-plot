@@ -1,5 +1,3 @@
-:orphan:
-
 .. _graphs:
 
 Line plots i.e. graphs

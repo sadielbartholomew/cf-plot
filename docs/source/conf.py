@@ -34,6 +34,9 @@ extensions = [
     # 'sphinx.ext.pngmath',
     "sphinx.ext.graphviz",
     "sphinx.ext.inheritance_diagram",
+    # For grids of images:
+    "sphinxarg.ext",
+    "sphinx_design",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -50,7 +53,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "cf-plot"
-copyright = "2024, Sadie Bartholomew"
+copyright = "2025, Sadie Bartholomew and Andy Heaps"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -143,10 +146,11 @@ smartquotes = False
 
 # Custom sidebar templates, maps document names to template names.
 # html_sidebars = {'**': ['my_con.html', 'globaltoc.html', 'sourcelink.html']}
-html_sidebars = {"**": ["sidebar.html"]}
+html_sidebars = {"**": ["sidebar-nav-bs.html"]}
 
 html_theme_options = {
-    "sidebarwidth": 150,
+    ###"show_nav_level": 2,
+    ###"sidebarwidth": 150,
     "show_version_warning_banner": True,
     "announcement": (
         "This is the new permanent home of the cf-plot documentation: please "

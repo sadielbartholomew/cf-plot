@@ -1,5 +1,3 @@
-:orphan:
-
 .. _cylindrical:
 
 Cylindrical projection contour plots

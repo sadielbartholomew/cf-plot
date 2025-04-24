@@ -1,5 +1,3 @@
-:orphan:
-
 .. _projections:
 
 Projections in cf-plot

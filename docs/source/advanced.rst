@@ -1,8 +1,6 @@
-:orphan:
-
 .. _advanced:
 
-Advanced Use
+Advanced use
 ************
 
 Here are some hints and tips on the advanced use of cf-plot.

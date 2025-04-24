@@ -1,11 +1,8 @@
-:orphan:
+**********
+User guide
+**********
 
-******************
-cf-plot user guide
-******************
-
-**Contents**
-
+**Contents (introductory)**
 
 |    introduction_ to cf-plot
 |    access_ - where cf-plot is installed and how to install it
@@ -22,8 +19,6 @@ cf-plot user guide
 |    appendixB_ - passing data via arrays
 |    appendixC_ - map projections and options
 |    appendixD_ - fixing data to be more cf-compliant
-
-
 
 
 .. _introduction:

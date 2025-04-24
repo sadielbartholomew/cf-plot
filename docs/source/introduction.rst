@@ -1,8 +1,8 @@
 .. _intro:
 
-***********************
-Introduction to cf-plot
-***********************
+************
+Introduction
+************
 
 .. Define external links to use in the docs here
 
@@ -14,22 +14,21 @@ Introduction to cf-plot
 
 .. TODO update these to internal links once can go through and reference each page
 .. _gallery page:         https://ncas-cms.github.io/cf-plot/build/gallery.html
-.. _installation page:    https://ncas-cms.github.io/cf-plot/build/download.html
-.. _guidance page here:   https://ncas-cms.github.io/cf-plot/build/issues.html
+.. _installation page:    https://ncas-cms.github.io/cf-plot/build/installation.html
+.. _guidance page here:   https://ncas-cms.github.io/cf-plot/build/support.html
 
 ########
 Overview
 ########
-
-.. image:: images/cf_gallery_image.png
-   :scale: 75%
-   :target: gallery.html
 
 **cf-plot: code-light plotting for earth science and aligned research**
             
 cf-plot allows you to produce and customise publication-quality contour, vector,
 line and more plots with the power of Python, `matplotlib`_,
 `Cartopy`_ and `cf-python`_ in as few lines of code as possible.
+
+.. image:: images/new/gallery_view.png
+   :target: gallery_of_examples.html
 
 It is designed to be a useful visualisation tool for environmental, earth and
 aligned sciences, for example to facilitate climate and meteorological research.

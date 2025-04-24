@@ -1,5 +1,3 @@
-:orphan:
-
 .. _polar:
 
 Polar stereographic projections
