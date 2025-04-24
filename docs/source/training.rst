@@ -20,5 +20,5 @@ one's own time. Links to this are as follows:
   **recommended sub-directory to use** for training with the repository as-is.
 
 The training is mostly in the form of Jupyter Notebooks. See the
-`set-up guidance here <https://github.com/NCAS-CMS/cf-tools-training>`_
+`set-up guidance here <https://github.com/NCAS-CMS/cf-tools-training?tab=readme-ov-file#downloading-and-working-through-the-course>`_
 for support with getting started using the Notebooks for learning.
