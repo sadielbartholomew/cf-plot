@@ -3,109 +3,146 @@
 Installation
 ************
 
-The following notes refer to the Python 3 versions of cf-python and cf-plot which was released on 1st October 2019.
 
 Is cf-plot already installed?
 =============================
 
-|    **Jasmin**
-|    export PATH=/home/users/ajh/anaconda3/bin:$PATH
-|    ln -s /home/users/ajh/cfplot_data ~
+cf-plot my already be avaiable to you, if you have access to a some tier of
+HPC system. For example (though note these commands may be out of date and
+will be checked for updates in the near future):
+
+.. code-block:: console
+   :caption: On JASMIN
+
+   $ export PATH=/home/users/ajh/anaconda3/bin:$PATH
+   $ ln -s /home/users/ajh/cfplot_data ~
 
 
-|    **Archer**
-|    export PATH=/home/n02/n02/ajh/anaconda3/bin:$PATH
-|    export QT_XCB_NO_XI2=true
-|    ln -s /home/n02/n02/ajh/cfplot_data ~
+.. code-block:: console
+   :caption: On ARCHER
+
+   $ export PATH=/home/n02/n02/ajh/anaconda3/bin:$PATH
+   $ export QT_XCB_NO_XI2=true
+   $ ln -s /home/n02/n02/ajh/cfplot_data ~
 
 
-|    **Reading University RACC cluster**
-|    module load ncas_anaconda3
-|    ln -s /share/apps/NCAS/cfplot_data ~
-
-
-|    **Monsoon postproc server**
-|    **to be installed** Contact andy.heaps@ncas.ac.uk for details.
-
-
-
+.. code-block:: console
+   :caption: On Reading University RACC cluster
+             
+   $ module load ncas_anaconda3
+   $ ln -s /share/apps/NCAS/cfplot_data ~
 
 
 To install cf-plot
 ==================
 
-Linux and Mac
-#############
+Linux and Mac OSX
+#################
 
-To install cf-plot on your own Linux PC or Mac download and install miniconda. On the command line type:
+cf-plot is supported for Linux and Mac. There are multiple ways to install
+from such systems.
 
-::
+Via conda
++++++++++
 
-   conda install -c ncas -c conda-forge cf-python cf-plot udunits2
-   conda install -c conda-forge mpich esmpy
+To install cf-plot on a Linux PC or Mac, download and install
+miniconda. On the command line type:
+
+.. code-block:: console
+   :caption: Installing cf-plot and its dependencies with conda
+             
+   $ conda install -c ncas -c conda-forge cf-python cf-plot udunits2
+   $ conda install -c conda-forge mpich esmpy  # if you need to use regridding functionality
 
 
-The first line installs cf-python and cf-plot.
-The second line is optional and installs esmpy, together with the netcdf-fortran and mpich requirements, which cf-python uses for regridding data.  Note that Matplotlib 3 was used in the development of cf-plot and it is advised to upgrade to this version if you are not using it already.  Using Matplotlib 2 can give different plot spacings and results such as missing contour plots.
+The first line installs cf-python and cf-plot (``udunits`` is a dependency
+of cf-python).
 
+The second line is optional and installs ``esmpy``, together
+with the ``netcdf-fortran`` and ``mpich`` requirements, which cf-python
+uses for regridding data.
+
+
+Via PyPI
+++++++++
+https://pypi.org/
+
+You can use `pip` to install from `PyPI <https://pypi.org/>`_:
+
+.. code-block:: console
+   :caption: Installing cf-plot and its dependencies with conda
+             
+   $ pip install cf-python cf-plot
+
+
+If you are upgrading the version of cf-python or cf-plot to the latest
+ones then add the ``--upgrade`` after the install above. A specific
+version can be installed using pip install ``cf-plot==3.0.20`` for example.
+
+
+From source via GitHub
+++++++++++++++++++++++
+
+.. code-block:: console
+   :caption: Installing cf-plot and its dependencies with conda
+             
+   $ git clone git://github.com/NCAS-CMS/cf-plot.git
+   $ cd cf-plot
+   $ python setup.py install  # or 'pip install -e .'
+
+Note you will need to ensure all dependencies are avialable, such as
+cf-python. See below for guidance on this.
 
 
 Windows
 #######
-We have a small development team and Linux is our main working environment. Windows isn't an option for us at present given our target user base.
 
-If you have a Windows operating system there are a couple of options for running Linux:
+Only Linux and Mac operating systems are directly supported, but if you
+wish to use Windows there are a couple of options whereby you can run
+Linux from Windows and use cf-plot that way:
 
-1) Install the Microsoft Windows Subsystem for Linux (WSL).  Once this is working install cf-python and cf-plot as per the Linux instructions above.
+1) Install the Microsoft Windows Subsystem for Linux (WSL). Once this is
+   working install cf-python and cf-plot as per the Linux instructions above.
 
-2) Installing a Linux Virtual Machine is simple and works well.  Installation instructions and a Mint Linux Virtual Machine are available at http://gws-access.ceda.ac.uk/public/ncas_climate/ajh/data_analysis_tools/VM.
-
-
-
-
-
-
-Other install methods for Linux and Mac OSX
-###########################################
-Using pip:
-
-::
-
-   pip install cf-python cf-plot
-
-If you are upgrading the version of cf-python or cf-plot to the latest ones then add the --upgrade after the install above. A specific version can be installed using pip install cf-plot==3.0.20 for example.
-
-Using GitHub:
-
-::
-
-   git clone git://github.com/NCAS-CMS/cf-plot.git
-   (or possibly git clone https://github.com/NCAS-CMS/cf-plot.git)
-   cd cf-plot
-   python setup.py install
+2) Installing a Linux Virtual Machine. Installation instructions and a
+   Mint Linux Virtual Machine are available at
+   http://gws-access.ceda.ac.uk/public/ncas_climate/ajh/data_analysis_tools/VM.
 
 
-You will need to download and install `cf-python <https://cfpython.bitbucket.io>`_ to use cf-plot.  Other cf-plot dependencies are: Numpy, Scipy, Matplotlib, NetCDF4 and Cartopy.
+Dependencies
+############
+
+cf-plot has the following dependencies:
+
+* `cf-python <https://ncas-cms.github.io/cf-python/installation.html>`_, ``'cf-python >= 3.9.0'``
+* `Matplotlib <https://matplotlib.org/stable/install/index.html>`_, ``'matplotlib >=3.1.0'``
+* `SciPy <https://scipy.org/install/>`_, ``'scipy >= 1.4.0'``
+* `Cartopy <https://scitools.org.uk/cartopy/docs/latest/installing.html>`_, ``'cartopy >= 0.17.0'``
+
+With package managers such as `conda` and `pip` you can install all dependencies
+along with the package, but you can also find information on installing
+these dependencies separately on the links in the list above to the relevant
+documentation pages of each dependency library.
 
 
 Sample data sets
 ################
 
-These are available in the cfplot_data directory which can be linked using:
+Sample data sets, which are used for instance in the examples throughout
+this documentation, are
+`available for download generally from this link <http://gws-access.ceda.ac.uk/public/ncas_climate/ajh/data_analysis_tools/cfplot_data.tar>`_.
 
-|   Jasmin: **ln -s /home/users/ajh/cfplot_data ~**
-|   Reading Academic Computing Cluster (RACC): **ln -s /share/apps/NCAS/cfplot_data ~**
+If you have access to JASMIN or RACC, they are also available already in
+directories named ``cfplot_data`` in each location,
+which can be linked as follows:
+
+.. code-block:: console
+   :caption: Locations of sample datasets on JASMIN
+             
+   $ ln -s /home/users/ajh/cfplot_data ~
 
 
-If you are on a different server then download the `sample netCDF datasets <http://gws-access.ceda.ac.uk/public/ncas_climate/ajh/data_analysis_tools/cfplot_data.tar>`_
-
-
-
-|
-|
-|
-|
-|
-|
-|
-|
+.. code-block:: console
+   :caption: Locations of sample datasets on the Reading Academic Computing Cluster (RACC)
+             
+   $ ln -s /share/apps/NCAS/cfplot_data ~
