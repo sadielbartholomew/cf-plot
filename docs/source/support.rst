@@ -1,5 +1,3 @@
-:orphan:
-
 Support and contributing
 ************************
 

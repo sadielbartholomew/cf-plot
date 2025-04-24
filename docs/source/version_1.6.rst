@@ -1,5 +1,3 @@
-:orphan:
-
 .. _version_1.6:
 
 version 1.6 changes

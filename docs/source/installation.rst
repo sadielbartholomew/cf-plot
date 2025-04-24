@@ -1,8 +1,5 @@
-:orphan:
-
 Installation
 ************
-
 
 Is cf-plot already installed?
 =============================

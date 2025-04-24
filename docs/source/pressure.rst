@@ -1,5 +1,3 @@
-:orphan:
-
 .. _pressure:
 
 Plots of latitude/longitude against pressure

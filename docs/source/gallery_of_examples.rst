@@ -1,5 +1,3 @@
-:orphan:
-
 Gallery of examples
 ===================
 

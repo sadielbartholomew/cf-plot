@@ -1,5 +1,3 @@
-:orphan:
-
 .. _advanced:
 
 Advanced use

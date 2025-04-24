@@ -1,5 +1,3 @@
-:orphan:
-
 .. _rotated_pole:
 
 Rotated pole plots
