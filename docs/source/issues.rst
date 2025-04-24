@@ -28,46 +28,25 @@ Issue reporting guidelines
 
 If you find a problem with cf-plot, please ensure you provide all of the
 information below so we can investigate properly as soon as possible (else
-we will end up asking you this first).
+we will end up asking you this first):
 
-Please email with the following:
+* The version of the software and the environment in which you are
+  encountering an issue, by sharing the output of
+  ``cf.environment(paths=False)``.
 
-|   (i) the cf-python and cf-plot version numbers used:
-|       print('cf-python version', cf.__version__)
-|       print('cf-plot version', cfp.__version__)
-|   (i) A short piece of code showing the problem
-|   (iii) The data needed to make the plot
+* A description of the issue with, if possible:
 
+  * what you expected to happen and what did actually happen;
+  * the steps needed to reproduce it (ideally from copying the original
+    code you ran which produced the issue);
+  * the data you were using when the issue occurred, either as a
+    data file to send or by sharing the output of ``f.dump()`` for the
+    field ``f`` which displays the issue (or the same for multiple fields
+    if applicable), as close as possible to the
+    code line where the issue manifests.
 
-i.e. if you make a plot using:
-
-::
-
-   f=cf.read('cfplot_data/ggap.nc')[1]
-   cfp.con(f.collapse('mean','longitude'))
-
-Then use cf-python to write out the data used to make the plot and then send the data (newfile.nc) and plotting line to me.
-
-::
-
-   f=cf.read('cfplot_data/ggap.nc')[1]
-   g=f.collapse('mean','longitude')
-   cf.write(g, 'newfile.nc')
-
-
-Send the data (newfile.nc) and plotting lines as per below example to me:
-
-::
-
-   g=cf.read('newfile.nc')
-   cfp.con(g)
-
-
-If you are using arrays of data use numpy to write out the relevant data:
-
-::
-
-   np.save('lons.npy', lons)
-   np.save('lats.npy', lats)
-   np.save('field.npy', field)
-
+* Outputs showcasing the issue, if available:
+    
+  * any traceback information;
+  * any plots that emerge (plus correct plots to compare this to, if you have
+    those from using different software or environments).
