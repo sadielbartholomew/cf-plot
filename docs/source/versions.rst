@@ -66,10 +66,14 @@ Individual Changelog listings
 Older documentation
 -------------------
 
-Two frozen older documentation sets are available for old versions of cf-plot:
+Three frozen older documentation sets are available for old versions of cf-plot:
 
-* `cf-plot 2.4.8, Cartopy version
-  <http://www.met.reading.ac.uk/~swsheaps/cf-plot-2.4.8>`_
+* `cf-plot 3.3.0 <https://ajheaps.github.io/cf-plot/>`_,
+  final version under user space of Andy Heaps before a move to NCAS-CMS
+  space;
 
-* `cf-plot 2.1.75, Basemap version
-  <http://www.met.reading.ac.uk/~swsheaps/cf-plot-2.1.75>`_
+* `cf-plot 2.4.8 <http://www.met.reading.ac.uk/~swsheaps/cf-plot-2.4.8>`_,
+  Cartopy version;
+
+* `cf-plot 2.1.75 <http://www.met.reading.ac.uk/~swsheaps/cf-plot-2.1.75>`_,
+  Basemap version.
