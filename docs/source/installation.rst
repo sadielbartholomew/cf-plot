@@ -27,7 +27,7 @@ will be checked for updates in the near future):
 
 
 .. code-block:: console
-   :caption: On Reading University RACC cluster
+   :caption: On Reading Academic Computing Cluster (RACC)
              
    $ module load ncas_anaconda3
    $ ln -s /share/apps/NCAS/cfplot_data ~
@@ -40,53 +40,51 @@ Linux and Mac OSX
 #################
 
 cf-plot is supported for Linux and Mac. There are multiple ways to install
-from such systems.
+from such systems, as detailed below.
 
 Via conda
 +++++++++
 
-To install cf-plot on a Linux PC or Mac, download and install
-miniconda. On the command line type:
+To install cf-plot on a Linux PC or Mac, get access to the ``conda``
+command through an
+`Anaconda or 'miniconda' distribution (etc.) <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
+and run:
 
 .. code-block:: console
-   :caption: Installing cf-plot and its dependencies with conda
-             
-   $ conda install -c ncas -c conda-forge cf-python cf-plot udunits2
-   $ conda install -c conda-forge mpich esmpy  # if you need to use regridding functionality
+   :caption: Installing cf-plot and its dependencies with ``conda``
+
+   $ conda install -c conda-forge cf-python cf-plot udunits2
+   $ conda install -c conda-forge "esmpy>=8.7.0"  # if you need to use regridding functionality
 
 
 The first line installs cf-python and cf-plot (``udunits`` is a dependency
-of cf-python).
-
-The second line is optional and installs ``esmpy``, together
-with the ``netcdf-fortran`` and ``mpich`` requirements, which cf-python
-uses for regridding data.
+of cf-python). The second line is optional and installs ``esmpy``,
+together which cf-python uses for regridding data.
 
 
 Via PyPI
 ++++++++
-https://pypi.org/
 
 You can use `pip` to install from `PyPI <https://pypi.org/>`_:
 
 .. code-block:: console
-   :caption: Installing cf-plot and its dependencies with conda
+   :caption: Installing cf-plot and its dependencies with ``pip``
              
    $ pip install cf-python cf-plot
 
 
 If you are upgrading the version of cf-python or cf-plot to the latest
 ones then add the ``--upgrade`` after the install above. A specific
-version can be installed using pip install ``cf-plot==3.0.20`` for example.
+version can be installed using pip install ``cf-plot==3.3.0`` for example.
 
 
 From source via GitHub
 ++++++++++++++++++++++
 
 .. code-block:: console
-   :caption: Installing cf-plot and its dependencies with conda
+   :caption: Installing cf-plot from source via ``git`` and GitHub
              
-   $ git clone git://github.com/NCAS-CMS/cf-plot.git
+   $ git clone https://github.com/NCAS-CMS/cf-plot.git
    $ cd cf-plot
    $ python setup.py install  # or 'pip install -e .'
 
@@ -119,7 +117,8 @@ cf-plot has the following dependencies:
 * `SciPy <https://scipy.org/install/>`_, ``'scipy >= 1.4.0'``
 * `Cartopy <https://scitools.org.uk/cartopy/docs/latest/installing.html>`_, ``'cartopy >= 0.17.0'``
 
-With package managers such as `conda` and `pip` you can install all dependencies
+With package/environment managers such as ``conda`` and ``pip`` you
+can install all dependencies
 along with the package, but you can also find information on installing
 these dependencies separately on the links in the list above to the relevant
 documentation pages of each dependency library.
