@@ -3,6 +3,13 @@
 Colour scales
 *************
 
+.. caution:: The colour scales of cf-plot are under review and will be
+             updated in future versions. This page is left here for
+             reference but note parts of it may
+             be out-of-date (it is not tested for v3.4.0) and therefore
+             only work for older versions of cf-plot.
+
+
 There are two default colour scales in cf-plot:
 
 1) A continuous scale ('viridis') that goes from blue to green and then yellow and suits data that has no zero in it.  For example air temperature in Kelvin or geopotential height - see example 1 in the plot gallery.
