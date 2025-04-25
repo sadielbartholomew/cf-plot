@@ -26,6 +26,7 @@ aligned sciences, for example to facilitate climate and meteorological research.
 cf-plot is developed and maintained by the `NCAS-CMS`_ group, part of `NCAS`_.
 
 .. image:: images/new_gallery_view.png
+   :target: gallery_of_examples.html
 
 Learn more about cf-plot in the :ref:`intro` section, else navigate via
 the contents listing as shown below and in the navigation sidebar.
