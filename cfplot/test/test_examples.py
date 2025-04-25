@@ -526,7 +526,7 @@ class ExamplesTest(unittest.TestCase):
         looks very similar to 'gen_fig_unstructured_lfric_3' plot, with
         edges all blurred together.
         """
-        f = cf.read("cfplot_data/lfric_initial.nc")
+        f = cf.read(f"{self.data_dir}/lfric_initial.nc")
 
         # Select the relevant fields for the objects required for the plot,
         # taking the air potential temperature as a variable to choose to view.
@@ -560,7 +560,7 @@ class ExamplesTest(unittest.TestCase):
         grid, a clear issue. For now the reference plot has this in. An
         issue will be raised to note this and eventually fix it.
         """
-        f = cf.read("cfplot_data/lfric_initial.nc")
+        f = cf.read(f"{self.data_dir}/lfric_initial.nc")
 
         # Select the relevant fields for the objects required for the plot,
         # taking the air potential temperature as a variable to choose to view.
@@ -592,7 +592,7 @@ class ExamplesTest(unittest.TestCase):
         Test example for unstructured grids: LFRic example 3, now
         numbered to become the missing example 24, part (c).
         """
-        f = cf.read("cfplot_data/lfric_initial.nc")
+        f = cf.read(f"{self.data_dir}/lfric_initial.nc")
         pot = f.select_by_identity("air_potential_temperature")[0]
 
         g = pot[0, :]
@@ -604,7 +604,7 @@ class ExamplesTest(unittest.TestCase):
 
         Test example for unstructured grids: ORCA grid example 1.
         """
-        f = cf.read("cfplot_data/orca2.nc")
+        f = cf.read(f"{self.data_dir}/orca2.nc")
 
         # Get an Orca grid and flatten the arrays
         lons = f.select_by_identity("ncvar%longitude")[0]
@@ -650,7 +650,7 @@ class ExamplesTest(unittest.TestCase):
         temp = []
 
         # Read data and make the contour plot
-        f = open("cfplot_data/synop_data.txt")
+        f = open(f"{self.data_dir}/synop_data.txt")
         lines = f.readlines()
         for line in lines:
             mysplit = line.split()
@@ -677,7 +677,7 @@ class ExamplesTest(unittest.TestCase):
         temp = []
 
         # Read data and make the contour plot
-        f = open("cfplot_data/synop_data.txt")
+        f = open(f"{self.data_dir}/synop_data.txt")
         lines = f.readlines()
         for line in lines:
             mysplit = line.split()
