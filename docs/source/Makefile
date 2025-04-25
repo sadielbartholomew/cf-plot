@@ -42,7 +42,10 @@ help:
 
 clean:
 	@echo "Cleaning: removing all but the 'source' directory under $(BUILDDIR)."
-	-rm -rf $(BUILDDIR)/_static $(BUILDDIR)/_sources $(BUILDDIR)/*.html $(BUILDDIR)/searchindex.js $(BUILDDIR)/objects.inv $(BUILDDIR)/genindex.html
+	-rm -rf $(BUILDDIR)/_static $(BUILDDIR)/_sources $(BUILDDIR)/*.html \
+        $(BUILDDIR)/searchindex.js $(BUILDDIR)/objects.inv \
+        $(BUILDDIR)/genindex.html $(BUILDDIR)/_images $(BUILDDIR)/_modules \
+        $(BUILDDIR)/_sphinx_design_static
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)
