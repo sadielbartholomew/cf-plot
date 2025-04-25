@@ -1,6 +1,8 @@
 """
-Climate contour/vector plots using cf-python, matplotlib and cartopy.
-Andy Heaps NCAS-CMS November 2023
+cf-plot: code-light plotting for earth science and aligned research
+
+Copyright 2025, National Centre for Atmospheric Science (NCAS).
+
 """
 
 import os
