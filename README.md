@@ -4,7 +4,7 @@
 
 ### Overview
 
-![cf-plot example gallery of plots](docs/source/images/cf_gallery_image.png "Examples Gallery of plots made with the cf-plot library")
+![cf-plot example gallery of plots](docs/source/images/new_gallery_view.png "Examples Gallery of plots made with the cf-plot library")
 
 **cf-plot allows you to produce and customise publication-quality contour,
 vector, line and more plots with the power of Python,
@@ -45,8 +45,8 @@ as illustrated in the (static) image at the top of this document.
 
 ### Documentation
 
-See [the cf-plot homepage](https://ncas-cms.github.io/cf-plot/build/)
-(`https://ncas-cms.github.io/cf-plot/build/`) for the full online documentation.
+See [the cf-plot homepage](https://ncas-cms.github.io/cf-plot/)
+(`https://ncas-cms.github.io/cf-plot`) for the full online documentation.
 
 
 ### Installation
