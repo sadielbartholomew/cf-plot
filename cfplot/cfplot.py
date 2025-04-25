@@ -9463,13 +9463,25 @@ def traj(
                     plot_zorder = zorder
                 if np.size(pts) > 0:
 
+                    # Define the data to plot
+                    if is_dsg:
+                        data_colours = [
+                            plotvars.cs[
+                                np.max(np.where(d > plotvars.levels))
+                            ] for d in data2[pts]
+                        ]
+                    else:
+                        data_colours = color
+
                     mymap.scatter(
                         xpts[pts],
                         ypts[pts],
                         s=markersize * 15,
-                        c=color,
+                        c=data_colours,
                         marker=marker,
-                        edgecolors=markeredgecolor,
+                        # TODO broken, fix and reinstate
+                        # edgecolors=markeredgecolor,
+                        linewidth=plot_linewidth,
                         transform=ccrs.PlateCarree(),
                         zorder=plot_zorder,
                     )
