@@ -39,7 +39,7 @@ cfp.con(f.subspace(time=<chosen time value>))  # creates a contour plot of the f
 A gallery of outputs made with cf-plot, showcasing a range of plotting
 possibilities with links to relevant documentation pages and to example code,
 can be found
-[on this dedicated page within the documentation](https://ncas-cms.github.io/cf-plot/build/gallery.html),
+[on this dedicated page within the documentation](https://ncas-cms.github.io/cf-plot/gallery_of_examples.html),
 as illustrated in the (static) image at the top of this document.
 
 
@@ -65,8 +65,8 @@ conda install -c ncas -c conda-forge cf-python cf-plot udunits2
 ```
 
 More detail about installation is provided on the
-[installation page](https://ncas-cms.github.io/cf-plot/build/download.html)
-(`https://ncas-cms.github.io/cf-plot/build/download.html`)
+[installation page](https://ncas-cms.github.io/cf-plot/installation.html)
+(`https://ncas-cms.github.io/cf-plot/installation.html`)
 of the documentation.
 
 ### Contributing
@@ -80,5 +80,5 @@ Contributing guidelines will be added to the repository shortly.
 ### Help: Issues, Questions, Feature Requests, etc.
 
 For any queries, see the
-[guidance page](https://ncas-cms.github.io/cf-plot/build/issues.html)
-(`https://ncas-cms.github.io/cf-plot/build/issues.html`).
+[guidance page](https://ncas-cms.github.io/cf-plot/support.html)
+(`https://ncas-cms.github.io/cf-plot/support.html`).
