@@ -12,10 +12,6 @@ Introduction
 .. _NCAS-CMS:    https://cms.ncas.ac.uk/index.html
 .. _NCAS:        https://ncas.ac.uk/
 
-.. TODO update these to internal links once can go through and reference each page
-.. _gallery page:         https://ncas-cms.github.io/cf-plot/build/gallery.html
-.. _installation page:    https://ncas-cms.github.io/cf-plot/build/installation.html
-.. _guidance page here:   https://ncas-cms.github.io/cf-plot/build/support.html
 
 ########
 Overview
@@ -27,8 +23,7 @@ cf-plot allows you to produce and customise publication-quality contour, vector,
 line and more plots with the power of Python, `matplotlib`_,
 `Cartopy`_ and `cf-python`_ in as few lines of code as possible.
 
-.. image:: images/new/gallery_view.png
-   :target: gallery_of_examples.html
+.. image:: images/new_v3.4.0plus_gallery_view.png
 
 It is designed to be a useful visualisation tool for environmental, earth and
 aligned sciences, for example to facilitate climate and meteorological research.
@@ -57,7 +52,7 @@ Examples Gallery
 
 A gallery of outputs made with cf-plot, showcasing a range of plotting
 possibilities with links to relevant documentation pages and to example code,
-can be found on the `gallery page`_, as also linked to the static image
+can be found on the :ref:`gallery page<examplesgallery>`, as also linked to the static image
 of the gallery at the to of this page.
 
 
@@ -79,7 +74,7 @@ or you can use conda (or similar package managers such as mamba) as follows
    conda install -c ncas -c conda-forge cf-python cf-plot udunits2
 
 More detail about installation is provided on the
-`installation page`_ of the documentation.
+:ref:`installation page<install>` of the documentation.
 
 ############
 Contributing
@@ -94,5 +89,5 @@ Contributing guidelines will be added to the repository shortly.
 Help: Issues, Questions, Feature Requests, etc.
 ###############################################
 
-For any queries, see the `guidance page here`_.
+For any queries, see the :ref:`guidance page here<support>`.
 
