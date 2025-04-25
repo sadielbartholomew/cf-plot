@@ -615,26 +615,11 @@ class ExamplesTest(unittest.TestCase):
         lats.flatten(inplace=True)
         temp.flatten(inplace=True)
 
-        # Mask NaN else the plot will fail with:
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 1030, in test_example_unstructured_orca_1
-        #     cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3297, in con
-        #     _cf_data_assign(f, colorbar_title, verbose=verbose)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1379, in _cf_data_assign
-        #     myz = find_z(f)
-        #           ^^^^^^^^^
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10748, in find_z
-        #     mycoords = find_dim_names(f)
-        #                ^^^^^^^^^^^^^^^^^
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10720, in find_dim_names
-        #     if field.coord(coords[i]).X:
-        #                    ~~~~~~^^^
-        # IndexError: list index out of range
-        # TODO apply this at relevant place in code, instead
-        temp = np.ma.masked_invalid(temp)
-
-        cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
+        # Note: in this case we can't input the 'temp' field as-is,
+        # because it isn't CF-compliant, notably it doesn't have
+        # coordinates of any kind set. So we must pull out the array
+        # and input that, along with the corresponding lat and lon arrays.
+        cfp.con(f=temp.array, x=lons.array, y=lats.array, ptype=1)
 
     @compare_plot_results
     def test_example_26a(self):
