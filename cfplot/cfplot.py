@@ -25,7 +25,7 @@ from scipy import interpolate
 from scipy.interpolate import griddata
 
 # Check for the minimum cf-python version
-cf_version_min = "3.0.0b2"
+cf_version_min = "3.17.0"
 errstr = (
     f"\n\n cf-python > {cf_version_min}"
     "\n needs to be installed to use cf-plot \n\n"
@@ -9171,6 +9171,10 @@ def traj(
     | ec='k' - vector edge colour
 
     """
+    is_dsg = False
+    if f.DSG or f.ndim == 1:  # registered as a DSG or if is 1D, assume is DSG
+        is_dsg = True
+
     if verbose:
         print("traj - making a trajectory plot")
 
@@ -9320,7 +9324,10 @@ def traj(
     for track in np.arange(ntracks):
         xpts = lons[track, :]
         ypts = lats[track, :]
-        data2 = data[track, :]
+        if is_dsg:
+            data2 = data
+        else:
+            data2 = data[track, :]
 
         xpts_orig = deepcopy(xpts)
         xpts = np.mod(xpts + 180, 360) - 180
@@ -9433,7 +9440,10 @@ def traj(
         for track in np.arange(ntracks):
             xpts = lons[track, :]
             ypts = lats[track, :]
-            data2 = data[track, :]
+            if is_dsg:
+                data2 = data
+            else:
+                data2 = data[track, :]
 
             for i in np.arange(np.size(levs) - 1):
                 color = plotvars.cs[i]
