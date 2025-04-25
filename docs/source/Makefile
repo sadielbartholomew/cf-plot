@@ -5,7 +5,9 @@
 SPHINXOPTS    =
 SPHINXBUILD   = python3 -m sphinx
 PAPER         =
-BUILDDIR      = ../build
+# NOTE HAD TO EDIT THE MAKE CLEAN INSTRUCTIONS TO ALLOW SOURCE UNDER BUILD!
+SOURCEDIR     = .
+BUILDDIR      = ..
 
 # Internal variables.
 PAPEROPT_a4     = -D latex_paper_size=a4
@@ -39,7 +41,8 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
 clean:
-	-rm -rf $(BUILDDIR)/*
+	@echo "Cleaning: removing all but the 'source' directory under $(BUILDDIR)."
+	-rm -rf $(BUILDDIR)/_static $(BUILDDIR)/_sources $(BUILDDIR)/*.html $(BUILDDIR)/searchindex.js $(BUILDDIR)/objects.inv $(BUILDDIR)/genindex.html
 
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)
