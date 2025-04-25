@@ -3,6 +3,14 @@
 Advanced use
 ************
 
+.. caution:: This user guide, including the 'advanced use' section,
+             was developed for a set of older versions of
+             cf-plot and is likely to be out-of-date. It will be updated
+             in the near future, but until now note that parts may not be
+             applicable, or work, with the latest version (3.4.0+). For now
+             please reference the :ref:`examplesgallery` pages for code
+             that is tested to be up-to-date and working.
+
 Here are some hints and tips on the advanced use of cf-plot.
 
 
