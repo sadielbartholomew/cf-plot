@@ -31,7 +31,6 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.viewcode",
-    # 'sphinx.ext.pngmath',
     "sphinx.ext.graphviz",
     "sphinx.ext.inheritance_diagram",
     # For grids of images:
@@ -53,7 +52,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "cf-plot"
-copyright = "2025, Sadie Bartholomew and Andy Heaps"
+copyright = "2025, National Centre for Atmospheric Science (NCAS)"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
