@@ -25,7 +25,7 @@ It is designed to be a useful visualisation tool for environmental, earth and
 aligned sciences, for example to facilitate climate and meteorological research.
 cf-plot is developed and maintained by the `NCAS-CMS`_ group, part of `NCAS`_.
 
-.. image:: images/new_v3.4.0plus_gallery_view.png
+.. image:: images/new_gallery_view.png
 
 Learn more about cf-plot in the :ref:`intro` section, else navigate via
 the contents listing as shown below and in the navigation sidebar.
