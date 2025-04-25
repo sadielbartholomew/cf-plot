@@ -1,6 +1,8 @@
 """
-Climate contour/vector plots using cf-python, matplotlib and cartopy.
-Andy Heaps NCAS-CMS November 2023
+cf-plot: code-light plotting for earth science and aligned research
+
+Copyright 2025, National Centre for Atmospheric Science (NCAS).
+
 """
 
 import os
@@ -10672,6 +10674,7 @@ def find_dim_names(field):
     nz = 0
     nt = 0
     for i in np.arange(len(dcoords)):
+        print("ARRIVE HERE", dcoords, i)
         if field.coord(dcoords[i]).X:
             nx += 1
         if field.coord(dcoords[i]).Y:
@@ -10680,6 +10683,8 @@ def find_dim_names(field):
             nz += 1
         if field.coord(dcoords[i]).T:
             nt += 1
+
+    print("HAVE", nx, ny, nz, nt)
 
     # New test
     remove_aux = False
@@ -10719,8 +10724,10 @@ def find_dim_names(field):
     # Convert to X, Y, Z, T if coordinate is one of these
     # If the number of coordinates of this type is greater than 1 then don't
     # do this as f.coord('Z') gives an
-    # error as there are more that one coordinates to return
+    # error as there is more than one coordinate to return
     for i in np.arange(len(daxes)):
+        if len(coords) - 1 < i:
+            break
         if field.coord(coords[i]).X:
             if nx == 1:
                 mycoords[i] = "X"

@@ -526,7 +526,7 @@ class ExamplesTest(unittest.TestCase):
         looks very similar to 'gen_fig_unstructured_lfric_3' plot, with
         edges all blurred together.
         """
-        f = cf.read("cfplot_data/lfric_initial.nc")
+        f = cf.read(f"{self.data_dir}/lfric_initial.nc")
 
         # Select the relevant fields for the objects required for the plot,
         # taking the air potential temperature as a variable to choose to view.
@@ -560,7 +560,7 @@ class ExamplesTest(unittest.TestCase):
         grid, a clear issue. For now the reference plot has this in. An
         issue will be raised to note this and eventually fix it.
         """
-        f = cf.read("cfplot_data/lfric_initial.nc")
+        f = cf.read(f"{self.data_dir}/lfric_initial.nc")
 
         # Select the relevant fields for the objects required for the plot,
         # taking the air potential temperature as a variable to choose to view.
@@ -592,7 +592,7 @@ class ExamplesTest(unittest.TestCase):
         Test example for unstructured grids: LFRic example 3, now
         numbered to become the missing example 24, part (c).
         """
-        f = cf.read("cfplot_data/lfric_initial.nc")
+        f = cf.read(f"{self.data_dir}/lfric_initial.nc")
         pot = f.select_by_identity("air_potential_temperature")[0]
 
         g = pot[0, :]
@@ -604,7 +604,7 @@ class ExamplesTest(unittest.TestCase):
 
         Test example for unstructured grids: ORCA grid example 1.
         """
-        f = cf.read("cfplot_data/orca2.nc")
+        f = cf.read(f"{self.data_dir}/orca2.nc")
 
         # Get an Orca grid and flatten the arrays
         lons = f.select_by_identity("ncvar%longitude")[0]
@@ -615,26 +615,11 @@ class ExamplesTest(unittest.TestCase):
         lats.flatten(inplace=True)
         temp.flatten(inplace=True)
 
-        # Mask NaN else the plot will fail with:
-        # Traceback (most recent call last):
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/test/test_examples.py", line 1030, in test_example_unstructured_orca_1
-        #     cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 3297, in con
-        #     _cf_data_assign(f, colorbar_title, verbose=verbose)
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 1379, in _cf_data_assign
-        #     myz = find_z(f)
-        #           ^^^^^^^^^
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10748, in find_z
-        #     mycoords = find_dim_names(f)
-        #                ^^^^^^^^^^^^^^^^^
-        #   File "/home/slb93/git-repos/cf-plot/cfplot/cfplot.py", line 10720, in find_dim_names
-        #     if field.coord(coords[i]).X:
-        #                    ~~~~~~^^^
-        # IndexError: list index out of range
-        # TODO apply this at relevant place in code, instead
-        temp = np.ma.masked_invalid(temp)
-
-        cfp.con(f=temp, x=lons.array, y=lats.array, ptype=1)
+        # Note: in this case we can't input the 'temp' field as-is,
+        # because it isn't CF-compliant, notably it doesn't have
+        # coordinates of any kind set. So we must pull out the array
+        # and input that, along with the corresponding lat and lon arrays.
+        cfp.con(f=temp.array, x=lons.array, y=lats.array, ptype=1)
 
     @compare_plot_results
     def test_example_26a(self):
@@ -650,7 +635,7 @@ class ExamplesTest(unittest.TestCase):
         temp = []
 
         # Read data and make the contour plot
-        f = open("cfplot_data/synop_data.txt")
+        f = open(f"{self.data_dir}/synop_data.txt")
         lines = f.readlines()
         for line in lines:
             mysplit = line.split()
@@ -677,7 +662,7 @@ class ExamplesTest(unittest.TestCase):
         temp = []
 
         # Read data and make the contour plot
-        f = open("cfplot_data/synop_data.txt")
+        f = open(f"{self.data_dir}/synop_data.txt")
         lines = f.readlines()
         for line in lines:
             mysplit = line.split()
