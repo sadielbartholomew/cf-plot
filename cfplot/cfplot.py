@@ -25,7 +25,7 @@ from scipy import interpolate
 from scipy.interpolate import griddata
 
 # Check for the minimum cf-python version
-cf_version_min = "3.0.0b2"
+cf_version_min = "3.17.0"
 errstr = (
     f"\n\n cf-python > {cf_version_min}"
     "\n needs to be installed to use cf-plot \n\n"
@@ -9171,6 +9171,14 @@ def traj(
     | ec='k' - vector edge colour
 
     """
+    is_1d_data = False
+    if f.ndim == 1:
+        is_1d_data = True
+
+    is_dsg = False
+    if f.DSG or is_1d_data:  # registered as a DSG or if is 1D, assume is DSG
+        is_dsg = True
+
     if verbose:
         print("traj - making a trajectory plot")
 
@@ -9320,7 +9328,10 @@ def traj(
     for track in np.arange(ntracks):
         xpts = lons[track, :]
         ypts = lats[track, :]
-        data2 = data[track, :]
+        if is_1d_data:
+            data2 = data
+        else:
+            data2 = data[track, :]
 
         xpts_orig = deepcopy(xpts)
         xpts = np.mod(xpts + 180, 360) - 180
@@ -9433,7 +9444,10 @@ def traj(
         for track in np.arange(ntracks):
             xpts = lons[track, :]
             ypts = lats[track, :]
-            data2 = data[track, :]
+            if is_1d_data:
+                data2 = data
+            else:
+                data2 = data[track, :]
 
             for i in np.arange(np.size(levs) - 1):
                 color = plotvars.cs[i]
@@ -9453,13 +9467,24 @@ def traj(
                     plot_zorder = zorder
                 if np.size(pts) > 0:
 
+                    # Define the data to plot
+                    if is_dsg or is_1d_data:
+                        data_colours = [
+                            plotvars.cs[
+                                np.max(np.where(d > plotvars.levels))
+                            ] for d in data2[pts]
+                        ]
+                    else:
+                        data_colours = color
+
                     mymap.scatter(
                         xpts[pts],
                         ypts[pts],
-                        s=markersize * 15,
-                        c=color,
+                        s=markersize,
+                        c=data_colours,
                         marker=marker,
                         edgecolors=markeredgecolor,
+                        linewidths=plot_linewidth,
                         transform=ccrs.PlateCarree(),
                         zorder=plot_zorder,
                     )
@@ -10674,7 +10699,6 @@ def find_dim_names(field):
     nz = 0
     nt = 0
     for i in np.arange(len(dcoords)):
-        print("ARRIVE HERE", dcoords, i)
         if field.coord(dcoords[i]).X:
             nx += 1
         if field.coord(dcoords[i]).Y:
@@ -10683,8 +10707,6 @@ def find_dim_names(field):
             nz += 1
         if field.coord(dcoords[i]).T:
             nt += 1
-
-    print("HAVE", nx, ny, nz, nt)
 
     # New test
     remove_aux = False

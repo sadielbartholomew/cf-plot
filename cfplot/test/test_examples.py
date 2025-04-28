@@ -909,6 +909,25 @@ class ExamplesTest(unittest.TestCase):
         cfp.traj(f)
 
     @compare_plot_results
+    def test_example_39b(self):
+        """Test Example 39: single DSG with no trajectory dimension (1D).
+
+        TODO convert 39 to 39a now this is the 'b' example, to keep
+        'traj' examples/tests grouped together in order.
+
+        TODO make this a group with the other DSGs from before, namely
+        Exs 42a and 42b, but this is simplest so make it 42a and bump
+        the other two in number.
+        """
+        f = cf.read(f"{self.data_dir}/dsg_trajectory.nc")[0]
+
+        # This is over a small part of France so focus in on that
+        # area and make the land borders higher-resolution
+        cfp.mapset(lonmin=3, lonmax=6, latmin=51, latmax=54, resolution="10m")
+
+        cfp.traj(f)
+
+    @compare_plot_results
     def test_example_40(self):
         """Test Example 40: tracks in the polar stereographic projection."""
         f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
@@ -940,7 +959,7 @@ class ExamplesTest(unittest.TestCase):
         cfp.traj(
             g,
             legend=True,
-            linewidth=2,
+            markersize=40.0,
             colorbar_title="Relative Vorticity (Hz) * 1e5",
         )
 

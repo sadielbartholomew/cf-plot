@@ -17,6 +17,8 @@ of being developed elsewhere.
 
 #### Version `3.4.0`, release soon (date TBC)
 
+* New feature: `traj` method can now natively plot *single* trajectories encoded as
+  discrete sampling geometries (i.e. one-dimensional paths, having no trajectory dimension)
 * Fix bug whereby `con` would result in a blank plot for rotated pole data
   requested for display on its native grid through setting of `cfp.mapset(proj="rotated")`
   (see https://github.com/NCAS-CMS/cf-plot/issues/86)

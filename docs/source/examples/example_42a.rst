@@ -21,7 +21,7 @@ Example 42a: Tracks with labelled data points
    cfp.traj(
        g,
        legend=True,
-       linewidth=2,
+       markersize=40.0,
        colorbar_title="Relative Vorticity (Hz) * 1e5",
    )
 
