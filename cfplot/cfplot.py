@@ -9476,12 +9476,12 @@ def traj(
                     mymap.scatter(
                         xpts[pts],
                         ypts[pts],
-                        s=markersize * 15,
+                        s=markersize,
                         c=data_colours,
                         marker=marker,
                         # TODO broken, fix and reinstate
                         # edgecolors=markeredgecolor,
-                        linewidth=plot_linewidth,
+                        linewidths=plot_linewidth,
                         transform=ccrs.PlateCarree(),
                         zorder=plot_zorder,
                     )
