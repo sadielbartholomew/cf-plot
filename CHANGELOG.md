@@ -2,7 +2,7 @@
 
 ## cf-plot changelog
 
-**Current release: version `3.3.0`, released `2024-01-15`**
+**Current release: version `3.4.0`, released `2025-04-28`**
 
 *Note*: stated dates of releases correspond to the date a given
 version was tagged on GitHub. Up until 2024 some detail may
@@ -13,12 +13,37 @@ of being developed elsewhere.
 
 -----
 
-### Version `3.4.X`, first released (`3.4.0`) `????-??-??`
+### Version `3.4.X`, first released (`3.4.0`) `2025-04-28`
 
-#### Version `3.4.0`, release soon (date TBC)
+#### Version `3.4.0`, release soon (date `2025-04-28`)
 
-* New feature: `traj` method can now natively plot *single* trajectories encoded as
-  discrete sampling geometries (i.e. one-dimensional paths, having no trajectory dimension)
+* Move of codebase home from old repository location of `github.com/ajheaps/cf-plot` to
+  `github.com/NCAS-CMS/cf-plot` - the former URL will redirect for the time being
+  but cannot be guaranteed to do so in future
+* Move of home for documentation: now and going forward hosted permanently at
+  `ncas-cms.github.io/cf-plot/` with the previous documentation at root URL
+  `ajheaps.github.io/cf-plot/` frozen (no longer updated so do not consult)
+* Documentation overhaul including new responsive theme, hierarchical structuring,
+   improved navigation, listing of all examples grouped by theme with reorganisation
+   of gallery view, updates for informational pages, and more
+* New feature: `traj` method can now natively plot *single* trajectories
+(i.e. one-dimensional paths, having no trajectory dimension) encoded as
+  discrete sampling geometries (https://github.com/NCAS-CMS/cf-plot/issues/84)
+* Fix bug whereby `con` contour plot with `verbose=True` would result in
+   an `UnboundLocalError` (https://github.com/NCAS-CMS/cf-plot/issues/54)
+* Fix bug whereby plots such as with `con` using the 'merc' Mercator projection
+    would be cropped to small portion of the y axis
+    (https://github.com/NCAS-CMS/cf-plot/issues/65)
+* Fix bug whereby the colour bar would be mostly cutoff from the foot of
+  the figure for plots such as `con` contour plots when using certain projections
+  such as 'ortho', 'merc', and 'lcc' after a call to e.g. `cfp.mapset(proj='ortho')`
+  (https://github.com/NCAS-CMS/cf-plot/issues/70)
+* Fix bug whereby `con` contour plot in the 'UKCP' projection would
+     result in an `IndexError` for `blockfill=True`
+     (https://github.com/NCAS-CMS/cf-plot/issues/91) or otherwise an
+     `UnboundLocalError` (https://github.com/NCAS-CMS/cf-plot/issues/60)
+     or an `AttributeError` (https://github.com/NCAS-CMS/cf-plot/issues/59)
+     dependent on other configuration
 * Fix bug whereby `con` would result in a blank plot for rotated pole data
   requested for display on its native grid through setting of `cfp.mapset(proj="rotated")`
   (see https://github.com/NCAS-CMS/cf-plot/issues/86)
@@ -28,6 +53,15 @@ of being developed elsewhere.
 * Fix bug whereby blockfill plots (`con` with `blockfill=True`) of UGRID data in either polar
   projection (`proj="npstere"` or `proj="spstere"`) could display blacked out areas
   (see https://github.com/NCAS-CMS/cf-plot/issues/99)
+* Make consistent the defaults for `feature_zorder` and
+   `rotated_grid_thickness` plotting variables as configurable through `setvars`
+   (https://github.com/NCAS-CMS/cf-plot/issues/73)
+* Set new minimum version of dependency: `'cf-python >= 3.17.0'`
+* Set new minimum version of dependency: `'cartopy >= 0.17.0'`
+* Removed explicit (listed) dependency to `matplotlib` since this is required already by
+  existing dependency Cartopy
+* Removed explicit (listed) dependency to `scipy` since this is required already by existing
+  dependency cf-python
 
 
 ### Version `3.3.X`, first released (`3.3.0`) `2024-01-15`
