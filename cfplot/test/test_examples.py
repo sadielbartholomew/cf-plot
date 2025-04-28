@@ -909,6 +909,21 @@ class ExamplesTest(unittest.TestCase):
         cfp.traj(f)
 
     @compare_plot_results
+    def test_example_39b(self):
+        """Test Example 39: basic track plotting trajectory.
+
+        TODO convert 39 to 39a now this is the 'b' example, to keep
+        'traj' examples/tests grouped together in order.
+        """
+        f = cf.read(f"{self.data_dir}/dsg_trajectory.nc")[0]
+
+        # This is over a small part of France so focus in on that
+        # area and make the land borders higher-resolution
+        cfp.mapset(lonmin=3, lonmax=6, latmin=51, latmax=54, resolution="10m")
+
+        cfp.traj(f)
+
+    @compare_plot_results
     def test_example_40(self):
         """Test Example 40: tracks in the polar stereographic projection."""
         f = cf.read(f"{self.data_dir}/ff_trs_pos.nc")[0]
