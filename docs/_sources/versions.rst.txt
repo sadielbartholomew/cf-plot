@@ -4,6 +4,8 @@ Versions
 Summary of changes
 ------------------
 
+- 3.4: numerous updates and bug fixes, see
+  `Changelog entry for 3.4.X <https://github.com/NCAS-CMS/cf-plot/blob/main/CHANGELOG.md#version-34x-first-released-340-2025-04-28>`_
 - 3.3 UGRID support updated :ref:`version_3.3`
 - 3.2 Rolling bugfix version :ref:`version_3.2`
 - 3.1 UGRID support :ref:`version_3.1`
@@ -39,6 +41,10 @@ for how to get in touch.
 Individual Changelog listings
 -----------------------------
 
+Please consult the
+`Changelog available here <https://github.com/NCAS-CMS/cf-plot/blob/main/CHANGELOG.md>`_
+for changes for versions 3.4 and beyond. Changes for versions before this are
+covered in the pages below.
 
 .. toctree::
    :caption: Versions pages
