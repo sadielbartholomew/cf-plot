@@ -910,7 +910,7 @@ class ExamplesTest(unittest.TestCase):
 
     @compare_plot_results
     def test_example_39b(self):
-        """Test Example 39: basic track plotting trajectory.
+        """Test Example 39: single DSG with no trajectory dimension (1D).
 
         TODO convert 39 to 39a now this is the 'b' example, to keep
         'traj' examples/tests grouped together in order.
