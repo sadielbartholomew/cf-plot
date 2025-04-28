@@ -9171,8 +9171,12 @@ def traj(
     | ec='k' - vector edge colour
 
     """
+    is_1d_data = False
+    if f.ndim == 1:
+        is_1d_data = True
+
     is_dsg = False
-    if f.DSG or f.ndim == 1:  # registered as a DSG or if is 1D, assume is DSG
+    if f.DSG or is_1d_data:  # registered as a DSG or if is 1D, assume is DSG
         is_dsg = True
 
     if verbose:
@@ -9324,7 +9328,7 @@ def traj(
     for track in np.arange(ntracks):
         xpts = lons[track, :]
         ypts = lats[track, :]
-        if is_dsg:
+        if is_1d_data:
             data2 = data
         else:
             data2 = data[track, :]
@@ -9440,7 +9444,7 @@ def traj(
         for track in np.arange(ntracks):
             xpts = lons[track, :]
             ypts = lats[track, :]
-            if is_dsg:
+            if is_1d_data:
                 data2 = data
             else:
                 data2 = data[track, :]
@@ -9464,7 +9468,7 @@ def traj(
                 if np.size(pts) > 0:
 
                     # Define the data to plot
-                    if is_dsg:
+                    if is_dsg or is_1d_data:
                         data_colours = [
                             plotvars.cs[
                                 np.max(np.where(d > plotvars.levels))
@@ -9479,8 +9483,7 @@ def traj(
                         s=markersize,
                         c=data_colours,
                         marker=marker,
-                        # TODO broken, fix and reinstate
-                        # edgecolors=markeredgecolor,
+                        edgecolors=markeredgecolor,
                         linewidths=plot_linewidth,
                         transform=ccrs.PlateCarree(),
                         zorder=plot_zorder,
