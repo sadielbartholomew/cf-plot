@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cfplot &#8212; cf-plot 3.3.0 documentation</title>
+    <title>cfplot &#8212; cf-plot 3.4.0 documentation</title>
   
   
   
@@ -36,7 +36,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../_static/documentation_options.js?v=3eb8911e"></script>
+    <script src="../_static/documentation_options.js?v=b0e360d0"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -121,7 +121,7 @@
   
   
   
-    <p class="title logo__title">cf-plot 3.3.0 documentation</p>
+    <p class="title logo__title">cf-plot 3.4.0 documentation</p>
   
 </a></div>
     
@@ -483,7 +483,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
 
 <span class="c1"># Check for the minimum cf-python version</span>
-<span class="n">cf_version_min</span> <span class="o">=</span> <span class="s2">&quot;3.0.0b2&quot;</span>
+<span class="n">cf_version_min</span> <span class="o">=</span> <span class="s2">&quot;3.17.0&quot;</span>
 <span class="n">errstr</span> <span class="o">=</span> <span class="p">(</span>
     <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> cf-python &gt; </span><span class="si">{</span><span class="n">cf_version_min</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> needs to be installed to use cf-plot </span><span class="se">\n\n</span><span class="s2">&quot;</span>
@@ -9742,6 +9742,14 @@ document.write(`
 <span class="sd">    | ec=&#39;k&#39; - vector edge colour</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">is_1d_data</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">is_1d_data</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="n">is_dsg</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">DSG</span> <span class="ow">or</span> <span class="n">is_1d_data</span><span class="p">:</span>  <span class="c1"># registered as a DSG or if is 1D, assume is DSG</span>
+        <span class="n">is_dsg</span> <span class="o">=</span> <span class="kc">True</span>
+
     <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;traj - making a trajectory plot&quot;</span><span class="p">)</span>
 
@@ -9891,7 +9899,10 @@ document.write(`
     <span class="k">for</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ntracks</span><span class="p">):</span>
         <span class="n">xpts</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
         <span class="n">ypts</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
-        <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="k">if</span> <span class="n">is_1d_data</span><span class="p">:</span>
+            <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
 
         <span class="n">xpts_orig</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">xpts</span><span class="p">)</span>
         <span class="n">xpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">xpts</span> <span class="o">+</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">)</span> <span class="o">-</span> <span class="mi">180</span>
@@ -10004,7 +10015,10 @@ document.write(`
         <span class="k">for</span> <span class="n">track</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ntracks</span><span class="p">):</span>
             <span class="n">xpts</span> <span class="o">=</span> <span class="n">lons</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
             <span class="n">ypts</span> <span class="o">=</span> <span class="n">lats</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
+            <span class="k">if</span> <span class="n">is_1d_data</span><span class="p">:</span>
+                <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">track</span><span class="p">,</span> <span class="p">:]</span>
 
             <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">levs</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
                 <span class="n">color</span> <span class="o">=</span> <span class="n">plotvars</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -10024,13 +10038,24 @@ document.write(`
                     <span class="n">plot_zorder</span> <span class="o">=</span> <span class="n">zorder</span>
                 <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 
+                    <span class="c1"># Define the data to plot</span>
+                    <span class="k">if</span> <span class="n">is_dsg</span> <span class="ow">or</span> <span class="n">is_1d_data</span><span class="p">:</span>
+                        <span class="n">data_colours</span> <span class="o">=</span> <span class="p">[</span>
+                            <span class="n">plotvars</span><span class="o">.</span><span class="n">cs</span><span class="p">[</span>
+                                <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">plotvars</span><span class="o">.</span><span class="n">levels</span><span class="p">))</span>
+                            <span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data2</span><span class="p">[</span><span class="n">pts</span><span class="p">]</span>
+                        <span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">data_colours</span> <span class="o">=</span> <span class="n">color</span>
+
                     <span class="n">mymap</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
                         <span class="n">xpts</span><span class="p">[</span><span class="n">pts</span><span class="p">],</span>
                         <span class="n">ypts</span><span class="p">[</span><span class="n">pts</span><span class="p">],</span>
-                        <span class="n">s</span><span class="o">=</span><span class="n">markersize</span> <span class="o">*</span> <span class="mi">15</span><span class="p">,</span>
-                        <span class="n">c</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                        <span class="n">s</span><span class="o">=</span><span class="n">markersize</span><span class="p">,</span>
+                        <span class="n">c</span><span class="o">=</span><span class="n">data_colours</span><span class="p">,</span>
                         <span class="n">marker</span><span class="o">=</span><span class="n">marker</span><span class="p">,</span>
                         <span class="n">edgecolors</span><span class="o">=</span><span class="n">markeredgecolor</span><span class="p">,</span>
+                        <span class="n">linewidths</span><span class="o">=</span><span class="n">plot_linewidth</span><span class="p">,</span>
                         <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
                         <span class="n">zorder</span><span class="o">=</span><span class="n">plot_zorder</span><span class="p">,</span>
                     <span class="p">)</span>
@@ -11264,7 +11289,6 @@ document.write(`
     <span class="n">nz</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">nt</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dcoords</span><span class="p">)):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ARRIVE HERE&quot;</span><span class="p">,</span> <span class="n">dcoords</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">dcoords</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">X</span><span class="p">:</span>
             <span class="n">nx</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">dcoords</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">Y</span><span class="p">:</span>
@@ -11273,8 +11297,6 @@ document.write(`
             <span class="n">nz</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="n">field</span><span class="o">.</span><span class="n">coord</span><span class="p">(</span><span class="n">dcoords</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">:</span>
             <span class="n">nt</span> <span class="o">+=</span> <span class="mi">1</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HAVE&quot;</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="n">nt</span><span class="p">)</span>
 
     <span class="c1"># New test</span>
     <span class="n">remove_aux</span> <span class="o">=</span> <span class="kc">False</span>

@@ -3,13 +3,19 @@
 Trajectories
 ************
 
-Data stored in contiguous ragged array format can be plotted using cf-plot.
-
+Data stored as discrete sampling geometries, such as contiguous ragged array
+format, can be plotted using cf-plot. Multiple trajectories represented by
+multidimensional-arrays with a trajectory dimension can be plotted, as below.
 
 .. include:: examples/example_39.rst
 
-This a plot of relative vorticity tracks is made in the cylindrical projection.
 
+Single trajectories can also be plotted, including those in one-dimensional
+array form, as below.
+
+.. include:: examples/example_39b.rst
+
+This a plot of relative vorticity tracks is made in the cylindrical projection.
 
 .. include:: examples/example_40.rst
 
