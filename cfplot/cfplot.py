@@ -10696,7 +10696,6 @@ def find_dim_names(field):
     nz = 0
     nt = 0
     for i in np.arange(len(dcoords)):
-        print("ARRIVE HERE", dcoords, i)
         if field.coord(dcoords[i]).X:
             nx += 1
         if field.coord(dcoords[i]).Y:
@@ -10705,8 +10704,6 @@ def find_dim_names(field):
             nz += 1
         if field.coord(dcoords[i]).T:
             nt += 1
-
-    print("HAVE", nx, ny, nz, nt)
 
     # New test
     remove_aux = False
