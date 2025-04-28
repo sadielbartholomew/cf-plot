@@ -914,6 +914,10 @@ class ExamplesTest(unittest.TestCase):
 
         TODO convert 39 to 39a now this is the 'b' example, to keep
         'traj' examples/tests grouped together in order.
+
+        TODO make this a group with the other DSGs from before, namely
+        Exs 42a and 42b, but this is simplest so make it 42a and bump
+        the other two in number.
         """
         f = cf.read(f"{self.data_dir}/dsg_trajectory.nc")[0]
 
@@ -955,7 +959,7 @@ class ExamplesTest(unittest.TestCase):
         cfp.traj(
             g,
             legend=True,
-            linewidth=2,
+            markersize=40.0,
             colorbar_title="Relative Vorticity (Hz) * 1e5",
         )
 
