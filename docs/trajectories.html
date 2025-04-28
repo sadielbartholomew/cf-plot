@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Trajectories &#8212; cf-plot 3.3.0 documentation</title>
+    <title>Trajectories &#8212; cf-plot 3.4.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="_static/documentation_options.js?v=3eb8911e"></script>
+    <script src="_static/documentation_options.js?v=b0e360d0"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
@@ -124,7 +124,7 @@
   
   
   
-    <p class="title logo__title">cf-plot 3.3.0 documentation</p>
+    <p class="title logo__title">cf-plot 3.4.0 documentation</p>
   
 </a></div>
     
@@ -489,7 +489,9 @@ document.write(`
                   
   <section id="trajectories">
 <span id="id1"></span><h1>Trajectories<a class="headerlink" href="#trajectories" title="Link to this heading">#</a></h1>
-<p>Data stored in contiguous ragged array format can be plotted using cf-plot.</p>
+<p>Data stored as discrete sampling geometries, such as contiguous ragged array
+format, can be plotted using cf-plot. Multiple trajectories represented by
+multidimensional-arrays with a trajectory dimension can be plotted, as below.</p>
 <section id="example-39-basic-track-plotting">
 <span id="example39"></span><h2>Example 39: Basic track plotting<a class="headerlink" href="#example-39-basic-track-plotting" title="Link to this heading">#</a></h2>
 <div class="literal-block-wrapper docutils container" id="id2">
@@ -503,13 +505,32 @@ document.write(`
 <figure class="align-default">
 <img alt="_images/ref_fig_39.png" src="_images/ref_fig_39.png" />
 </figure>
+<p>Single trajectories can also be plotted, including those in one-dimensional
+array form, as below.</p>
+</section>
+<section id="example-39b-plotting-a-single-1d-dsg-trajectory">
+<span id="example39b"></span><h2>Example 39b: plotting a single (1D) DSG trajectory<a class="headerlink" href="#example-39b-plotting-a-single-1d-dsg-trajectory" title="Link to this heading">#</a></h2>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Plotting data for a single trajectory encoded as a
+discrete sampling geometry in the form of a
+one-dimensional array, as
+<a class="reference external" href="https://cfconventions.org/cf-conventions/cf-conventions.html#_single_trajectory">standard</a>)</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cfplot_data/dsg_trajectory.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">cfp</span><span class="o">.</span><span class="n">traj</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<figure class="align-default">
+<img alt="_images/ref_fig_39b.png" src="_images/ref_fig_39b.png" />
+</figure>
 <p>This a plot of relative vorticity tracks is made in the cylindrical projection.</p>
 </section>
 <section id="example-40-tracks-in-the-polar-stereographic-projection">
 <span id="example40"></span><h2>Example 40: Tracks in the polar stereographic projection<a class="headerlink" href="#example-40-tracks-in-the-polar-stereographic-projection" title="Link to this heading">#</a></h2>
-<div class="literal-block-wrapper docutils container" id="id3">
+<div class="literal-block-wrapper docutils container" id="id4">
 <div class="code-block-caption"><span class="caption-text">Plotting tracks i.e. trajectories on the Northern polar
-stereographic projection</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+stereographic projection</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cfplot_data/ff_trs_pos.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">cfp</span><span class="o">.</span><span class="n">mapset</span><span class="p">(</span><span class="n">proj</span><span class="o">=</span><span class="s2">&quot;npstere&quot;</span><span class="p">)</span>
@@ -524,8 +545,8 @@ stereographic projection</span><a class="headerlink" href="#id3" title="Link to 
 </section>
 <section id="example-41-feature-propagation-over-europe">
 <span id="example41"></span><h2>Example 41: Feature propagation over Europe<a class="headerlink" href="#example-41-feature-propagation-over-europe" title="Link to this heading">#</a></h2>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">Plotting the propagation of features over Europe</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Plotting the propagation of features over Europe</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cfplot_data/ff_trs_pos.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">cfp</span><span class="o">.</span><span class="n">mapset</span><span class="p">(</span><span class="n">lonmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span> <span class="n">lonmax</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">latmin</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">latmax</span><span class="o">=</span><span class="mi">70</span><span class="p">)</span>
@@ -540,11 +561,11 @@ stereographic projection</span><a class="headerlink" href="#id3" title="Link to 
 </section>
 <section id="example-42a-tracks-with-labelled-data-points">
 <span id="example42a"></span><h2>Example 42a: Tracks with labelled data points<a class="headerlink" href="#example-42a-tracks-with-labelled-data-points" title="Link to this heading">#</a></h2>
-<div class="literal-block-wrapper docutils container" id="id5">
+<div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-text">Plotting tracks with labelling of the discrete data
 points forming the trajectory shown
 with intensity matched to a displayed colour scale using
-the <cite>legend</cite> keyword</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+the <cite>legend</cite> keyword</span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cfplot_data/ff_trs_pos.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">cfp</span><span class="o">.</span><span class="n">mapset</span><span class="p">(</span><span class="n">lonmin</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">lonmax</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">latmin</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">latmax</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
@@ -556,7 +577,7 @@ the <cite>legend</cite> keyword</span><a class="headerlink" href="#id5" title="L
 <span class="n">cfp</span><span class="o">.</span><span class="n">traj</span><span class="p">(</span>
     <span class="n">g</span><span class="p">,</span>
     <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">markersize</span><span class="o">=</span><span class="mf">40.0</span><span class="p">,</span>
     <span class="n">colorbar_title</span><span class="o">=</span><span class="s2">&quot;Relative Vorticity (Hz) * 1e5&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
@@ -570,11 +591,11 @@ labelled according intensity with a colour bar.</p>
 </section>
 <section id="example-42b-tracks-displayed-in-a-colour-scale">
 <span id="example42b"></span><h2>Example 42b: Tracks displayed in a colour scale<a class="headerlink" href="#example-42b-tracks-displayed-in-a-colour-scale" title="Link to this heading">#</a></h2>
-<div class="literal-block-wrapper docutils container" id="id6">
+<div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-text">Plotting tracks where the trajectory is shown in
 colours mapped to a colour scale corresponding to
 the value of the underlying data by setting the
-<cite>legend_lines</cite> keyword to <cite>True</cite></span><a class="headerlink" href="#id6" title="Link to this code">#</a></div>
+<cite>legend_lines</cite> keyword to <cite>True</cite></span><a class="headerlink" href="#id7" title="Link to this code">#</a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">cf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cfplot_data/ff_trs_pos.nc&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">cfp</span><span class="o">.</span><span class="n">mapset</span><span class="p">(</span><span class="n">lonmin</span><span class="o">=-</span><span class="mi">50</span><span class="p">,</span> <span class="n">lonmax</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">latmin</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">latmax</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
@@ -647,6 +668,7 @@ useful option when there are lots of trajectories.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-39-basic-track-plotting">Example 39: Basic track plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-39b-plotting-a-single-1d-dsg-trajectory">Example 39b: plotting a single (1D) DSG trajectory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-40-tracks-in-the-polar-stereographic-projection">Example 40: Tracks in the polar stereographic projection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-41-feature-propagation-over-europe">Example 41: Feature propagation over Europe</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-42a-tracks-with-labelled-data-points">Example 42a: Tracks with labelled data points</a></li>

@@ -155,6 +155,7 @@ where ``numpy`` is usually not required but it may be for some examples:
    examples/example_37.rst
    examples/example_38.rst
    examples/example_39.rst
+   examples/example_39b.rst
    examples/example_40.rst
    examples/example_41.rst
    examples/example_42a.rst
