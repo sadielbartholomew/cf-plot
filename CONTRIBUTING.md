@@ -131,6 +131,14 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/NCAS-C
 
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
+### Other ways to contribute
+
+Besides bug reporting and enhancement suggestions, you can contribute in other ways
+such as by improving the documentation through extending it or updating it with new
+material, including writing some new code recipe(s) for the
+[cf-python and cf-plot recipes](https://ncas-cms.github.io/cf-python/recipes/index.html)
+which are showcased in the cf-python documentation.
+
 <!-- omit in toc -->
 ## Attribution
 This guide is based on the [contributing.md](https://contributing.md/generator)!
