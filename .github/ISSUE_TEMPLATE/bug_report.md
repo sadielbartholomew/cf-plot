@@ -16,7 +16,7 @@ should abide by.
 
 For a bug report, at a minimum please provide information according the sections below.
 
-#### Subject of the issue
+### Subject of the issue
 Describe your issue here.
 
 ### Steps to reproduce

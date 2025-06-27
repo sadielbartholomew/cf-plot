@@ -31,7 +31,7 @@ Contributing to cf-plot
 -----------------------
 
 We have a dedicated
-`contributing document <https://github.com/NCAS-CMS/cf-python/blob/main/.github/CONTRIBUTING.md>`_
+`contributing document <https://github.com/NCAS-CMS/cf-plot/blob/main/.github/CONTRIBUTING.md>`_
 which outlines guidance for contributing. This information has also been
 included below for ease of reference.
 
