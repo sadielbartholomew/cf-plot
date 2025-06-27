@@ -32,5 +32,5 @@ A concise description of your preferred solution. Things you could address inclu
 * Tradeoffs made in design decisions
 * Caveats and considerations for the future
 
-If there are multiple solutions yo can think of, please present each one separately. Save comparisons
+If there are multiple solutions you can think of, please present each one separately. Save comparisons
 for the very end.
