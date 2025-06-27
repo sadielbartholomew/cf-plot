@@ -23,30 +23,15 @@ If you are reporting an issue, please follow the guidelines below so that
 we have enough information to attempt to recreate the problem.
 
 
-Issue reporting guidelines
---------------------------
+Contributing guidelines
+-----------------------
 
-If you find a problem with cf-plot, please ensure you provide all of the
-information below so we can investigate properly as soon as possible (else
-we will end up asking you this first):
+.. These should be kept identical to the CONTRIBUTING.md except in .rst
+   format. It is simplest to write into CONTRIBUTING.md, use a markdown
+   to RST converter and then copy and paste that in. So, don't edit this
+   section directly!
 
-* The version of the software and the environment in which you are
-  encountering an issue, by sharing the output of
-  ``cf.environment(paths=False)``.
-
-* A description of the issue with, if possible:
-
-  * what you expected to happen and what did actually happen;
-  * the steps needed to reproduce it (ideally from copying the original
-    code you ran which produced the issue);
-  * the data you were using when the issue occurred, either as a
-    data file to send or by sharing the output of ``f.dump()`` for the
-    field ``f`` which displays the issue (or the same for multiple fields
-    if applicable), as close as possible to the
-    code line where the issue manifests.
-
-* Outputs showcasing the issue, if available:
-    
-  * any traceback information;
-  * any plots that emerge (plus correct plots to compare this to, if you have
-    those from using different software or environments).
+We have a dedicated
+`contributing document <https://github.com/NCAS-CMS/cf-python/blob/main/.github/CONTRIBUTING.md>`_
+which outlines guidance for contributing. This information has also been
+included below for ease of reference.
