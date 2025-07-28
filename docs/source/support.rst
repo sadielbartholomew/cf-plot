@@ -27,6 +27,9 @@ we have enough information to attempt to recreate the problem.
 
    <!-- omit in toc -->
 
+
+.. _contrib:
+
 Contributing to cf-plot
 -----------------------
 

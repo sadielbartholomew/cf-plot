@@ -490,7 +490,8 @@ that is tested to be up-to-date and working.</p>
 </pre></div>
 </div>
 <p>In this example we make a blank map plot, change the longitude labels and add a box and some text.   For map plots we operate on the cfp.plotvars.mymap object and need to specify transform=ccrs.PlateCarree() to make sure that the plotting is made in regular longitude and latitude coordinates.  If the plot is not a map plot then the transform=ccrs.PlateCarree() isn't needed.</p>
-<a class="reference internal image-reference" href="_images/advanced1.png"><img alt="_images/advanced1.png" src="_images/advanced1.png" style="width: 523.64px; height: 258.96000000000004px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced1.png"><img alt="_images/advanced1.png" src="_images/advanced1.png" style="width: 523.64px; height: 258.96000000000004px;" />
+</a>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cf</span>
 <span class="kn">import</span> <span class="nn">cfplot</span> <span class="k">as</span> <span class="nn">cfp</span>
 <span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
@@ -541,7 +542,8 @@ that is tested to be up-to-date and working.</p>
 <section id="plotting-shape-files">
 <h2>Plotting shape files<a class="headerlink" href="#plotting-shape-files" title="Link to this heading">#</a></h2>
 <p>In this example we make a blank map plot and plot the UK rivers from a shapefile.  The shapefile used came from DIVA-GIS at <a class="reference external" href="http://www.diva-gis.org/gdata">http://www.diva-gis.org/gdata</a>.  The pyshp Python package is needed for this program.</p>
-<a class="reference internal image-reference" href="_images/advanced_shapefile.png"><img alt="_images/advanced_shapefile.png" src="_images/advanced_shapefile.png" style="width: 487.24px; height: 379.08000000000004px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced_shapefile.png"><img alt="_images/advanced_shapefile.png" src="_images/advanced_shapefile.png" style="width: 487.24px; height: 379.08000000000004px;" />
+</a>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cf</span>
 <span class="kn">import</span> <span class="nn">cfplot</span> <span class="k">as</span> <span class="nn">cfp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -579,7 +581,8 @@ that is tested to be up-to-date and working.</p>
 <p>In this example we make a contour plot and plot a transect.  We use the cfp.regrid bilinear interpolation
 routine to interpolate the data.  Interpolation points for this routine must be <strong>within</strong> the data limits
 of the original data.  Care is needed to ensure that the field coordinates go from a low value to a high value.  This is usually not an issue with longitude but occasionally with latitude (as in this case) the coordinate goes from the north pole to the south pole.  A simple flip of the latitude and data is need here.</p>
-<a class="reference internal image-reference" href="_images/advanced_transect.png"><img alt="_images/advanced_transect.png" src="_images/advanced_transect.png" style="width: 340.08px; height: 405.08000000000004px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced_transect.png"><img alt="_images/advanced_transect.png" src="_images/advanced_transect.png" style="width: 340.08px; height: 405.08000000000004px;" />
+</a>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cf</span>
 <span class="kn">import</span> <span class="nn">cfplot</span> <span class="k">as</span> <span class="nn">cfp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -644,7 +647,8 @@ hex(255)[2:]
 <span class="n">cfp</span><span class="o">.</span><span class="n">con</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subspace</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/advanced2.png"><img alt="_images/advanced2.png" src="_images/advanced2.png" style="width: 514.28px; height: 313.56px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced2.png"><img alt="_images/advanced2.png" src="_images/advanced2.png" style="width: 514.28px; height: 313.56px;" />
+</a>
 </section>
 <section id="colouring-land-and-lakes">
 <h2>Colouring land and lakes<a class="headerlink" href="#colouring-land-and-lakes" title="Link to this heading">#</a></h2>
@@ -656,7 +660,8 @@ hex(255)[2:]
 <span class="n">cfp</span><span class="o">.</span><span class="n">con</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">subspace</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">15</span><span class="p">))</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/advanced3.png"><img alt="_images/advanced3.png" src="_images/advanced3.png" style="width: 514.28px; height: 313.56px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced3.png"><img alt="_images/advanced3.png" src="_images/advanced3.png" style="width: 514.28px; height: 313.56px;" />
+</a>
 </section>
 <section id="plotting-missing-data">
 <h2>Plotting missing data<a class="headerlink" href="#plotting-missing-data" title="Link to this heading">#</a></h2>
@@ -678,7 +683,8 @@ hex(255)[2:]
 <span class="n">cfp</span><span class="o">.</span><span class="n">con</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">blockfill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Plot with masked data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/advanced4.png"><img alt="_images/advanced4.png" src="_images/advanced4.png" style="width: 514.28px; height: 326.04px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced4.png"><img alt="_images/advanced4.png" src="_images/advanced4.png" style="width: 514.28px; height: 326.04px;" />
+</a>
 <p>Masked data is plotted as blockfill in grey.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn off the hardmask and set masked points to 999</span>
 <span class="n">h</span><span class="o">.</span><span class="n">hardmask</span><span class="o">=</span><span class="kc">False</span>
@@ -698,7 +704,8 @@ hex(255)[2:]
 <span class="n">cfp</span><span class="o">.</span><span class="n">gclose</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/advanced5.png"><img alt="_images/advanced5.png" src="_images/advanced5.png" style="width: 514.28px; height: 326.04px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced5.png"><img alt="_images/advanced5.png" src="_images/advanced5.png" style="width: 514.28px; height: 326.04px;" />
+</a>
 </section>
 <section id="blockfill-with-individual-colours">
 <h2>Blockfill with individual colours<a class="headerlink" href="#blockfill-with-individual-colours" title="Link to this heading">#</a></h2>
@@ -734,7 +741,8 @@ hex(255)[2:]
 <span class="n">cfp</span><span class="o">.</span><span class="n">gclose</span><span class="p">()</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="_images/advanced6.png"><img alt="_images/advanced6.png" src="_images/advanced6.png" style="width: 530.9200000000001px; height: 343.72px;" /></a>
+<a class="reference internal image-reference" href="_images/advanced6.png"><img alt="_images/advanced6.png" src="_images/advanced6.png" style="width: 530.9200000000001px; height: 343.72px;" />
+</a>
 </section>
 </section>
 

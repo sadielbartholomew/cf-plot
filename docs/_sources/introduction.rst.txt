@@ -84,7 +84,9 @@ Contributing
 Everyone is welcome to contribute to cf-plot in the form of bug reports,
 documentation, code, design proposals, and more.
 
-Contributing guidelines will be added to the repository shortly.
+Contributing guidelines are available in a
+`dedicated document <https://github.com/NCAS-CMS/cf-plot/blob/main/.github/CONTRIBUTING.md>`_
+(which is also copied into the documentation :ref:`here<contrib>`).
 
 ###############################################
 Help: Issues, Questions, Feature Requests, etc.
