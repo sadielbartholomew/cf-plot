@@ -9,45 +9,30 @@ User guide
              please reference the :ref:`examplesgallery` pages for code
              that is tested to be up-to-date and working.
 
-**Contents (introductory)**
-
-|    introduction_ to cf-plot
-|    access_ - where cf-plot is installed and how to install it
-|
-|    contours_ - making contour plots
-|    vectors_ - plotting vectors
-|    multiple_  plots on a page and plot positioning
-|    trajectoriesUG_ - plotting trajectories
-|    significance_ - plots
-|    graphsUG_ - making graphs
-|    colour_ scales - using and changing colour scales
-|
-|    appendixA_ - introduction to cf-python
-|    appendixB_ - passing data via arrays
-|    appendixC_ - map projections and options
-|    appendixD_ - fixing data to be more cf-compliant
-
-
-.. _introduction:
-
+.. _introduction-to-ug:
 
 ############
 Introduction
 ############
 
+.. _matplotlib:  https://matplotlib.org/
+.. _Cartopy:     https://scitools.org.uk/cartopy/docs/latest/
+.. _cf-python:   https://ncas-cms.github.io/cf-python/
+            
+cf-plot allows you to produce and customise publication-quality contour, vector,
+line and more plots with the power of Python, `matplotlib`_,
+`Cartopy`_ and `cf-python`_ in as few lines of code as possible. Please see
+the introduction page for a brief overview, before diving into this
+section which is intended as a tutorial for those new to the library.
 
-cf-plot is a set of Python functions for making common contour, vector and
-line plots that climate researchers use. cf-plot generally
-uses `cf-python <https://ncas-cms.github.io/cf-python>`_ to present the
-data and CF attributes for plotting. It can also use numpy arrays of
-data as the input fields making for flexible plotting of data. cf-plot
-uses the Python numpy, matplotlib and scipy libraries.
 
+Core operations
+---------------
 
-At the core of cf-plot are a set of functions for making and controlling plots.
+At the core of cf-plot are a set of functions for making and controlling plots,
+as follows.
 
-Plot-generation operations
---------------------------
+For plot generation:
 
 +-------------------+------------------------------+-------------------------------------+
 | Plot type         | Function                     | Notes                               |
@@ -64,8 +49,7 @@ Plot-generation operations
 +-------------------+------------------------------+-------------------------------------+
 
 
-Plot control and configuration operations
------------------------------------------
+For plot control and configuration:
 
 +--------------------------------------------+------------------------------+-------------------------------------+
 | Functionality                              | Function                     | Notes                               |
@@ -89,10 +73,6 @@ Plot control and configuration operations
 | Choose and configure the colour scale      | :ref:`cscale<cscale>`        | TODO                                |
 +--------------------------------------------+------------------------------+-------------------------------------+
 
-
-This user guide is a set of examples of plots that climate scientists generally make.
-Further details and fine tuning options are available by looking at the individual
-function documentation above.
 
 .. _access:
 
