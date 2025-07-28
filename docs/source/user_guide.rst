@@ -36,32 +36,63 @@ Introduction
 ############
 
 
-cf-plot is a set of Python functions for making common contour, vector and line plots that climate researchers use. cf-plot generally uses `cf-python <https://ncas-cms.github.io/cf-python>`_ to present the data and CF attributes for plotting.  It can also use numpy arrays of data as the input fields making for flexible plotting of data.  cf-plot uses the Python numpy, matplotlib and scipy libraries.
+cf-plot is a set of Python functions for making common contour, vector and
+line plots that climate researchers use. cf-plot generally
+uses `cf-python <https://ncas-cms.github.io/cf-python>`_ to present the
+data and CF attributes for plotting. It can also use numpy arrays of
+data as the input fields making for flexible plotting of data. cf-plot
+uses the Python numpy, matplotlib and scipy libraries.
 
 
 At the core of cf-plot are a set of functions for making and controlling plots.
 
-|    **Plot making operators**
-|    :ref:`con<con>`  - make a contour plot
-|    :ref:`cbar<cbar>`  - make a colour bar
-|    :ref:`vect<vect>` - vector and stream plots
-|    :ref:`traj<traj>`  - trajectory plots
-|    :ref:`lineplot<lineplot>`  - make a graph
-|    :ref:`stipple<stipple>`  - make a stipple plot
+Plot-generation operations
+--------------------------
 
-|    **Plot control operators**
-|    :ref:`gopen<gopen>` - open a plot
-|    :ref:`gclose<gclose>` - close a plot
-|    :ref:`gpos<gpos>` - plot positioning
-|    :ref:`gset<gset>`  - set non map plotting region
-|    :ref:`levs<levs>`  - define contour levels
-|    :ref:`cscale<cscale>`  - select and change colour scales
-|    :ref:`mapset<mapset>`  - set mapping parameters
-|    :ref:`reset<reset>` - reset all plot parameters
-|    :ref:`setvars<setvars>` - set a variety of plot parameters
++-------------------+------------------------------+-------------------------------------+
+| Plot type         | Function                     | Notes                               |
++===================+==============================+=====================================+
+| Contour           | :ref:`con<con>`              | TODO                                |
++-------------------+------------------------------+-------------------------------------+
+| Vector and stream | :ref:`vect<vect>`            | TODO                                |
++-------------------+------------------------------+-------------------------------------+
+| Trajectory        | :ref:`traj<traj>`            | TODO                                |
++-------------------+------------------------------+-------------------------------------+
+| Line (i.e. graph) | :ref:`lineplot<lineplot>`    | TODO                                |
++-------------------+------------------------------+-------------------------------------+
+| Stipple           | :ref:`stipple<stipple>`      | TODO                                |
++-------------------+------------------------------+-------------------------------------+
 
 
-This user guide is a set of examples of plots that climate scientists generally make.  Further details and fine tuning options are available by looking at the individual function documentation above.
+Plot control and configuration operations
+-----------------------------------------
+
++--------------------------------------------+------------------------------+-------------------------------------+
+| Functionality                              | Function                     | Notes                               |
++============================================+==============================+=====================================+
+| Open/initiate a figure (for plotting on)   | :ref:`gopen<gopen>`          | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Close/finalise (an open) figure            | :ref:`gclose<gclose>`        | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Manually position plot(s) inside figure    | :ref:`gpos<gpos>`            | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Set mapping parameters                     | :ref:`mapset<mapset>`        | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Set plotting parameters                    | :ref:`setvars<setvars>`      | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Reset all plotting parameters to defaults  | :ref:`reset<reset>`          | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Set plot limits (for plots not in lat-lon) | :ref:`gset<gset>`            | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Manually set contour levels                | :ref:`levs<levs>`            | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+| Choose and configure the colour scale      | :ref:`cscale<cscale>`        | TODO                                |
++--------------------------------------------+------------------------------+-------------------------------------+
+
+
+This user guide is a set of examples of plots that climate scientists generally make.
+Further details and fine tuning options are available by looking at the individual
+function documentation above.
 
 .. _access:
 
