@@ -6778,7 +6778,6 @@ def stipple(
        None
     |
     """
-
     if plotvars.plot_type not in [1, 2, 3]:
         errstr = (
             "\n stipple error - only X-Y, X-Z and Y-Z \n"
@@ -6816,7 +6815,11 @@ def stipple(
         lonrange = np.nanmax(xpts) - np.nanmin(xpts)
         if lonrange < 360:
             # field, xpts = cartopy_util.add_cyclic_point(field, xpts)
-            field, xpts = add_cyclic(field, xpts)
+            if np.ndim(xpts) == 2 and np.ndim(ypts) == 2:
+                stipple_2d = True
+            else:
+                stipple_2d = False
+                field, xpts = add_cyclic(field, xpts)
 
         # if plotvars.proj == 'cyl':
         if plotvars.proj in ["cyl", "robin", "merc", "ortho", "moll"]:
@@ -6836,11 +6839,13 @@ def stipple(
 
         if plotvars.proj == "npstere" or plotvars.proj == "spstere":
             # Calculate interpolation points
+
             xnew, ynew, xnew_map, ynew_map = polar_regular_grid()
             # Convert longitudes to be 0 to 360
             # negative longitudes are incorrectly regridded in polar
             # stereographic projection
-            xnew = np.mod(xnew + 360.0, 360.0)
+            if not stipple_2d:
+                xnew = np.mod(xnew + 360.0, 360.0)
 
     if plotvars.plot_type >= 2 and plotvars.plot_type <= 3:
 
